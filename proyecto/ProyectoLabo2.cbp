@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,6 +34,8 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Main.cpp" />
+		<Unit filename="include/Entidad.h" />
+		<Unit filename="src/Entidad.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

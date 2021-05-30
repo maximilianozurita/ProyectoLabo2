@@ -1,0 +1,20 @@
+Cartas de desarrollo
+Los jugadores pueden jugar cartas de desarrollo al principio o al final de su turno. Las tarjetas de desarrollo hacen cosas diferentes, pero sus efectos están claramente indicados en la propia tarjeta. Las tarjetas de desarrollo vienen en los siguientes tipos:
+Carta «Caballero» permite a un jugador mover al ladrón a cualquier lugar del tablero y luego puede tomar una carta de cualquier jugador que tenga un asentamiento o ciudad en el recurso bloqueado.
+Carta «Road Building» permite a un jugador colocar dos caminos en el tablero.
+Carta «Año de Abundancia» le da a un jugador dos cartas de recursos cualesquiera.
+Después de que un jugador juega la carta «Monopolio», ese jugador anuncia un tipo de recurso. Cada jugador debe entonces darle a ese jugador todo ese tipo de carta(s) de recursos en su mano.
+La carta de «Punto de Victoria» da automáticamente al jugador un punto de victoria.
+
+El jugador también puede intercambiar recursos, ya sea con otros jugadores o con la banca. Un jugador puede cambiar cuatro de la misma carta de recurso por cualquier carta de recurso. Si el jugador está en un puerto especial, ese jugador puede cambiar dos de los recursos de ese puerto por cualquier carta de recurso. En un puerto genérico un jugador puede cambiar tres de la misma carta de recurso por cualquier carta de recurso.
+
+
+Si un jugador saca un siete, entonces cada jugador debe asegurarse de que no tiene más de siete cartas en su mano. Si un jugador tiene más de siete cartas, ese jugador debe descartar la mitad de ellas. La persona que sacó el siete entonces consigue poner al ladrón en cualquier ficha numérica que desee, y luego, consigue coger una carta de cualquier jugador que tenga un asentamiento o ciudad tocando el hexágono de terreno con el ladrón en ella.
+Ten en cuenta que el ladrón bloquea a los jugadores para que no obtengan recursos de una zona. En otras palabras, si el número de hexágonos ocupados por el ladrón es tirado, los jugadores con asentamientos o ciudades en ese número no consiguen recoger el recurso que el ladrón está bloqueando.
+
+Puntos extra:
+Se pueden conseguir puntos extra si un jugador logra un objetivo sobre el resto:
+
+"camino mas largo": Un jugador puede reclamar 2 puntos si logra hacer el camino mas largo que no sea interferido por ningún pueblo o ciudad de otro jugador. El camino mas largo se piensa como el camino mas largo que se puede dibujar sin levantar el lápiz. Se reclama solo a partir de los 5 caminos consecutivos realizados. Otro jugador puede quitarle dichos puntos y reclamarselos para sí, solo si supera el camino mas largo vigente.
+
+"ejercito mas grande": Un jugador puede reclamar 2 puntos si logró usar 3 o mas "cartas de caballero". Otro jugador puede quitarle esos puntos y reclamarlos propios solo sí supera la máxima cantidad de "carta de caballero" usada. 
