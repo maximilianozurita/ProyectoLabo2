@@ -2,6 +2,7 @@
 using namespace std;
 #include <cstring>
 #include <SFML/Graphics.hpp>
+#include "Entidad.h"
 
 int main()
 {

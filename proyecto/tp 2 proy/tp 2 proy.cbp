@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="SFML-2.5.1/lib/libsfml-graphics-d.a" />
@@ -27,6 +28,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -43,7 +45,9 @@
 		<Linker>
 			<Add directory="SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="include/Entidad.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Entidad.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
