@@ -1243,7 +1243,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622408052 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
 1622408051 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
@@ -1253,6 +1253,7 @@
 	<SFML/Graphics.hpp>
 
 1622419345 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\dado.cpp
+
 1622408758 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
@@ -1722,4 +1723,49 @@
 	"Ficha.h"
 	"Entidad.h"
 	<SFML/Graphics.hpp>
+
+1622423057 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
+	<iostream>
+	<cstring>
+	"Casa.h"
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622423129 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\casa.h
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
+	"Ficha.h"
+
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
+	"Entidad.h"
+
+1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+	"Hexagono.h"
+
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+	"Ficha.h"
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
+	"Puerto.h"
+	<cstring>
+
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\puerto.h
+	"Entidad.h"
+
+1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
+	"Ladron.h"
+
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
+	"Map.h"
+
+1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\map.h
+	"Entidad.h"
 
