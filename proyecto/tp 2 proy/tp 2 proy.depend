@@ -827,10 +827,12 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622403258 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1622419734 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
+	"Entidad.h"
+	"Dado.h"
 
 1525812018 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1240,4 +1242,44 @@
 	<SFML/Graphics/PrimitiveType.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
+
+1622408052 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+	<SFML/Graphics.hpp>
+
+1622408051 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+	<iostream>
+	<cstring>
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622419345 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\dado.cpp
+	<iostream>
+	<cstring>
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+	"Dado.h"
+	<time.h>
+
+1622420340 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\dado.h
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622422649 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
+	<iostream>
+	<cstring>
+	"Camino.h"
+	<SFML/Graphics.hpp>
+
+1622423025 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\camino.h
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622422678 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+	"Entidad.h"
+
+1622420318 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
+	<iostream>
+	<cstring>
+	<SFML/Graphics.hpp>
+	"Espacio.h"
 
