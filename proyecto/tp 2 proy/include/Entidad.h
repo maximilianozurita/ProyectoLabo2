@@ -11,6 +11,7 @@ class Entidad
         void  setTex(sf::Texture);
         void  setSp(sf::Sprite);
 
+
     protected:
     sf::Texture tex;
     sf::Sprite sp;
