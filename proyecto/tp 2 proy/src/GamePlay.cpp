@@ -5,18 +5,18 @@ GamePlay::GamePlay(){
 
 void GamePlay::init(){
 
-    //se cargan texturas y posiciones
+    //se cargan los objetos, texturas y posiciones.
 }
 
 void GamePlay::update(){
-    // se actualizan las mecanicas
+    // se actualizan las mecánicas del juego
 }
 
 void GamePlay::draw(){
-    // se muestran todas las figuras
+    // se muestran todos los sprites
 }
 
 void GamePlay::finish(){
-    //se muestran cosas al finmalizar el juego
+    //se muestran cosas al finalizar el juego
 }
 }
