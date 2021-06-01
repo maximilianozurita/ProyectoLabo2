@@ -827,7 +827,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622419734 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1622425000 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -1243,16 +1243,22 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
-1622408051 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
 	<iostream>
 	<cstring>
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622419345 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\dado.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\dado.cpp
+	<iostream>
+	<cstring>
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+	"Dado.h"
+	<time.h>
 
 1622408758 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
@@ -1680,24 +1686,24 @@
 	"Dado.h"
 	<time.h>
 
-1622420340 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\dado.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\dado.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622422649 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
 	<iostream>
 	<cstring>
 	"Camino.h"
 	<SFML/Graphics.hpp>
 
-1622423025 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\camino.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\camino.h
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1622422678 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
 	"Entidad.h"
 
-1622420318 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -1724,48 +1730,48 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622423057 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
 	<iostream>
 	<cstring>
 	"Casa.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1622423129 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\casa.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\casa.h
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
 	"Entidad.h"
 
-1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
 	"Puerto.h"
 	<cstring>
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\puerto.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\puerto.h
 	"Entidad.h"
 
-1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
 	"Ladron.h"
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622424099 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
+1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
 	"Map.h"
 
-1622424099 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\map.h
+1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\map.h
 	"Entidad.h"
 

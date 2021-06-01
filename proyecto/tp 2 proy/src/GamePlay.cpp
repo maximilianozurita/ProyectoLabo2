@@ -1,7 +1,6 @@
 #include "GamePlay.h"
 
-GamePlay::GamePlay()
-{
+GamePlay::GamePlay(){
 
 
 void GamePlay::init(){
@@ -19,4 +18,5 @@ void GamePlay::draw(){
 
 void GamePlay::finish(){
     //se muestran cosas al finmalizar el juego
+}
 }
