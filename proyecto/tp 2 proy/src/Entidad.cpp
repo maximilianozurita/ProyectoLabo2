@@ -6,16 +6,17 @@ using namespace std;
 
 Entidad::Entidad(){
 
-};
+}
 sf::Texture Entidad::getTex(){
+    return tex;
+}
 
-};
 sf::Sprite  Entidad::getSp(){
-
-};
-void  Entidad::setTex(sf::Texture){
-
-};
-void  Entidad::setSp(sf::Sprite){
-
-};
+    return sp;
+}
+void  Entidad::setTex(sf::Texture _tex){
+    tex = _tex;
+}
+void  Entidad::setSp(sf::Sprite _sp){
+    sp = _sp;
+}

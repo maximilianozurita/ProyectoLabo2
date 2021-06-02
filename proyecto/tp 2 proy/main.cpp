@@ -4,8 +4,14 @@ using namespace std;
 #include <SFML/Graphics.hpp>
 #include "Entidad.h"
 #include "Dado.h"
+#include "GamePlay.h"
 
 int main(){
+
+    GamePlay game;
+
+    game.run();
+
     //sf::RenderWindow window(sf::VideoMode(1080,700),"Ventana");
 
     //system ("pause");
@@ -28,5 +34,6 @@ while(option!=3){
     cout<<endl;
 }
 */
+    return 0;
 
 }

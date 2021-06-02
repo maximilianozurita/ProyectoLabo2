@@ -1260,11 +1260,13 @@
 	"Dado.h"
 	<time.h>
 
-1622408758 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1622676210 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
 	"Entidad.h"
+	"Dado.h"
+	"GamePlay.h"
 
 1622406921 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1675,16 +1677,14 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622411898 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1622676274 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
-1622411898 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+1622676276 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
 	<iostream>
 	<cstring>
 	"Entidad.h"
 	<SFML/Graphics.hpp>
-	"Dado.h"
-	<time.h>
 
 1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\dado.h
 	"Entidad.h"
@@ -1774,4 +1774,79 @@
 
 1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\map.h
 	"Entidad.h"
+
+1622511489 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
+	<iostream>
+	<cstring>
+	"Camino.h"
+	<SFML/Graphics.hpp>
+
+1622511489 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\camino.h
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622511489 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+	"Entidad.h"
+
+1622511489 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
+	<iostream>
+	<cstring>
+	"Casa.h"
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622511489 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\casa.h
+	"Espacio.h"
+	<SFML/Graphics.hpp>
+
+1622511489 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
+	<iostream>
+	<cstring>
+	<SFML/Graphics.hpp>
+	"Espacio.h"
+
+1622519193 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
+	<iostream>
+	<cstring>
+	"Jugador.h"
+	<cstring>
+
+1622519193 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
+
+1622414353 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
+	"Ladron.h"
+
+1622414170 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622414572 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
+	"Map.h"
+
+1622414562 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\map.h
+	"Entidad.h"
+
+1622511489 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\dado.h
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+
+1622676427 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+	<SFML/Graphics.hpp>
+	"Jugador.h"
+	"Puerto.h"
+	"Map.h"
+	"Ladron.h"
+	"Dado.h"
+
+1622676210 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\dado.cpp
+	<iostream>
+	<cstring>
+	"Entidad.h"
+	<SFML/Graphics.hpp>
+	"Dado.h"
+	<time.h>
+
+1622676369 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+	"GamePlay.h"
+	<SFML/Graphics.hpp>
 
