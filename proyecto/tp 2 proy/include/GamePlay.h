@@ -15,7 +15,7 @@ class GamePlay
         GamePlay();
         void run();
     private:
-        sf::RendeWindow ventana;
+        sf::RenderWindow ventana;
         Jugador jugadores[4];
         Puerto puertos[9];
         Map mapa;
@@ -26,6 +26,7 @@ class GamePlay
         void update();
         void draw();
         void finish();
+
 };
 
 #endif // GAMEPLAY_H
