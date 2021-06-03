@@ -7,11 +7,11 @@ using namespace std;
 Entidad::Entidad(){
 
 }
-sf::Texture Entidad::getTex(){
+sf::Texture& Entidad::getTex(){
     return tex;
 }
 
-sf::Sprite  Entidad::getSp(){
+sf::Sprite& Entidad::getSp(){
     return sp;
 }
 void  Entidad::setTex(sf::Texture _tex){

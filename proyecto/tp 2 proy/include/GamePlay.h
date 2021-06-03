@@ -6,6 +6,9 @@
 #include "Map.h"
 #include "Ladron.h"
 #include "Dado.h"
+#include "Casa.h"
+#include "Camino.h"
+#include "Hexagono.h"
 
 //faltan incluir las demás clases que se usan como atributos
 
@@ -21,7 +24,9 @@ class GamePlay
         Map mapa;
         Ladron ladron;
         Dado dado;
-
+        Casa casa;
+        Camino camino;
+        Hexagono hexagonos[19];
         void init();
         void update();
         void draw();

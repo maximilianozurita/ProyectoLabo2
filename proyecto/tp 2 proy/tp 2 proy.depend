@@ -827,12 +827,13 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622425000 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1622676791 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
 	"Entidad.h"
 	"Dado.h"
+	"GamePlay.h"
 
 1525812018 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1243,10 +1244,10 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1622677053 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
-1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+1622677053 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
 	<iostream>
 	<cstring>
 	"Entidad.h"
@@ -1730,7 +1731,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
+1622677981 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\casa.cpp
 	<iostream>
 	<cstring>
 	"Casa.h"
@@ -1750,7 +1751,7 @@
 1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
-1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1622679524 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	<SFML/Graphics.hpp>
@@ -1847,6 +1848,29 @@
 	<time.h>
 
 1622676369 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+	"GamePlay.h"
+	<SFML/Graphics.hpp>
+
+1622679138 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+	<SFML/Graphics.hpp>
+	"Jugador.h"
+	"Puerto.h"
+	"Map.h"
+	"Ladron.h"
+	"Dado.h"
+	"Casa.h"
+	"Camino.h"
+	"Hexagono.h"
+
+1622514801 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
+
+1622514801 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
+	<iostream>
+	<cstring>
+	"Jugador.h"
+	<cstring>
+
+1622678586 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 

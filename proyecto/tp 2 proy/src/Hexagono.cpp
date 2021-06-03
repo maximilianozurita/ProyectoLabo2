@@ -31,3 +31,36 @@ void Hexagono::setFicha(Ficha _valor)
 {
     valor = _valor;
 }
+
+void Hexagono::cargarHexagono(TIPO_Hex _tipo){
+
+
+    tipo = _tipo;
+    switch(tipo){
+        case ARBOL:
+            tex.loadFromFile("sprites/hexagonos/arbol.png");
+            break;
+
+        case OVEJA:
+            tex.loadFromFile("sprites/hexagonos/oveja.png");
+            break;
+
+        case LADRILLO:
+            tex.loadFromFile("sprites/hexagonos/ladrillo.png");
+            break;
+
+        case TRIGO:
+            tex.loadFromFile("sprites/hexagonos/trigo.png");
+            break;
+
+        case MINERAL:
+            tex.loadFromFile("sprites/hexagonos/mineral.png");
+            break;
+
+        case DESIERTO:
+            tex.loadFromFile("sprites/hexagonos/desierto.png");
+            break;
+    }
+
+    sp.setTexture(tex);
+}
