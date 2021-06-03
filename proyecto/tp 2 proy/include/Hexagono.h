@@ -6,8 +6,7 @@
 
 enum TIPO_HEX {OVEJA, ARBOL, LADRILLO, MINERAL, TRIGO, DESIERTO};
 
-class Hexagono: public Entidad
-{
+class Hexagono: public Entidad{
 public:
     Hexagono();
     sf::Vector2f getUbicacion();
@@ -16,6 +15,7 @@ public:
     void setUbicacion(sf::Vector2f);
     void setTipo(TIPO_HEX);
     void setFicha(Ficha);
+    void cargarHexagono(TIPO_HEX);
 
 private:
     sf::Vector2f Ubicacion;

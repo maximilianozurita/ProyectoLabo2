@@ -6,8 +6,8 @@ class Entidad
 {
     public:
         Entidad();
-        sf::Texture getTex();
-        sf::Sprite  getSp();
+        sf::Texture& getTex();
+        sf::Sprite&  getSp();
         void  setTex(sf::Texture);
         void  setSp(sf::Sprite);
 
