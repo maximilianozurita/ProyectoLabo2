@@ -13,8 +13,7 @@ void GamePlay::init(){
     //se cargan los objetos, texturas y posiciones.
 }
 
-void GamePlay::run()
-{
+void GamePlay::run(){
 
     while(ventana.isOpen())
     {
