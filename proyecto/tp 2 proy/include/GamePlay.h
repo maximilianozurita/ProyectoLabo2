@@ -27,6 +27,9 @@ class GamePlay
         Casa casa;
         Camino camino;
         Hexagono hexagonos[19];
+        sf::Font fuente;
+        sf::Text texto;
+
         void init();
         void update();
         void draw();

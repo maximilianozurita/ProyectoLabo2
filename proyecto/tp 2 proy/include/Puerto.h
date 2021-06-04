@@ -1,6 +1,7 @@
 #ifndef PUERTO_H
 #define PUERTO_H
 #include "Entidad.h"
+
 enum TIPO_PUERTO{OVEJA, ARBOL, LADRILLO, MINERAL, TRIGO};
 
 class Puerto: public Entidad

@@ -49,11 +49,11 @@ private:
     int partidasGanadas;
 
     int numeroJugador;
-    int madera;
-    int piedra;
-    int lana;
-    int ladrillo;
-    int trigo;
+    int cartaMadera;
+    int cartaPiedra;
+    int cartaLana;
+    int cartaLadrillo;
+    int cartaTrigo;
     int puntosVictoria;
     int casasConstruidas;
     int caminosConstruidos;

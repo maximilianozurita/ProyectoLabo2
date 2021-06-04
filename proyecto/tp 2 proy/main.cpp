@@ -12,11 +12,6 @@ int main(){
 
     game.run();
 
-    //sf::RenderWindow window(sf::VideoMode(1080,700),"Ventana");
-
-    //system ("pause");
-    //return 0;
-
 /*
 //Prueba dado
 Dado dado1;

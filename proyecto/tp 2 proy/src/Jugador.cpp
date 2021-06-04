@@ -19,19 +19,19 @@ int Jugador::getNumeroJugador(){
     return numeroJugador;
 };
 int Jugador::getMadera(){
-    return madera;
+    return cartaMadera;
 };
 int Jugador::getPiedra(){
-    return piedra;
+    return cartaPiedra;
 };
 int Jugador::getLana(){
-    return lana;
+    return cartaLana;
 };
 int Jugador::getLadrillo(){
-    return ladrillo;
+    return cartaLadrillo;
 };
 int Jugador::getTrigo(){
-    return trigo;
+    return cartaTrigo;
 };
 int Jugador::getPuntosVictoria(){
     return puntosVictoria;
@@ -63,19 +63,19 @@ void Jugador::setNumeroJugador(int _numero){
     numeroJugador=_numero;
 };
 void Jugador::setMadera(int _madera){
-    madera=_madera;
+    cartaMadera=_madera;
 };
 void Jugador::setPiedra(int _piedra){
-    piedra=_piedra;
+    cartaPiedra=_piedra;
 };
 void Jugador::setLana(int _lana){
-    lana=_lana;
+    cartaLana=_lana;
 };
 void Jugador::setLadrillo(int _ladrillo){
-    ladrillo=_ladrillo;
+    cartaLadrillo=_ladrillo;
 };
 void Jugador::setTrigo(int _trigo){
-    trigo=_trigo;
+    cartaTrigo=_trigo;
 };
 void Jugador::setPuntosVictoria(int _pVictoria){
     puntosVictoria=_pVictoria;

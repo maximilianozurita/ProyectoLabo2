@@ -20,3 +20,7 @@ void  Entidad::setTex(sf::Texture _tex){
 void  Entidad::setSp(sf::Sprite _sp){
     sp = _sp;
 }
+
+void Entidad::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+    target.draw(sp,states);
+}

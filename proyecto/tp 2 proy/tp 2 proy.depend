@@ -827,7 +827,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622676791 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1622757924 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -1244,10 +1244,10 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622677053 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1622766332 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
-1622677053 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+1622766332 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
 	<iostream>
 	<cstring>
 	"Entidad.h"
@@ -1748,10 +1748,10 @@
 1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
 	"Entidad.h"
 
-1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1622760993 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
-1622679524 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1622761011 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	<SFML/Graphics.hpp>
@@ -1760,7 +1760,7 @@
 	"Puerto.h"
 	<cstring>
 
-1622425000 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\puerto.h
+1622758263 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\puerto.h
 	"Entidad.h"
 
 1622425001 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
@@ -1851,7 +1851,7 @@
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 
-1622679138 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1622765156 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Jugador.h"
 	"Puerto.h"
@@ -1862,15 +1862,15 @@
 	"Camino.h"
 	"Hexagono.h"
 
-1622514801 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
+1622758031 c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
 
-1622514801 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
+1622758124 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
 	<iostream>
 	<cstring>
 	"Jugador.h"
 	<cstring>
 
-1622678586 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1622766852 source:c:\users\maxi\desktop\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 

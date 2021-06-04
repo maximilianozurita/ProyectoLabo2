@@ -1,63 +1,54 @@
 #include "Hexagono.h"
 
 
-Hexagono::Hexagono()
-{
+Hexagono::Hexagono(){
 
 }
 
-sf::Vector2f Hexagono::getUbicacion()
-{
+sf::Vector2f Hexagono::getUbicacion(){
     return Ubicacion;
 }
-TIPO_HEX Hexagono::getTipo()
-{
+TIPO_HEX Hexagono::getTipo(){
     return tipo;
 }
-Ficha Hexagono::getFicha()
-{
+Ficha Hexagono::getFicha(){
     return valor;
 }
-void Hexagono::setUbicacion(sf::Vector2f _ubicacion)
-{
+void Hexagono::setUbicacion(sf::Vector2f _ubicacion){
     Ubicacion = _ubicacion;
 }
 
-void Hexagono::setTipo(TIPO_HEX _tipo)
-{
+void Hexagono::setTipo(TIPO_HEX _tipo){
     tipo = _tipo;
 }
-void Hexagono::setFicha(Ficha _valor)
-{
+void Hexagono::setFicha(Ficha _valor){
     valor = _valor;
 }
 
-void Hexagono::cargarHexagono(TIPO_Hex _tipo){
+void Hexagono::cargarHexagono(){
 
-
-    tipo = _tipo;
     switch(tipo){
-        case ARBOL:
+        case HEXARBOL:
             tex.loadFromFile("sprites/hexagonos/arbol.png");
             break;
 
-        case OVEJA:
+        case HEXOVEJA:
             tex.loadFromFile("sprites/hexagonos/oveja.png");
             break;
 
-        case LADRILLO:
+        case HEXLADRILLO:
             tex.loadFromFile("sprites/hexagonos/ladrillo.png");
             break;
 
-        case TRIGO:
+        case HEXTRIGO:
             tex.loadFromFile("sprites/hexagonos/trigo.png");
             break;
 
-        case MINERAL:
+        case HEXMINERAL:
             tex.loadFromFile("sprites/hexagonos/mineral.png");
             break;
 
-        case DESIERTO:
+        case HEXDESIERTO:
             tex.loadFromFile("sprites/hexagonos/desierto.png");
             break;
     }

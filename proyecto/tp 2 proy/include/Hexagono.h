@@ -4,7 +4,7 @@
 #include "Entidad.h"
 #include <SFML/Graphics.hpp>
 
-enum TIPO_HEX {OVEJA, ARBOL, LADRILLO, MINERAL, TRIGO, DESIERTO};
+enum TIPO_HEX {HEXOVEJA, HEXARBOL, HEXLADRILLO, HEXMINERAL, HEXTRIGO, HEXDESIERTO};
 
 class Hexagono: public Entidad{
 public:
@@ -15,7 +15,7 @@ public:
     void setUbicacion(sf::Vector2f);
     void setTipo(TIPO_HEX);
     void setFicha(Ficha);
-    void cargarHexagono(TIPO_HEX);
+    void cargarHexagono();
 
 private:
     sf::Vector2f Ubicacion;
