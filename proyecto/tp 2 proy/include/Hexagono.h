@@ -2,6 +2,7 @@
 #define HEXAGONO_H
 #include "Ficha.h"
 #include "Entidad.h"
+#include "Estructura.h"
 #include <SFML/Graphics.hpp>
 
 enum TIPO_HEX {HEXOVEJA, HEXARBOL, HEXLADRILLO, HEXMINERAL, HEXTRIGO, HEXDESIERTO};
@@ -9,6 +10,7 @@ enum TIPO_HEX {HEXOVEJA, HEXARBOL, HEXLADRILLO, HEXMINERAL, HEXTRIGO, HEXDESIERT
 class Hexagono: public Entidad{
 public:
     Hexagono();
+
     sf::Vector2f getUbicacion();
     TIPO_HEX getTipo();
     Ficha getFicha();
@@ -17,7 +19,10 @@ public:
     void setFicha(Ficha);
     void cargarHexagono();
 
+    Estructura& getCasas(int);
+
 private:
+    Estructura casas[3];
     sf::Vector2f Ubicacion;
     TIPO_HEX tipo;
     Ficha valor;

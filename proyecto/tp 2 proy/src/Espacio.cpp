@@ -5,9 +5,10 @@ using namespace std;
 #include "Espacio.h"
 
 
-void Espacio::setEstado(bool _estado){
-    estado=_estado;
-};
-bool Espacio::getEstado(){
-    return estado;
-};
+    bool isDisponible();
+    bool isOcupado();
+    bool getCoord();
+
+    void setDisponible(bool);
+    void setOcupado(bool);
+    void setCoord(sf::Vector2f);

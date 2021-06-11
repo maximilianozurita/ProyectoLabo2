@@ -6,7 +6,7 @@
 #include "Map.h"
 #include "Ladron.h"
 #include "Dado.h"
-#include "Casa.h"
+#include "Estructura.h"
 #include "Camino.h"
 #include "Hexagono.h"
 
@@ -17,19 +17,21 @@ class GamePlay
     public:
         GamePlay();
         void run();
+
     private:
         sf::RenderWindow ventana;
         Jugador jugadores[4];
         Puerto puertos[9];
         Map mapa;
         Ladron ladron;
-        Dado dado;
-        Casa casa;
+        Dado dados[2];
+        Estructura casa;
         Camino camino;
         Hexagono hexagonos[19];
         sf::Font fuente;
         sf::Text texto;
-
+        Espacio espacioCaminos[72];
+        Espacio espacioCasas[54];
         void init();
         void update();
         void draw();

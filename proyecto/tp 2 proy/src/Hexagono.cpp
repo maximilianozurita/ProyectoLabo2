@@ -55,3 +55,7 @@ void Hexagono::cargarHexagono(){
 
     sp.setTexture(tex);
 }
+ Estructura& Hexagono::getCasas(int numJugador)
+{
+    return casas[numJugador];
+}

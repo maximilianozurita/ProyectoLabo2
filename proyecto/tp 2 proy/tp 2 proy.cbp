@@ -46,10 +46,10 @@
 			<Add directory="SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="include/Camino.h" />
-		<Unit filename="include/Casa.h" />
 		<Unit filename="include/Dado.h" />
 		<Unit filename="include/Entidad.h" />
 		<Unit filename="include/Espacio.h" />
+		<Unit filename="include/Estructura.h" />
 		<Unit filename="include/Ficha.h" />
 		<Unit filename="include/GamePlay.h" />
 		<Unit filename="include/Hexagono.h" />
@@ -59,10 +59,10 @@
 		<Unit filename="include/Puerto.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Camino.cpp" />
-		<Unit filename="src/Casa.cpp" />
 		<Unit filename="src/Dado.cpp" />
 		<Unit filename="src/Entidad.cpp" />
 		<Unit filename="src/Espacio.cpp" />
+		<Unit filename="src/Estructura.cpp" />
 		<Unit filename="src/Ficha.cpp" />
 		<Unit filename="src/GamePlay.cpp" />
 		<Unit filename="src/Hexagono.cpp" />
