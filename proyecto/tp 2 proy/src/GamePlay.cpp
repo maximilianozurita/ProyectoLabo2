@@ -13,9 +13,13 @@ void GamePlay::init()
     //Matriz de coordenadas.
     const float difX=178*TAM,difY=145*TAM;
 
-    const float mapCoordX=70,mapCoordY=40;
-    const float hexCoordX=mapCoordX+(225*TAM),hexCoordY=mapCoordY+(50*TAM);
+    const float mapCoordX=70;
+    const float mapCoordY=40;
+    const float hexCoordX=mapCoordX+(225*TAM);
+    const float hexCoordY=mapCoordY+(50*TAM);
 
+    const float estructCoordX=mapCoordX+(200*TAM);
+    const float estructCoordY=mapCoordY+(70*TAM);
 
     float vecCoords[19][2]=
     {
@@ -26,11 +30,17 @@ void GamePlay::init()
         hexCoordX,hexCoordY+(difY*4), hexCoordX+difX,hexCoordY+(difY*4), hexCoordX+(difX*2),hexCoordY+(difY*4)
     };
 
+    float espacioCoords[54][2]=
+    {
+        estructCoordX,estructCoordY
+
+    };
+
+
     espacioCasas[0].getTex().loadFromFile("sprites/recursos/seleccionador.png");
     espacioCasas[0].getSp().setTexture(espacioCasas[0].getTex());
-
-    espacioCasas[0].getSp().setScale(TAM*2,TAM*2);
-    espacioCasas[0].getSp().setPosition(mapCoordX+(1*TAM),mapCoordY+(1*TAM));
+    espacioCasas[0].getSp().setScale(TAM*1.8,TAM*1.8);
+    espacioCasas[0].getSp().setPosition(espacioCoords[0][0],espacioCoords[0][1]);
 
     float vecCoordCaminos[72][2] =
     {
