@@ -30,6 +30,8 @@ void GamePlay::init()
     const float estructDifX=178*TAM;
     const float estructDifY=145*TAM;
 
+    const float caminoCoordX=hexCoordX+60;
+    const float caminoCoordY=hexCoordY+85;
 
     float vecCoords[19][2]=
     {
@@ -63,10 +65,7 @@ void GamePlay::init()
         espacioCasas[i].getSp().setScale(TAM*1.8,TAM*1.8);
         espacioCasas[i].getSp().setPosition(espacioCoords[i][0],espacioCoords[i][1]);
     }
-    float vecCoordCaminos[72][2] =
-    {
 
-    };
     //Cargar ventana
     ventana.create(sf::VideoMode(1280,720),"Catan");
     ventana.setFramerateLimit(60);
@@ -92,13 +91,69 @@ void GamePlay::init()
     //hexCoordX-(405*TAM)=mapCoordX
 
 
-    //Cargar textura camino
-    camino.getTex().loadFromFile("sprites/estructuras/verde28G.png");
-    camino.getSp().setTexture(camino.getTex());
-    camino.getSp().setScale(TAM,TAM);
-    camino.getSp().setPosition(hexCoordX+100,hexCoordY+90);
-    ///ventana.draw(camino.getSp());
 
+    float vecCoordCaminos[24][2] ={
+    caminoCoordX-0.5*difX,caminoCoordY-difY,caminoCoordX+0.5*difX,caminoCoordY-difY,caminoCoordX+1.5*difX,caminoCoordY-difY,
+    caminoCoordX-difX,caminoCoordY,caminoCoordX,caminoCoordY,caminoCoordX+difX,caminoCoordY,caminoCoordX+2*difX,caminoCoordY,
+    caminoCoordX-1.5*difX,caminoCoordY+difY,caminoCoordX-0.5*difX,caminoCoordY+difY,caminoCoordX+0.5*difX,caminoCoordY+difY,caminoCoordX+1.5*difX,caminoCoordY+difY,caminoCoordX+2.5*difX,caminoCoordY+difY,
+    caminoCoordX-difX,caminoCoordY+2*difY,caminoCoordX,caminoCoordY+2*difY,caminoCoordX+difX,caminoCoordY+2*difY,caminoCoordX+2*difX,caminoCoordY+2*difY,caminoCoordX+3*difX,caminoCoordY+2*difY,
+    caminoCoordX-0.5*difX,caminoCoordY+3*difY,caminoCoordX+0.5*difX,caminoCoordY+3*difY,caminoCoordX+1.5*difX,caminoCoordY+3*difY,caminoCoordX+2.5*difX,caminoCoordY+3*difY,
+    caminoCoordX,caminoCoordY+4*difY,caminoCoordX+difX,caminoCoordY+4*difY,caminoCoordX+2*difX,caminoCoordY+4*difY
+    };
+
+    //Cargar textura caminos
+    for (int i=0; i<48; i++){
+    float multiplo;
+        //Dibujar caminos en 45grados
+        if(i%2==0){
+            caminos[i].getTex().loadFromFile("sprites/estructuras/verde28g.png");
+            caminos[i].getSp().setTexture(caminos[i].getTex());
+            caminos[i].getSp().setScale(TAM*0.86,TAM*0.86);
+            caminos[i].getSp().setPosition(vecCoordCaminos[i/2][0],vecCoordCaminos[i/2][1]);
+            ventana.draw(caminos[i].getSp());
+        }
+        //Dibujar caminos en -45grados
+        else{
+            caminos[i].getTex().loadFromFile("sprites/estructuras/caminoVerde-28G.png");
+            caminos[i].getSp().setTexture(caminos[i].getTex());
+            caminos[i].getSp().setScale(TAM*0.86,TAM*0.86);
+
+            if (i==1){multiplo=2.5;}
+            else if(i==7){multiplo=3.5;}
+            else if(i==15){multiplo=4.5;}
+            else {multiplo=-0.5;}
+
+            caminos[i].getSp().setPosition(vecCoordCaminos[(i-1)/2][0]+multiplo*difX,vecCoordCaminos[(i-1)/2][1]);
+            ventana.draw(caminos[i].getSp());
+        }
+    }
+//Dibujar caminos en verticales
+    for(int i=48; i < 74 ; i++ ){
+
+        caminos[i].getTex().loadFromFile("sprites/estructuras/camino90G.png");
+        caminos[i].getSp().setTexture(caminos[i].getTex());
+        caminos[i].getSp().setScale(TAM*0.86,TAM*0.86);
+
+        int multiplo;
+        if(i>=48 && i<52 ){
+            multiplo=i-48+3;
+        }
+        else if(i>=53 && i < 58){
+            multiplo=i-48+6;
+        }
+        else if(i>=59 && i < 65){
+            multiplo=i-48+10;
+        }
+        else if(i>=65 && i < 70){
+            multiplo=i-48+16;
+        }
+        else if(i>=70 && i < 74){
+            multiplo=i-48+21;
+        }
+        caminos[i].getSp().setPosition(espacioCoords[multiplo][0]+5,espacioCoords[multiplo][1]+5);
+
+        ventana.draw(caminos[i].getSp());
+    }
 
     TIPO_HEX tiposHexagonos[19]= {HEXARBOL,HEXTRIGO,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL,HEXMINERAL,HEXARBOL,HEXTRIGO,HEXLADRILLO,HEXTRIGO,HEXOVEJA,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXMINERAL,HEXDESIERTO};
     bool asignados[19] {};
@@ -205,8 +260,13 @@ void GamePlay::draw()
     {
         ventana.draw(hexagonos[i].getSp());
     };
+
     ventana.draw(casa.getSp());
-    ///ventana.draw(camino.getSp());
+
+    for (int i=0; i<74; i++)
+    {
+        ventana.draw(caminos[i].getSp());
+    };
     ventana.draw(texto);
     for(int i=0; i < 54; i++)
     {

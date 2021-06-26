@@ -26,7 +26,7 @@ class GamePlay
         Ladron ladron;
         Dado dados[2];
         Estructura casa;
-        Camino camino;
+        Camino caminos[74];
         Hexagono hexagonos[19];
         sf::Font fuente;
         sf::Text texto;
