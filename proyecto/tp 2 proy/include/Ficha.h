@@ -6,9 +6,10 @@
 class Ficha : public Entidad
 {
 public:
-    Ficha();
+
     int getNumero();
     void setNumero(int);
+    void cargarFicha();
 private:
     int numero;
 
