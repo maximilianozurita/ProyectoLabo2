@@ -7,20 +7,12 @@ using namespace std;
 Entidad::Entidad(){
 
 }
-sf::Texture& Entidad::getTex(){
+sf::Texture Entidad::getTex(){
     return tex;
 }
 
-sf::Sprite& Entidad::getSp(){
-    return sp;
-}
-void  Entidad::setTex(sf::Texture _tex){
-    tex = _tex;
-}
-void  Entidad::setSp(sf::Sprite _sp){
-    sp = _sp;
-}
-
-void Entidad::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    target.draw(sp,states);
+void Entidad::cargarTextura(char * cadena)
+{
+    tex.loadFromFile(cadena);
+    setTexture(tex);
 }

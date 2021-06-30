@@ -1,6 +1,7 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 #include <SFML/Graphics.hpp>
+#include "Ficha.h"
 #include "Jugador.h"
 #include "Puerto.h"
 #include "Map.h"
@@ -28,15 +29,20 @@ class GamePlay
         Estructura casa;
         Camino caminos[74];
         Hexagono hexagonos[19];
+        ///Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
-        Espacio espacioCaminos[72];
+        Espacio espacioCaminos[74];
         Espacio espacioCasas[54];
         void init();
         void update();
         void draw();
         void finish();
+        void cargarEspacios();
+        void cargarCaminos();
+
 
 };
 
 #endif // GAMEPLAY_H
+

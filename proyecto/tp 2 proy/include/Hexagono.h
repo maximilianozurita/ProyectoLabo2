@@ -11,19 +11,23 @@ class Hexagono: public Entidad{
 public:
     Hexagono();
 
-    sf::Vector2f getUbicacion();
+
     TIPO_HEX getTipo();
     Ficha getFicha();
-    void setUbicacion(sf::Vector2f);
     void setTipo(TIPO_HEX);
     void setFicha(Ficha);
     void cargarHexagono();
 
     Estructura& getCasas(int);
 
+    void fichaSetScale(float, float);
+    void fichaSetPosition(float, float);
+    void cargarFicha();
+
+
 private:
     Estructura casas[3];
-    sf::Vector2f Ubicacion;
+
     TIPO_HEX tipo;
     Ficha valor;
 };

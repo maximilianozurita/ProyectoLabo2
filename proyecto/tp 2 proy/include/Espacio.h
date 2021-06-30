@@ -3,21 +3,24 @@
 #include "Entidad.h"
 #include <SFML/Graphics.hpp>
 
+
 class Espacio: public Entidad {
 public:
 
     bool isDisponible();
     bool isOcupado();
-    bool getCoord();
-
+    int getNumero();
     void setDisponible(bool);
     void setOcupado(bool);
-    void setCoord(sf::Vector2f);
+    void setNumero(int);
+    void setHexagonos(const int *);
+    const int *getHexagonos();
 
 protected:
+    int hexagonos[4];
+    int numero;
     bool disponible;
     bool ocupado;
-    sf::Vector2f coord;
 };
 
 #endif // ESPACIO_H
