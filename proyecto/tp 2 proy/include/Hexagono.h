@@ -17,16 +17,20 @@ public:
     void setTipo(TIPO_HEX);
     void setFicha(Ficha);
     void cargarHexagono();
+    void setEstructura(int);
 
-    Estructura& getCasas(int);
+    const int * getEstructuras();
+    const int * getNivel();
 
     void fichaSetScale(float, float);
     void fichaSetPosition(float, float);
     void cargarFicha();
+    void subirNivel(int);
 
 
 private:
-    Estructura casas[3];
+    int estructuras[3]{};
+    int nivel[3]{};
 
     TIPO_HEX tipo;
     Ficha valor;

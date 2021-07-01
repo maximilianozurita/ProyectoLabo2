@@ -8,13 +8,13 @@ class Estructura: public Entidad {
 public:
     int getNumJugador();
     Espacio getEspacio();
-
-    void setNumJugador(int);
     void setEspacio(Espacio);
+    void setNumJugador(int);
 
 private:
     int numJugador;
     Espacio espacio;
+
 
 };
 

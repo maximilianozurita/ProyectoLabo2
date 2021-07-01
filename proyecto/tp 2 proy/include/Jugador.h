@@ -1,5 +1,6 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
+#include "Hexagono.h"
 
 
 class Jugador{
@@ -36,6 +37,8 @@ public:
     void setCaminosConstruidos(int);
     void setCiudadesConstruidas(int);
 
+    void addRecurso(int, TIPO_HEX);
+
     //METODOS (A FUTURO):
     //LEER EN DISCO
     //BUSCAR EN DISCO
@@ -47,6 +50,7 @@ private:
     char usuario[20];
     char password[20];
     int partidasGanadas;
+
 
     int numeroJugador;
     int cartaMadera;
