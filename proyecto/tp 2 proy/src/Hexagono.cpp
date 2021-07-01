@@ -56,21 +56,53 @@ void Hexagono::cargarHexagono()
 
     setTexture(tex);
 }
-Estructura& Hexagono::getCasas(int numJugador)
-{
-    return casas[numJugador];
-}
+
 
 void Hexagono::fichaSetScale(float _x, float _y)
 {
     valor.setScale(_x, _y);
 }
 
-void Hexagono::fichaSetPosition(float Tamx  , float tamy)
+void Hexagono::fichaSetPosition(float Tamx, float tamy)
 {
     valor.setPosition(getPosition().x+(65*Tamx), getPosition().y+(85*tamy));
 }
 void Hexagono::cargarFicha()
 {
     valor.cargarFicha();
+}
+
+void Hexagono::setEstructura(int numJugador)
+{
+    for(int i = 0; i < 3 ; i++)
+    {
+        if(estructuras[i] != 0)
+        {
+            estructuras[i] = numJugador;
+            nivel[i] = 1;
+            return ;
+        }
+    }
+}
+
+void Hexagono::subirNivel(int numJugador)
+{
+    for(int i = 0; i < 3; i++)
+    {
+        if(estructuras[i]==numJugador && nivel[i]==1)
+        {
+            nivel[i]++;
+            return ;
+        }
+    }
+}
+
+const int * Hexagono::getEstructuras()
+{
+    return estructuras;
+}
+
+const int * Hexagono::getNivel()
+{
+    return nivel;
 }

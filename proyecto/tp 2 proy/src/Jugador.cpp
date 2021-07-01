@@ -90,3 +90,20 @@ void Jugador::setCaminosConstruidos(int _caminos){
 void Jugador::setCiudadesConstruidas(int _ciudades){
     ciudadesConstruidas=_ciudades;
 };
+
+void Jugador::addRecurso(int cant, TIPO_HEX recurso)
+{
+    switch(recurso)
+    {
+        case HEXARBOL: cartaMadera+= cant;
+                        break;
+        case HEXTRIGO: cartaTrigo+= cant;
+                        break;
+        case HEXMINERAL: cartaPiedra+= cant;
+                        break;
+        case HEXLADRILLO: cartaLadrillo+= cant;
+                        break;
+        case HEXOVEJA: cartaLana+= cant;
+                        break;
+    }
+}

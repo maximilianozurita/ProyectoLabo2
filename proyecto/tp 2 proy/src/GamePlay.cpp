@@ -4,10 +4,22 @@
 
 using namespace std;
 
-const float TAM=0.7;
+const float TAM=0.6;
 const float mapCoordX=100;
 const float mapCoordY=60;
+const float hexCoordX=mapCoordX+(225*TAM);
+const float hexCoordY=mapCoordY+(50*TAM);
+const float difX=178*TAM;
+const float difY=145*TAM;
 
+const float estructCoordX=mapCoordX+(295*TAM);
+const float estructCoordY=mapCoordY+(20*TAM);
+
+const float estruct2CoordX=mapCoordX+(205*TAM);
+const float estruct2CoordY=mapCoordY+(68*TAM);
+
+const float caminoCoordX=hexCoordX+(85*TAM);
+const float caminoCoordY=hexCoordY+(125*TAM);
 GamePlay::GamePlay()
 {
     init();
@@ -16,19 +28,7 @@ GamePlay::GamePlay()
 void GamePlay::init()
 {
     //Constantes para coordenadas
-    const float hexCoordX=mapCoordX+(225*TAM);
-    const float hexCoordY=mapCoordY+(50*TAM);
-    const float difX=178*TAM;
-    const float difY=145*TAM;
 
-    const float estructCoordX=mapCoordX+(295*TAM);
-    const float estructCoordY=mapCoordY+(20*TAM);
-
-    const float estruct2CoordX=mapCoordX+(205*TAM);
-    const float estruct2CoordY=mapCoordY+(68*TAM);
-
-    const float caminoCoordX=hexCoordX+60;
-    const float caminoCoordY=hexCoordY+85;
 
     srand(time(NULL));
     //matriz de Coordenadas de hexagonos
@@ -68,7 +68,7 @@ void GamePlay::init()
     };
     //Cargar ventana
     ventana.create(sf::VideoMode(1280,720),"Catan");
-    ventana.setFramerateLimit(60);
+
 
     //Cargar textura para espacio de estructuras
 
@@ -156,12 +156,13 @@ void GamePlay::init()
         }
         caminos[i].setPosition(espacioCoords[multiplo][0]+5,espacioCoords[multiplo][1]+5);
 
-      /*  ventana.draw(caminos[i]);*/
+        /*  ventana.draw(caminos[i]);*/
     }
 
     TIPO_HEX tiposHexagonos[19]= {HEXARBOL,HEXTRIGO,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL,HEXMINERAL,HEXARBOL,HEXTRIGO,HEXLADRILLO,HEXTRIGO,HEXOVEJA,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXMINERAL,HEXDESIERTO};
 
-    {// asignamos tipo
+    {
+        // asignamos tipo
         bool asignados[19] {};
         int numero;
 
@@ -190,8 +191,9 @@ void GamePlay::init()
     }
 
 
-    {///Asignacion de fichas
-        int numeros[18]={2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12};
+    {
+        ///Asignacion de fichas
+        int numeros[18]= {2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12};
         bool asignados[18] {};
         Ficha fichas[18];
         int numero;
@@ -206,7 +208,8 @@ void GamePlay::init()
                     fichas[i].setNumero(numeros[numero]);
                 }
 
-            }while(asignados[numero]);
+            }
+            while(asignados[numero]);
             asignados[numero] = true;
         }
 
@@ -252,7 +255,7 @@ void GamePlay::init()
     for(int i = 0; i < 19; i++)
     {
         if(hexagonos[i].getTipo() != HEXDESIERTO)
-        ventana.draw(hexagonos[i].getFicha());
+            ventana.draw(hexagonos[i].getFicha());
     }
 
     ventana.draw(dados[0]);
@@ -260,6 +263,7 @@ void GamePlay::init()
     cargarEspacios();
     cout<<endl;
     cargarCaminos();
+    ventana.setFramerateLimit(60);
 
 
 }
@@ -284,45 +288,28 @@ void GamePlay::run()
 
 void GamePlay::update()
 {
-    Ficha auxFicha;
-    TIPO_HEX aux;
 
-    for(int i = 0; i < 19; i++)
-    {
-        auxFicha = hexagonos[i].getFicha();
-        if(auxFicha.getNumero() == dados[0].getNumero() + dados[1].getNumero())
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+    {///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
+        dados[0].tirarDado();
+        dados[1].tirarDado();
+
+        Ficha auxFicha;
+        TIPO_HEX aux;
+
+        for(int i = 0; i < 19; i++)
+        {
+            auxFicha = hexagonos[i].getFicha();///recuperamos la ficha del hexagono
+            if(auxFicha.getNumero() == dados[0].getNumero() + dados[1].getNumero()) ///vemos el numero que tiene
 
 
-            for(int j = 0; j < 3; j++)
-            {
-                hexagonos[i].getTipo();
-
-
-                switch(aux)
+                for(int j = 0; j < 3; j++)
                 {
-
-                case HEXARBOL:
-                    jugadores[hexagonos[i].getCasas(j).getNumJugador()].setMadera(jugadores[hexagonos[i].getCasas(j).getNumJugador()].getMadera()+1);
-                    break;
-
-                case HEXLADRILLO:
-                    jugadores[hexagonos[i].getCasas(j).getNumJugador()].setLadrillo(jugadores[hexagonos[i].getCasas(j).getNumJugador()].getLadrillo()+1);
-                    break;
-
-                case HEXOVEJA:
-                    jugadores[hexagonos[i].getCasas(j).getNumJugador()].setLana(jugadores[hexagonos[i].getCasas(j).getNumJugador()].getLana()+1);
-                    break;
-
-                case HEXMINERAL:
-                    jugadores[hexagonos[i].getCasas(j).getNumJugador()].setPiedra(jugadores[hexagonos[i].getCasas(j).getNumJugador()].getPiedra()+1);
-                    break;
-
-                case HEXTRIGO:
-                    jugadores[hexagonos[i].getCasas(j).getNumJugador()].setTrigo(jugadores[hexagonos[i].getCasas(j).getNumJugador()].getTrigo()+1);
-                    break;
+                    if(hexagonos[i].getEstructuras()[j] > 0)    ///Verificamos que tenga alguna estructura
+                        jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(1*hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
 
                 }
-            }
+        }
     }
 
 }
@@ -338,7 +325,7 @@ void GamePlay::draw()
     };
     //ventana.draw(texto);
     // ventana.draw(casa);
-    /*
+
     for (int i=0; i<74; i++)
     {
         ventana.draw(caminos[i]);
@@ -347,11 +334,11 @@ void GamePlay::draw()
     for(int i=0; i < 54; i++)
     {
         ventana.draw(espacioCasas[i]);
-    }*/
+    }
     for(int i = 0; i < 19; i++)
     {
         if(hexagonos[i].getTipo() != HEXDESIERTO)
-        ventana.draw(hexagonos[i].getFicha());
+            ventana.draw(hexagonos[i].getFicha());
     }
     ventana.draw(dados[0]);
     ventana.draw(dados[1]);

@@ -38,6 +38,7 @@ class GamePlay
         void update();
         void draw();
         void finish();
+
         void cargarEspacios();
         void cargarCaminos();
 
