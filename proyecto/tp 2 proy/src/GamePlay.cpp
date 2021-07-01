@@ -1,6 +1,8 @@
 #include "GamePlay.h"
 #include <iostream>
+#include <string>
 #include <SFML/Graphics.hpp>
+
 
 using namespace std;
 
@@ -40,6 +42,7 @@ void GamePlay::init()
         hexCoordX-(difX/2),hexCoordY+(difY*3), hexCoordX-(difX/2)+difX,hexCoordY+(difY*3), hexCoordX-(difX/2)+(difX*2),hexCoordY+(difY*3), hexCoordX-(difX/2)+(difX*3),hexCoordY+(difY*3),
         hexCoordX,hexCoordY+(difY*4), hexCoordX+difX,hexCoordY+(difY*4), hexCoordX+(difX*2),hexCoordY+(difY*4)
     };
+    ventana.setFramerateLimit(60);
     //Matriz de coordenadas de espacios para estructuras
     float espacioCoords[54][2]=
     {
@@ -230,11 +233,7 @@ void GamePlay::init()
     }
 
 
-    /*fuente.loadFromFile("fuentes/LEMONMILK-Bold.otf");
-    texto.setFont(fuente);
-    texto.setString("12");
-    texto.setColor(sf::Color(0,0,0));
-    texto.setPosition(mapCoordX+(662*TAM), mapCoordY+(132*TAM));*/
+
 
     //se cargan los objetos, texturas y posiciones.
 
@@ -263,7 +262,48 @@ void GamePlay::init()
     cargarEspacios();
     cout<<endl;
     cargarCaminos();
-    ventana.setFramerateLimit(60);
+
+    fuente.loadFromFile("fuentes/roboto/Roboto-Black.ttf");
+    texto.setFont(fuente);
+    texto.setColor(sf::Color(0,0,0));
+    texto.setScale(0.5,0.5);
+    texto.setPosition(mapCoordX+(800*TAM), mapCoordY+(132*TAM));
+
+
+
+    TIPO_HEX tiposCartas[5]= {HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL};
+
+    for(int i = 0; i < 5; i++)
+    {
+        for(int j = 0; j < 2; j++)
+        {
+            cartas[j][i].setTipo(tiposCartas[i]);
+            cartas[j][i].cargarTextura();
+            cartas[j][i].setPosition(800+(60*i),300+(100*j));
+            cartas[j][i].setScale(TAM,TAM);
+        }
+    }
+
+    for(int i = 0; i < 2; i++)
+    {
+        for(int j = 0; j < 5; j++)
+        {
+            textCartasPuntos[i][j].setFont(fuente);
+            textCartasPuntos[i][j].setColor(sf::Color(40,90,30));
+            textCartasPuntos[i][j].setScale(0.5,0.5);
+            textCartasPuntos[i][j].setPosition(810+(60*j),350+(100*i));
+            ventana.draw(textCartasPuntos[i][j]);
+        }
+    }
+
+    for(int i=0; i < 5; i++)
+        for(int j=0; j < 2; j++)
+            ventana.draw(cartas[j][i]);
+
+    ///sf::FloatRect Fmapa = mapa.getGlobalBounds();
+    ///sf::FloatRect Ftexto = texto.getGlobalBounds();
+    ///bool isCollision Fmapa.intersects(Ftexto);
+
 
 
 }
@@ -290,12 +330,14 @@ void GamePlay::update()
 {
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-    {///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
+    {
+        ///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
         dados[0].tirarDado();
         dados[1].tirarDado();
-
+        texto.setString(to_string(dados[1].getNumero()+dados[0].getNumero()));
         Ficha auxFicha;
         TIPO_HEX aux;
+
 
         for(int i = 0; i < 19; i++)
         {
@@ -306,10 +348,21 @@ void GamePlay::update()
                 for(int j = 0; j < 3; j++)
                 {
                     if(hexagonos[i].getEstructuras()[j] > 0)    ///Verificamos que tenga alguna estructura
-                        jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(1*hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
+                        jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
 
                 }
         }
+        for(int j=0; j < 2; j++)
+        {
+        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
+        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
+        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
+        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
+        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
+        }
+        /*for(int i = 0; i < 3; i ++)
+        cout << hexagonos[2].getEstructuras()[i]<<endl;
+        cout <<endl;*/
     }
 
 }
@@ -323,7 +376,7 @@ void GamePlay::draw()
     {
         ventana.draw(hexagonos[i]);
     };
-    //ventana.draw(texto);
+    ventana.draw(texto);
     // ventana.draw(casa);
 
     for (int i=0; i<74; i++)
@@ -343,7 +396,16 @@ void GamePlay::draw()
     ventana.draw(dados[0]);
     ventana.draw(dados[1]);
 
+    for(int i=0; i < 5; i++)
+        for(int j=0; j < 2; j++)
+            ventana.draw(cartas[j][i]);
+
+     for(int i=0; i < 5; i++)
+        for(int j=0; j < 2; j++)
+            ventana.draw(textCartasPuntos[j][i]);
+
     ventana.display();
+
 
 
 

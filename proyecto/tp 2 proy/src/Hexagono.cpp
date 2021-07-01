@@ -3,7 +3,11 @@
 
 Hexagono::Hexagono()
 {
-
+    for(int i = 0; i < 3; i++)
+    {
+        estructuras[i] = 0;
+        nivel[i] = 0;
+    }
 }
 
 TIPO_HEX Hexagono::getTipo()
@@ -76,7 +80,7 @@ void Hexagono::setEstructura(int numJugador)
 {
     for(int i = 0; i < 3 ; i++)
     {
-        if(estructuras[i] != 0)
+        if(estructuras[i] == 0)
         {
             estructuras[i] = numJugador;
             nivel[i] = 1;

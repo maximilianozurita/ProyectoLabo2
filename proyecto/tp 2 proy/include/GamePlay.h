@@ -10,6 +10,7 @@
 #include "Estructura.h"
 #include "Camino.h"
 #include "Hexagono.h"
+#include "Carta.h"
 
 //faltan incluir las demás clases que se usan como atributos
 
@@ -27,6 +28,9 @@ class GamePlay
         Ladron ladron;
         Dado dados[2];
         Estructura casa;
+        Carta cartas[2][5];
+        sf::Text textCartasPuntos[2][5];
+
         Camino caminos[74];
         Hexagono hexagonos[19];
         ///Ficha fichas[18];

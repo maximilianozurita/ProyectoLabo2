@@ -22,5 +22,7 @@ protected:
     bool disponible;
     bool ocupado;
 };
-
+/// Espacio auxEspacio = casa.getEspacio()
+   ///     if()
+    ///        hexagonos[auxEspacio.getHexagonos()[] != -1 ]
 #endif // ESPACIO_H

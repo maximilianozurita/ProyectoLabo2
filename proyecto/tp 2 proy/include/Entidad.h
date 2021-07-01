@@ -7,7 +7,7 @@ class Entidad: public sf::Sprite
 public:
     Entidad();
     sf::Texture getTex();
-    void cargarTextura(char *);
+    virtual void cargarTextura(char *);
 
 protected:
     sf::Texture tex;
