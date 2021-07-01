@@ -3368,7 +3368,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1625177619 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -3393,7 +3393,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
+1625175695 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
 	"Entidad.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>
@@ -3406,7 +3406,7 @@
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1625181157 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	"Estructura.h"
@@ -3451,12 +3451,12 @@
 1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1625182877 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1625183063 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
 1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp

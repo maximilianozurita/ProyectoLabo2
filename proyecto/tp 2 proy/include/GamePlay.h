@@ -27,6 +27,7 @@ class GamePlay
         Ladron ladron;
         Dado dados[2];
         Estructura casa;
+        Estructura casa2;
         Camino caminos[74];
         Hexagono hexagonos[19];
         ///Ficha fichas[18];

@@ -71,7 +71,7 @@ void Hexagono::cargarFicha()
     valor.cargarFicha();
 }
 
-void Hexagono::setEstructura(int numJugador)
+void Hexagono::setEstructuras(int numJugador)
 {
     for(int i = 0; i < 3 ; i++)
     {
