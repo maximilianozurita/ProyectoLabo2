@@ -27,8 +27,8 @@ void GamePlay::init()
     const float estruct2CoordX=mapCoordX+(205*TAM);
     const float estruct2CoordY=mapCoordY+(68*TAM);
 
-    const float caminoCoordX=hexCoordX+60;
-    const float caminoCoordY=hexCoordY+85;
+    const float caminoCoordX=hexCoordX+85*TAM;
+    const float caminoCoordY=hexCoordY+120*TAM;
 
     srand(time(NULL));
     //matriz de Coordenadas de hexagonos

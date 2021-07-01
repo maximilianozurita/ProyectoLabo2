@@ -56,7 +56,7 @@ void Hexagono::cargarHexagono()
 
     setTexture(tex);
 }
-Estructura& Hexagono::getCasas(int numJugador)
+const Estructura* Hexagono::getCasas(int numJugador)
 {
     return casas[numJugador];
 }
