@@ -61,7 +61,6 @@ void Hexagono::cargarHexagono()
     setTexture(tex);
 }
 
-
 void Hexagono::fichaSetScale(float _x, float _y)
 {
     valor.setScale(_x, _y);
@@ -76,7 +75,7 @@ void Hexagono::cargarFicha()
     valor.cargarFicha();
 }
 
-void Hexagono::setEstructura(int numJugador)
+void Hexagono::setEstructuras(int numJugador)
 {
     for(int i = 0; i < 3 ; i++)
     {

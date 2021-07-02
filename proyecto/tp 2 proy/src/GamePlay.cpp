@@ -84,6 +84,56 @@ void GamePlay::init()
         espacioCasas[i].setNumero(i);
     }
 
+
+    //Cargar textura para una casa para jugador 1
+    casa.cargarTextura("sprites/estructuras/casaRoja.png");
+    casa.setScale(TAM,TAM);
+    casa.setPosition(espacioCoords[8][0]*0.96,espacioCoords[8][1]*0.86);
+    casa.setNumJugador(2);
+    casa.setEspacio(espacioCasas[8]);
+    /*
+    //Asignar a los hexagonos que colisionen la casa
+    sf::FloatRect FCasa=casa.getGlobalBounds();
+    sf::FloatRect Fhexagono;
+    for(int i=0;i<19;i++){
+        Fhexagono=hexagonos[i].getGlobalBounds();
+        if (Fhexagono.intersects(FCasa)){
+            hexagonos[i].setEstructuras(casa.getNumJugador());
+        }
+    }*/
+
+    Espacio auxEspacioCasa=casa.getEspacio();
+
+    for(int i=0; i<4;i++){
+        int aux;
+        //cout<<auxEspacioCasa.getHexagonos()[i]<<endl;
+        if(auxEspacioCasa.getHexagonos()[i]!=-1){
+            aux=auxEspacioCasa.getHexagonos()[i];
+            //cout<<aux<<endl;
+            hexagonos[aux].setEstructuras(casa.getNumJugador());
+        }
+    };
+
+
+    //verificar cuales hexagonos estan tocando casa
+    for(int i=0;i<19;i++){
+        for(int j=0;j<3;j++){
+            if (hexagonos[i].getEstructuras()[j]!=0){
+                cout<<i<<endl;
+            }
+        }
+    }
+
+
+/*
+    //Cargar textura para una casa para jugador 2
+    casa2.cargarTextura("sprites/estructuras/casaVerde.png");
+    casa2.setScale(TAM*1,TAM*1);
+    casa2.setPosition(espacioCoords[9][0]*0.95,espacioCoords[9][1]*0.88);
+    casa2.setNumJugador(3);
+*/
+
+
     //Cargar texturas mapa
     mapa.cargarTextura("sprites/mapas/mapa2.png");
     mapa.setScale(TAM,TAM);
@@ -246,10 +296,10 @@ void GamePlay::init()
     }
 
 
-    /*for(int i=0; i < 54; i++)
+    for(int i=0; i < 54; i++)
     {
         ventana.draw(espacioCasas[i]);
-    }*/
+    }
 
     for(int i = 0; i < 19; i++)
     {
@@ -376,8 +426,8 @@ void GamePlay::draw()
     {
         ventana.draw(hexagonos[i]);
     };
-    ventana.draw(texto);
-    // ventana.draw(casa);
+    //ventana.draw(texto);
+
 
     for (int i=0; i<74; i++)
     {
@@ -393,6 +443,8 @@ void GamePlay::draw()
         if(hexagonos[i].getTipo() != HEXDESIERTO)
             ventana.draw(hexagonos[i].getFicha());
     }
+    ventana.draw(casa);
+    ventana.draw(casa2);
     ventana.draw(dados[0]);
     ventana.draw(dados[1]);
 
@@ -488,4 +540,6 @@ void GamePlay::cargarCaminos()
         }
         cout<<endl;
     }
+
+
 }

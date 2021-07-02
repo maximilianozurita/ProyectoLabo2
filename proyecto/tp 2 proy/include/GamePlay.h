@@ -12,7 +12,7 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
-//faltan incluir las demás clases que se usan como atributos
+//faltan incluir las demï¿½s clases que se usan como atributos
 
 class GamePlay
 {
@@ -31,6 +31,7 @@ class GamePlay
         Carta cartas[2][5];
         sf::Text textCartasPuntos[2][5];
 
+        Estructura casa2;
         Camino caminos[74];
         Hexagono hexagonos[19];
         ///Ficha fichas[18];

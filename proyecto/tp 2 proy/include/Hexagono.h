@@ -17,7 +17,7 @@ public:
     void setTipo(TIPO_HEX);
     void setFicha(Ficha);
     void cargarHexagono();
-    void setEstructura(int);
+    void setEstructuras(int);
 
     const int * getEstructuras();
     const int * getNivel();
