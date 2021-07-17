@@ -30,6 +30,8 @@ class GamePlay
         Estructura casa;
         Carta cartas[2][5];
         sf::Text textCartasPuntos[2][5];
+        sf::Text textNumCaminos[72];
+        bool pressA;
 
         Estructura casa2;
         Camino caminos[74];
@@ -37,16 +39,20 @@ class GamePlay
         ///Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
-        Espacio espacioCaminos[74];
+        Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
         void init();
         void update();
         void draw();
         void finish();
 
-        void cargarEspacios();
-        void cargarCaminos();
 
+        void cargarCaminos();
+        void cargarHexagonos();
+        void cargarVecEspacios();
+        void cargarEspacios();
+
+        void cargarVecCaminos();
 
 };
 

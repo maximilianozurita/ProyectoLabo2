@@ -26,6 +26,7 @@ public:
     void fichaSetPosition(float, float);
     void cargarFicha();
     void subirNivel(int);
+    void variarFicha();
 
 
 private:

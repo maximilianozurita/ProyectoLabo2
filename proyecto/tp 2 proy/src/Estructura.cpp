@@ -23,4 +23,6 @@ void Estructura::setNumJugador(int _numJugador)
 void Estructura::setEspacio(Espacio _espacio)
 {
     espacio = _espacio;
+    setPosition(espacio.getPosition().x-15,espacio.getPosition().y-18);
+    setScale(espacio.getScale());
 }

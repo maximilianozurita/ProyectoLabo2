@@ -13,11 +13,20 @@ public:
     void setDisponible(bool);
     void setOcupado(bool);
     void setNumero(int);
+
     void setHexagonos(const int *);
     const int *getHexagonos();
 
+    void setEspacioCaminos(const int *);
+    const int *getEspacioCaminos();
+
+    void setEspacioCasas(const int *);
+    const int *getEspacioCasas();
+
 protected:
     int hexagonos[4];
+    int espacioCaminos[4];
+    int espacioCasas[2];
     int numero;
     bool disponible;
     bool ocupado;

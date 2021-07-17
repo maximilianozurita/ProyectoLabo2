@@ -109,3 +109,8 @@ const int * Hexagono::getNivel()
 {
     return nivel;
 }
+
+void Hexagono::variarFicha()
+{
+    valor.variarFicha();
+}

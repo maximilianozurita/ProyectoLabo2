@@ -46,3 +46,29 @@ const int * Espacio::getHexagonos()
 {
     return hexagonos;
 }
+
+void Espacio::setEspacioCaminos(const int * _espacioCaminos)
+{
+    for(int i = 0; i < 4; i++)
+    {
+        espacioCaminos[i] = _espacioCaminos[i];
+    }
+}
+
+const int * Espacio::getEspacioCaminos()
+{
+    return espacioCaminos;
+}
+
+void Espacio::setEspacioCasas(const int * _espacioCasas)
+{
+    for(int i = 0; i < 2; i++)
+    {
+        espacioCasas[i] = _espacioCasas[i];
+    }
+}
+
+const int *Espacio::getEspacioCasas()
+{
+    return espacioCasas;
+}
