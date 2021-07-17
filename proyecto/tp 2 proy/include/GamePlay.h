@@ -12,6 +12,7 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
+enum ESTADO {TIRAR_DADO,CONSTRUCCION,SELECCION};
 //faltan incluir las dem�s clases que se usan como atributos
 
 class GamePlay
@@ -21,6 +22,7 @@ class GamePlay
         void run();
 
     private:
+        ESTADO estado;
         sf::RenderWindow ventana;
         Jugador jugadores[4];
         Puerto puertos[9];

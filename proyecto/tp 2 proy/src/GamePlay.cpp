@@ -5,7 +5,6 @@
 #include <SFML/Graphics.hpp>
 
 
-
 using namespace std;
 
 const float TAM=0.6;
@@ -141,6 +140,7 @@ void GamePlay::init()
             ventana.draw(cartas[j][i]);
 
     ventana.display();
+    estado = TIRAR_DADO;
 
 }
 
@@ -164,59 +164,67 @@ void GamePlay::run()
 
 void GamePlay::update()
 {
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-
+    switch(estado)
     {
-        if(!pressA)
+ case TIRAR_DADO:
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+
         {
-            pressA=true;
-            ///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
-            dados[0].tirarDado();
-            dados[1].tirarDado();
-
-            texto.setString(to_string(dados[1].getNumero()+dados[0].getNumero()));
-            Ficha auxFicha;
-            TIPO_HEX aux;
-
-
-            for(int i = 0; i < 19; i++)
+            if(!pressA)
             {
-                auxFicha = hexagonos[i].getFicha();///recuperamos la ficha del hexagono
-                if(auxFicha.getNumero() == dados[0].getNumero() + dados[1].getNumero()) ///vemos el numero que tiene
-                {
-                    hexagonos[i].variarFicha();
-                    for(int j = 0; j < 3; j++)
-                    {
-                        if(hexagonos[i].getEstructuras()[j] > 0)    ///Verificamos que tenga alguna estructura
-                            jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
+                pressA=true;
+                ///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
+                dados[0].tirarDado();
+                dados[1].tirarDado();
 
+                texto.setString(to_string(dados[1].getNumero()+dados[0].getNumero()));
+                Ficha auxFicha;
+                TIPO_HEX aux;
+
+
+                for(int i = 0; i < 19; i++)
+                {
+                    auxFicha = hexagonos[i].getFicha();///recuperamos la ficha del hexagono
+                    if(auxFicha.getNumero() == dados[0].getNumero() + dados[1].getNumero()) ///vemos el numero que tiene
+                    {
+                        hexagonos[i].variarFicha();
+                        for(int j = 0; j < 3; j++)
+                        {
+                            if(hexagonos[i].getEstructuras()[j] > 0)    ///Verificamos que tenga alguna estructura
+                                jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
+                        }
                     }
                 }
+                for(int j=0; j < 2; j++)
+                {
+                    textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
+                    textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
+                    textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
+                    textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
+                    textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
+                }
+                /*for(int i = 0; i < 3; i ++)
+                cout << hexagonos[2].getEstructuras()[i]<<endl;
+                cout <<endl;*/
             }
-            for(int j=0; j < 2; j++)
-            {
-                textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
-                textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
-                textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
-                textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
-                textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
-            }
-            /*for(int i = 0; i < 3; i ++)
-            cout << hexagonos[2].getEstructuras()[i]<<endl;
-            cout <<endl;*/
         }
-    }
-    else
-    {
-        Sleep(5);
-        for(int i= 0; i < 19; i++)
+        else
         {
-            hexagonos[i].cargarFicha();
-        }
-        pressA = false;
-    }
+            //Sleep(5);
+            for(int i= 0; i < 19; i++)
+            {
+                hexagonos[i].cargarFicha();
+            }
 
+            pressA = false;
+        }
+
+        break;
+
+/*case CONSTRUCCION: cout << "Ahora te toca construir";
+                        estado = SELECCION;
+                        break;*/
+    }
 }
 
 void GamePlay::draw()
@@ -231,15 +239,15 @@ void GamePlay::draw()
     //ventana.draw(texto);
 
 
-     for (int i=0; i<72; i++)
-     {
-         ventana.draw(espacioCaminos[i]);
-     };
+    for (int i=0; i<72; i++)
+    {
+        ventana.draw(espacioCaminos[i]);
+    };
 
-     /*for(int i=0; i < 54; i++)
-     {
-         ventana.draw(espacioCasas[i]);
-     }*/
+    /*for(int i=0; i < 54; i++)
+    {
+        ventana.draw(espacioCasas[i]);
+    }*/
     for(int i = 0; i < 19; i++)
     {
         if(hexagonos[i].getTipo() != HEXDESIERTO)
@@ -314,7 +322,7 @@ void GamePlay::cargarEspacios()
 
     for(int i = 0; i < 54; i++)
     {
-        v = new int[4]{-1,-1,-1,-1};
+        v = new int[4] {-1,-1,-1,-1};
         pos = 0;
         _espacio = espacioCasas[i].getGlobalBounds();
         for (int j = 0; j < 72; j ++)
