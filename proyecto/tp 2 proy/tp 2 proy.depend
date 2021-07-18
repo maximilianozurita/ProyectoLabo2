@@ -2944,7 +2944,7 @@
 	"Puerto.h"
 	<cstring>
 
-1624569786 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1625782646 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -3451,10 +3451,11 @@
 1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1625182877 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1625784811 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<SFML/Graphics.hpp>
+	"FuncionesGlobales.h"
 
 1625183063 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
@@ -3474,4 +3475,13 @@
 1624569787 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
 	"Puerto.h"
 	<cstring>
+
+1625784621 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	"FuncionesGlobales.h"
+	<SFML/Graphics.hpp>
+
+1625784616 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
 

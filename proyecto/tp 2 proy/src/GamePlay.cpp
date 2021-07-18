@@ -1,6 +1,7 @@
 #include "GamePlay.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "FuncionesGlobales.h"
 
 using namespace std;
 
@@ -20,6 +21,8 @@ const float estruct2CoordY=mapCoordY+(68*TAM);
 
 const float caminoCoordX=hexCoordX+(85*TAM);
 const float caminoCoordY=hexCoordY+(125*TAM);
+
+
 GamePlay::GamePlay()
 {
     init();
@@ -28,21 +31,21 @@ GamePlay::GamePlay()
 void GamePlay::init()
 {
     //Constantes para coordenadas
-
-
     srand(time(NULL));
-    //matriz de Coordenadas de hexagonos
-    float vecCoords[19][2]=
-    {
+
+    //--------------------MATRICES DE COORDENADAS--------------------------//
+
+    //---HEXAGONOS---//
+    float vecCoords[19][2]={
         hexCoordX,hexCoordY, hexCoordX+difX,hexCoordY, hexCoordX+(difX*2),hexCoordY,
         hexCoordX-(difX/2),hexCoordY+difY, hexCoordX-(difX/2)+difX,hexCoordY+difY, hexCoordX-(difX/2)+(difX*2),hexCoordY+difY, hexCoordX-(difX/2)+(difX*3),hexCoordY+difY,
         hexCoordX-difX,hexCoordY+(difY*2),  hexCoordX-difX+difX,hexCoordY+(difY*2),  hexCoordX-difX+(difX*2),hexCoordY+(difY*2),  hexCoordX-difX+(difX*3),hexCoordY+(difY*2),  hexCoordX-difX+(difX*4),hexCoordY+(difY*2),
         hexCoordX-(difX/2),hexCoordY+(difY*3), hexCoordX-(difX/2)+difX,hexCoordY+(difY*3), hexCoordX-(difX/2)+(difX*2),hexCoordY+(difY*3), hexCoordX-(difX/2)+(difX*3),hexCoordY+(difY*3),
         hexCoordX,hexCoordY+(difY*4), hexCoordX+difX,hexCoordY+(difY*4), hexCoordX+(difX*2),hexCoordY+(difY*4)
     };
-    //Matriz de coordenadas de espacios para estructuras
-    float espacioCoords[54][2]=
-    {
+
+    //---ESPACIOS DE ESTRUCTURAS---//
+    float espacioCoords[54][2]={
         estructCoordX,estructCoordY, estructCoordX+difX,estructCoordY, estructCoordX+(difX*2),estructCoordY,
         estruct2CoordX,estruct2CoordY, estruct2CoordX+difX,estruct2CoordY, estruct2CoordX+(difX*2),estruct2CoordY, estruct2CoordX+(difX*3),estruct2CoordY,
         estructCoordX-(difX*0.5),estructCoordY+difY, estructCoordX+(difX*0.5),estructCoordY+difY, estructCoordX+(difX*1.5),estructCoordY+difY, estructCoordX+(difX*2.5),estructCoordY+difY,
@@ -56,9 +59,9 @@ void GamePlay::init()
         estructCoordX-(difX*0.5),estructCoordY+(difY*5), estructCoordX+(difX*0.5),estructCoordY+(difY*5), estructCoordX+(difX*1.5),estructCoordY+(difY*5), estructCoordX+(difX*2.5),estructCoordY+(difY*5),
         estruct2CoordX+(difX*0.5),estruct2CoordY+(difY*5), estruct2CoordX+(difX*1.5),estruct2CoordY+(difY*5), estruct2CoordX+(difX*2.5),estruct2CoordY+(difY*5)
     };
-    //Matriz de coordenadas para caminos
-    float vecCoordCaminos[24][2] =
-    {
+
+    //---CAMINOS---//
+    float vecCoordCaminos[24][2] ={
         caminoCoordX-0.5*difX,caminoCoordY-difY,caminoCoordX+0.5*difX,caminoCoordY-difY,caminoCoordX+1.5*difX,caminoCoordY-difY,
         caminoCoordX-difX,caminoCoordY,caminoCoordX,caminoCoordY,caminoCoordX+difX,caminoCoordY,caminoCoordX+2*difX,caminoCoordY,
         caminoCoordX-1.5*difX,caminoCoordY+difY,caminoCoordX-0.5*difX,caminoCoordY+difY,caminoCoordX+0.5*difX,caminoCoordY+difY,caminoCoordX+1.5*difX,caminoCoordY+difY,caminoCoordX+2.5*difX,caminoCoordY+difY,
@@ -66,15 +69,13 @@ void GamePlay::init()
         caminoCoordX-0.5*difX,caminoCoordY+3*difY,caminoCoordX+0.5*difX,caminoCoordY+3*difY,caminoCoordX+1.5*difX,caminoCoordY+3*difY,caminoCoordX+2.5*difX,caminoCoordY+3*difY,
         caminoCoordX,caminoCoordY+4*difY,caminoCoordX+difX,caminoCoordY+4*difY,caminoCoordX+2*difX,caminoCoordY+4*difY
     };
+
     //Cargar ventana
     ventana.create(sf::VideoMode(1280,720),"Catan");
 
 
     //Cargar textura para espacio de estructuras
-
-
-    for(int i=0; i < 54 ; i++ )
-    {
+    for(int i=0; i < 54 ; i++ ){
         espacioCasas[i].cargarTextura("sprites/recursos/seleccionador.png");
         espacioCasas[i].setScale(TAM*1.8,TAM*1.8);
         espacioCasas[i].setPosition(espacioCoords[i][0],espacioCoords[i][1]);
@@ -82,35 +83,25 @@ void GamePlay::init()
     }
 
 
+    //----------PRUEBA------------//
     //Cargar textura para una casa para jugador 1
     casa.cargarTextura("sprites/estructuras/casaRoja.png");
     casa.setScale(TAM,TAM);
     casa.setPosition(espacioCoords[8][0]*0.96,espacioCoords[8][1]*0.86);
     casa.setNumJugador(2);
     casa.setEspacio(espacioCasas[8]);
-    /*
-    //Asignar a los hexagonos que colisionen la casa
-    sf::FloatRect FCasa=casa.getGlobalBounds();
-    sf::FloatRect Fhexagono;
-    for(int i=0;i<19;i++){
-        Fhexagono=hexagonos[i].getGlobalBounds();
-        if (Fhexagono.intersects(FCasa)){
-            hexagonos[i].setEstructuras(casa.getNumJugador());
-        }
-    }*/
+
 
     Espacio auxEspacioCasa=casa.getEspacio();
-
+    int numeroJugador;
     for(int i=0; i<4;i++){
         int aux;
-        //cout<<auxEspacioCasa.getHexagonos()[i]<<endl;
         if(auxEspacioCasa.getHexagonos()[i]!=-1){
             aux=auxEspacioCasa.getHexagonos()[i];
-            //cout<<aux<<endl;
-            hexagonos[aux].setEstructuras(casa.getNumJugador());
+            numeroJugador=casa.getNumJugador();
+            hexagonos[aux].setEstructuras(numeroJugador);
         }
     };
-
 
     //verificar cuales hexagonos estan tocando casa
     for(int i=0;i<19;i++){
@@ -121,37 +112,24 @@ void GamePlay::init()
         }
     }
 
-
-/*
-    //Cargar textura para una casa para jugador 2
-    casa2.cargarTextura("sprites/estructuras/casaVerde.png");
-    casa2.setScale(TAM*1,TAM*1);
-    casa2.setPosition(espacioCoords[9][0]*0.95,espacioCoords[9][1]*0.88);
-    casa2.setNumJugador(3);
-*/
-
-
     //Cargar texturas mapa
     mapa.cargarTextura("sprites/mapas/mapa2.png");
     mapa.setScale(TAM,TAM);
     mapa.setPosition(mapCoordX,mapCoordY);
     ventana.draw(mapa);
 
-    //Cargar textura caminos
-    for (int i=0; i<48; i++)
-    {
+    //---------CARGAR Y DIBUJAR CAMINOS INCLINADOS---------//
+    for (int i=0; i<48; i++){
         float multiplo;
-        //Dibujar caminos en 45grados
-        if(i%2==0)
-        {
+        //---CAMINOS 45 GRADO --//
+        if(i%2==0){
             caminos[i].cargarTextura("sprites/estructuras/verde28g.png");
             caminos[i].setScale(TAM*0.86,TAM*0.86);
             caminos[i].setPosition(vecCoordCaminos[i/2][0],vecCoordCaminos[i/2][1]);
             ventana.draw(caminos[i]);
         }
-        //Dibujar caminos en -45grados
-        else
-        {
+        //--- CAMINOS -45 GRADOS---/
+        else{
             caminos[i].cargarTextura("sprites/estructuras/caminoVerde-28G.png");
             caminos[i].setScale(TAM*0.86,TAM*0.86);
 
@@ -176,9 +154,9 @@ void GamePlay::init()
             ventana.draw(caminos[i]);
         }
     }
-//Dibujar caminos en verticales
-    for(int i=48; i < 74 ; i++ )
-    {
+
+   //---------CARGAR Y DIBUJAR CAMINOS VERTICALES---------//
+    for(int i=48; i < 74 ; i++ ){
 
         caminos[i].cargarTextura("sprites/estructuras/camino90G.png");
         caminos[i].setScale(TAM*0.86,TAM*0.86);
@@ -210,7 +188,6 @@ void GamePlay::init()
     }
 
     TIPO_HEX tiposHexagonos[19]= {HEXARBOL,HEXTRIGO,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL,HEXMINERAL,HEXARBOL,HEXTRIGO,HEXLADRILLO,HEXTRIGO,HEXOVEJA,HEXOVEJA,HEXARBOL,HEXLADRILLO,HEXMINERAL,HEXDESIERTO};
-
     {
         // asignamos tipo
         bool asignados[19] {};
@@ -279,12 +256,6 @@ void GamePlay::init()
         }
     }
 
-
-    /*fuente.loadFromFile("fuentes/LEMONMILK-Bold.otf");
-    texto.setFont(fuente);
-    texto.setString("12");
-    texto.setColor(sf::Color(0,0,0));
-    texto.setPosition(mapCoordX+(662*TAM), mapCoordY+(132*TAM));*/
 
     //se cargan los objetos, texturas y posiciones.
 
@@ -366,32 +337,43 @@ void GamePlay::update()
 
 void GamePlay::draw()
 {
+    //REFRESCAR VENTANA
     ventana.clear(sf::Color(96, 159, 253));
     //Dibujar texturas
+
+    //MAPA
     ventana.draw(mapa);
+
+    //HEXAGONOS
     for (int i=0; i<19; i++)
     {
         ventana.draw(hexagonos[i]);
     };
-    //ventana.draw(texto);
 
-
+    //CAMINOS
     for (int i=0; i<74; i++)
     {
         ventana.draw(caminos[i]);
     };
 
+    //ESPACIO CASAS
     for(int i=0; i < 54; i++)
     {
         ventana.draw(espacioCasas[i]);
     }
+
+    //DESIERTO
     for(int i = 0; i < 19; i++)
     {
         if(hexagonos[i].getTipo() != HEXDESIERTO)
             ventana.draw(hexagonos[i].getFicha());
     }
+
+    //CASAS
     ventana.draw(casa);
     ventana.draw(casa2);
+
+    //DADOS
     ventana.draw(dados[0]);
     ventana.draw(dados[1]);
 
@@ -408,6 +390,7 @@ void GamePlay::finish()
 
 void GamePlay::cargarEspacios()
 {
+    //
     sf::FloatRect _espacio;
     int *v;
     int pos;
@@ -418,9 +401,12 @@ void GamePlay::cargarEspacios()
         v = new int[4] {-1,-1,-1,-1};
         pos = 0;
         _espacio = espacioCasas[i].getGlobalBounds();
+
+        //
         for(int j = 0; j < 19 ; j++)
         {
             _hexagono = hexagonos[j].getGlobalBounds();
+
             if(_espacio.intersects(_hexagono))
             {
                 v[pos] = j;
@@ -432,6 +418,7 @@ void GamePlay::cargarEspacios()
         delete v;
     }
 
+    //
     for(int i = 0; i <54 ; i ++)
     {
         cout << "Punto "<<i+1<<": ";
@@ -445,10 +432,12 @@ void GamePlay::cargarEspacios()
 }
 void GamePlay::cargarCaminos()
 {
+    //
     sf::FloatRect _espacio, _hexagono;
     int *v;
     int pos;
 
+    //
     for(int i =0; i < 74; i++)
     {
         v = new int[4] {-1,-1,-1,-1};
@@ -468,6 +457,7 @@ void GamePlay::cargarCaminos()
         delete v;
     }
 
+    //
     for(int i = 0; i <74 ; i ++)
     {
         cout << "Camino "<<i+1<<": ";
