@@ -9,7 +9,11 @@ public:
     sf::Texture getTex();
     void cargarTextura(char *);
 
+    void setMostrar(bool);
+    bool getMostrar();
+
 protected:
+    bool mostrar=true;
     sf::Texture tex;
 
 

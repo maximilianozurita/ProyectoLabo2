@@ -1,16 +1,15 @@
 #ifndef CAMINO_H
 #define CAMINO_H
 #include "Espacio.h"
+#include "Estructura.h"
 #include <SFML/Graphics.hpp>
 
-class Camino: public Espacio {
+class Camino: public Estructura{
 public:
-    void setCoord(sf::Vector2f);
-    sf::Vector2f getCoord();
-
+    void cargarTextura()override;
+    void setEspacio(Espacio)override;
 private:
-    sf::Vector2f coord;
-    //Inclinación
+
 };
 
 #endif // CAMINO_H

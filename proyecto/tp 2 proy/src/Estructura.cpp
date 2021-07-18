@@ -1,9 +1,10 @@
 #include <iostream>
-using namespace std;
 #include <cstring>
 #include "Estructura.h"
 #include "Espacio.h"
 #include <SFML/Graphics.hpp>
+
+using namespace std;
 
 int Estructura::getNumJugador()
 {
@@ -23,4 +24,24 @@ void Estructura::setNumJugador(int _numJugador)
 void Estructura::setEspacio(Espacio _espacio)
 {
     espacio = _espacio;
+    setPosition(espacio.getPosition().x-15,espacio.getPosition().y-18);
+    setScale(espacio.getScale().x*0.55,espacio.getScale().y*0.55);
+
+}
+
+void Estructura::cargarTextura()
+{
+
+    switch(numJugador)
+    {
+        case 1: tex.loadFromFile("sprites/estructuras/casaRoja.png");
+                break;
+
+        case 2: tex.loadFromFile("sprites/estructuras/casaAzul.png");
+                break;
+
+        case 3: tex.loadFromFile("sprites/estructuras/casaVerde.png");
+                break;
+    }
+    setTexture(tex);
 }

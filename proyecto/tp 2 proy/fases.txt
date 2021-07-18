@@ -1,0 +1,29 @@
+
+colocar casas
+	for(cant jugadores)
+	{
+	coloca una casa
+		coloca un camino
+	coloca otra casa
+		coloca otro camino
+	}
+fin colocar casas
+
+inicio de partida
+	tirar dados 
+		construye(casa, edificio, camino)
+		intecambia(con el banco o con jugadores)
+		finaliza
+//////
+enum ESTADO {1TIRAR DATOS, 
+		//SI SALE 7 EL JUGADOR SELECCIONA EL HEXAGONO DONDE SE MOVERÁ EL LADRON) 
+		2SELECCIONAR_ACCION
+			2.1CONSTRUCCION
+				2.1.1SELECCION ( debe saberse qué quiere construir
+					2.1.1 .1COLOCACION (debe mostrarse los espacios de lo que va a construir (camino, casa), en caso de edificio no debe mostrarse nada)
+						(tambien debe crearse un objeto camino/casa/edificio con información del jugador, cargarse su textura)
+			2.2FINALIZAR(debe cambiarse el turno del jugador para que el siguiente pueda tirar los dados)			
+ }
+
+
+

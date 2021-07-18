@@ -10,6 +10,7 @@ public:
     int getNumero();
     void setNumero(int);
     void cargarFicha();
+    void variarFicha();
 private:
     int numero;
 

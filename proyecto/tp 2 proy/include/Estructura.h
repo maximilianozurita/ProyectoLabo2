@@ -8,10 +8,11 @@ class Estructura: public Entidad {
 public:
     int getNumJugador();
     Espacio getEspacio();
-    void setEspacio(Espacio);
+    virtual void setEspacio(Espacio);
+    virtual void cargarTextura();
     void setNumJugador(int);
 
-private:
+protected:
     int numJugador;
     Espacio espacio;
 

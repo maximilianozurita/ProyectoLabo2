@@ -26,11 +26,12 @@ public:
     void fichaSetPosition(float, float);
     void cargarFicha();
     void subirNivel(int);
+    void variarFicha();
 
 
 private:
-    int estructuras[3]{};
-    int nivel[3]{};
+    int estructuras[3];
+    int nivel[3];
 
     TIPO_HEX tipo;
     Ficha valor;
