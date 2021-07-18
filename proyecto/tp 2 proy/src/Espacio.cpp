@@ -28,6 +28,8 @@ void Espacio::setDisponible(bool _disponible)
 void Espacio::setOcupado(bool _ocupado)
 {
     ocupado = _ocupado;
+    if(ocupado)
+        setDisponible(false);
 }
 
 void Espacio::setNumero(int _numero)

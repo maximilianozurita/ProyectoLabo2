@@ -2298,7 +2298,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626563760 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626583892 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -2328,11 +2328,11 @@
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1626219139 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+1626574361 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625980777 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\camino.h
+1626585186 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\camino.h
 	"Espacio.h"
 	"Estructura.h"
 	<SFML/Graphics.hpp>
@@ -2346,7 +2346,7 @@
 1625449687 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
 	"Entidad.h"
 
-1625985380 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
+1626586223 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
 	<iostream>
 	<cstring>
 	"Camino.h"
@@ -2373,7 +2373,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626037514 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
+1626586618 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -2382,7 +2382,7 @@
 1625449687 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626565322 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626591147 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
@@ -2408,14 +2408,14 @@
 	"Puerto.h"
 	<cstring>
 
-1625985896 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\estructura.cpp
+1626586329 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\estructura.cpp
 	<iostream>
 	<cstring>
 	"Estructura.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1625985897 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
+1626584334 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
 	"Entidad.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>

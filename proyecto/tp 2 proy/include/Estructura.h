@@ -9,6 +9,7 @@ public:
     int getNumJugador();
     Espacio getEspacio();
     virtual void setEspacio(Espacio);
+    virtual void cargarTextura();
     void setNumJugador(int);
 
 protected:

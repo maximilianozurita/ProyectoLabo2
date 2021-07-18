@@ -6,9 +6,9 @@ using namespace std;
 
 void Camino::cargarTextura()
 {
-    char *camino90G;
-    char *caminoM28G;
-    char *camino28G;
+    char camino90G[40];
+    char caminoM28G[40];
+    char camino28G[40];
 
     switch(numJugador)
     {
@@ -39,4 +39,13 @@ void Camino::cargarTextura()
         tex.loadFromFile(camino90G);
 
     setTexture(tex);
+
+}
+
+void Camino::setEspacio(Espacio _espacio)
+{
+    espacio = _espacio;
+    setPosition(espacio.getPosition());
+    setScale(espacio.getScale());
+
 }

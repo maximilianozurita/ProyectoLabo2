@@ -28,8 +28,8 @@ protected:
     int espacioCaminos[4];
     int espacioCasas[2];
     int numero;
-    bool disponible;
-    bool ocupado;
+    bool disponible=true;
+    bool ocupado=false;
 };
 /// Espacio auxEspacio = casa.getEspacio()
    ///     if()

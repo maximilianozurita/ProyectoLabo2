@@ -6,7 +6,8 @@
 
 class Camino: public Estructura{
 public:
-    void cargarTextura();
+    void cargarTextura()override;
+    void setEspacio(Espacio)override;
 private:
 
 };

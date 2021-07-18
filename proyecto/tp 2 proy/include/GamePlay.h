@@ -12,8 +12,7 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
-enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,SELECCION_ESTRUCTURA,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,
-            FINALIZAR};
+enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO};
 //faltan incluir las dem�s clases que se usan como atributos
 
 class GamePlay
@@ -30,20 +29,20 @@ class GamePlay
         Map mapa;
         Ladron ladron;
         Dado dados[2];
-        Estructura casa;
+        Estructura casas[54];
         Carta cartas[2][5];
         sf::Text textCartasPuntos[2][5];
         sf::Text textNumCaminos[72];
         bool pressA;
 
-        Estructura casa2;
-        Camino caminos[74];
+        Camino caminos[72];
         Hexagono hexagonos[19];
         ///Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
+        int turno;
 
         ///BOTONES
         Entidad bConstruir, bFinalizar, bCasa, bEdificio, bCamino;
@@ -61,6 +60,7 @@ class GamePlay
 
         void cargarVecCaminos();
         void cargarBotones();
+        void prueba();
 
 };
 
