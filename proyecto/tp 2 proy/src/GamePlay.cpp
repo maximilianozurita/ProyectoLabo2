@@ -45,6 +45,7 @@ void GamePlay::init()
     cargarVecCaminos();
     cargarCaminos();
     cargarEspacios();
+    cargarBotones();
 
 
 
@@ -166,7 +167,12 @@ void GamePlay::update()
 {
     switch(estado)
     {
- case TIRAR_DADO:
+    case TIRAR_DADO:
+        bFinalizar.setMostrar(false);
+        bConstruir.setMostrar(false);
+        bCasa.setMostrar(false);
+        bCamino.setMostrar(false);
+        bEdificio.setMostrar(false);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 
         {
@@ -210,21 +216,221 @@ void GamePlay::update()
         }
         else
         {
-            //Sleep(5);
-            for(int i= 0; i < 19; i++)
+            if(pressA)
             {
-                hexagonos[i].cargarFicha();
+                //Sleep(5);
+                for(int i= 0; i < 19; i++)
+                {
+                    hexagonos[i].cargarFicha();
+                }
+                estado = SELECCIONAR_ACCION;
+                pressA = false;
+                cout << "Se pasó a seleccionar accion"<<endl;
             }
-
-            pressA = false;
         }
 
         break;
 
-/*case CONSTRUCCION: cout << "Ahora te toca construir";
-                        estado = SELECCION;
-                        break;*/
-    }
+    /*case CONSTRUCCION: cout << "Ahora te toca construir";
+                            estado = SELECCION;
+                            break;*/
+
+    case SELECCIONAR_ACCION:///DEBE PRESIONAR EL BOTON CONSTRUIR O FINALIZAR
+
+        bFinalizar.setMostrar(true);
+        bConstruir.setMostrar(true);
+        bCasa.setMostrar(false);
+        bCamino.setMostrar(false);
+        bEdificio.setMostrar(false);
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton construir
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+            sf::FloatRect _bConstruir = bConstruir.getGlobalBounds();///tomando el floatRect del Boton
+
+            if(_bConstruir.contains(mouseCoords))///preguntamos si las coords que tomo el mouse son del boton
+            {
+                if(!pressA)
+                {
+                    pressA=true;
+                    cout << "Se presiono boton construir"<<endl;
+
+
+                }
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+
+                estado = CONSTRUCCION;
+                pressA =false;
+            }
+        }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton FINALIZAR
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = FINALIZAR;
+                pressA=false;
+            }
+        }
+        break;
+
+    case CONSTRUCCION:///DEBE SELECCIONAR QUE CONSTRUIR(CASA, EDIFICIO O CAMINO)
+
+        bFinalizar.setMostrar(false);
+        bConstruir.setMostrar(false);
+        bCasa.setMostrar(true);
+        bCamino.setMostrar(true);
+        bEdificio.setMostrar(true);
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton CASA
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = COLOCACION_CASA;
+                pressA=false;
+            }
+        }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton EDIFICIO
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = COLOCACION_EDIFICIO;
+                pressA=false;
+            }
+        }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton CAMINO
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = COLOCACION_CAMINO;
+                pressA=false;
+            }
+        }
+        break;
+
+    case COLOCACION_CAMINO:
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar el CAMINO que quiere
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = SELECCIONAR_ACCION;
+                pressA=false;
+            }
+        }
+        break;
+
+    case COLOCACION_CASA:
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar la CASA que quiere
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = SELECCIONAR_ACCION;
+                pressA=false;
+            }
+        }
+        break;
+
+    case COLOCACION_EDIFICIO:
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar el EDIFICIO que quiere
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = SELECCIONAR_ACCION;
+                pressA=false;
+            }
+        }
+        break;
+
+    case FINALIZAR:
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///cuando presiona el boton FINALIZAR
+        {
+
+            if(!pressA)
+            {
+                pressA=true;
+                ///aquí va el código a hacer
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = TIRAR_DADO;
+                pressA=false;
+            }
+        }
+        break;
+    }///FIN SWITCH
 }
 
 void GamePlay::draw()
@@ -270,6 +476,16 @@ void GamePlay::draw()
     {
         ventana.draw(textNumCaminos[i]);
     }
+    if(bConstruir.getMostrar())
+        ventana.draw(bConstruir);
+    if(bFinalizar.getMostrar())
+        ventana.draw(bFinalizar);
+    if(bCasa.getMostrar())
+        ventana.draw(bCasa);
+    if(bEdificio.getMostrar())
+        ventana.draw(bEdificio);
+    if(bCamino.getMostrar())
+        ventana.draw(bCamino);
     ventana.display();
 
 
@@ -626,4 +842,29 @@ void GamePlay::cargarVecCaminos()
 
     for(int i = 0; i < 72; i ++)
         espacioCaminos[i].setNumero(i);
+}
+
+void GamePlay::cargarBotones()
+{
+    bConstruir.cargarTextura("sprites/recursos/botonConstruir.png");
+    bConstruir.setScale(TAM*0.7,TAM*0.7);
+    bConstruir.setPosition(50,600);
+
+    bFinalizar.cargarTextura("sprites/recursos/botonFinalizar.png");
+    bFinalizar.setScale(TAM*0.7,TAM*0.7);
+    bFinalizar.setPosition(200,600);
+
+    bCasa.cargarTextura("sprites/recursos/botonCasa.png");
+    bCasa.setScale(TAM*0.5,TAM*0.5);
+    bCasa.setPosition(30,650);
+
+    bEdificio.cargarTextura("sprites/recursos/botonEdificio.png");
+    bEdificio.setScale(TAM*0.5,TAM*0.5);
+    bEdificio.setPosition(140,650);
+
+    bCamino.cargarTextura("sprites/recursos/botonCamino.png");
+    bCamino.setScale(TAM*0.5,TAM*0.5);
+    bCamino.setPosition(250,650);
+
+    //bCamino.setMostrar(false);
 }

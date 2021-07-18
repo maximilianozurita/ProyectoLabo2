@@ -12,7 +12,8 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
-enum ESTADO {TIRAR_DADO,CONSTRUCCION,SELECCION};
+enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,SELECCION_ESTRUCTURA,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,
+            FINALIZAR};
 //faltan incluir las dem�s clases que se usan como atributos
 
 class GamePlay
@@ -43,6 +44,10 @@ class GamePlay
         sf::Text texto;
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
+
+        ///BOTONES
+        Entidad bConstruir, bFinalizar, bCasa, bEdificio, bCamino;
+
         void init();
         void update();
         void draw();
@@ -55,6 +60,7 @@ class GamePlay
         void cargarEspacios();
 
         void cargarVecCaminos();
+        void cargarBotones();
 
 };
 
