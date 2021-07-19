@@ -3,6 +3,7 @@
 #include <string>
 #include <windows.h>
 #include <SFML/Graphics.hpp>
+#include "FuncionesGlobales.h"
 
 
 using namespace std;
@@ -23,6 +24,8 @@ const float estruct2CoordY=mapCoordY+(68*TAM);
 
 const float caminoCoordX=hexCoordX+(85*TAM);
 const float caminoCoordY=hexCoordY+(125*TAM);
+
+
 GamePlay::GamePlay()
 {
 
@@ -39,7 +42,7 @@ void GamePlay::init()
     //system("pause");
 
     ventana.setFramerateLimit(60);
-    ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Catán");
+    ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Catï¿½n");
     fuente.loadFromFile("fuentes/minecraft/Minecraft.ttf");
     textCargando.setFont(fuente);
     textCargando.setPosition(450,300);
@@ -49,8 +52,11 @@ void GamePlay::init()
     ventana.clear(sf::Color::White);
     ventana.draw(textCargando);
     ventana.display();
-
     srand(time(NULL));
+
+    //--------------------MATRICES DE COORDENADAS--------------------------//
+
+
     //matriz de Coordenadas de hexagonos
 
 
@@ -259,6 +265,7 @@ void GamePlay::update()
                     cout << "Se paso a seleccionar accion"<<endl;
                 }
                 pressA = false;
+                cout << "Se pasï¿½ a seleccionar accion"<<endl;
             }
         }
 
@@ -552,19 +559,44 @@ void GamePlay::update()
         bEdificio.setMostrar(false);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar el CAMINO que quiere
         {
-
-            if(!pressA)
-            {
-                pressA=true;
-                cout << "Se coloco estructura"<<endl;
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
 
-                ///código limpieza, pone los espacios mostrados en false luego de elegir
-                for(int i =0; i < 72; i++)
+            if(!pressA){
+            pressA=true;
+
+                for (int i=0;i<72;i++)
                 {
-                    espacioCaminos[i].setMostrar(false);
+                    if(espacioCaminos[i].getMostrar())
+                    {
+                        sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
+                        if(_espacioCaminos.contains(mouseCoords))
+                        {
+                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1)
+                            {
+                                caminos[i].setEspacio(espacioCaminos[i]);
+                                caminos[i].setNumJugador(turno);
+                                caminos[i].cargarTextura();
+                                espacioCaminos[i].setOcupado(true);
+
+                                //Consumo de recursos
+                                jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
+                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
+                            }
+                            else
+                            {
+                                cout<<"No hay recursos suficientes"<<endl;
+                            }
+                        }
+                    }
                 }
             }
+            ///cï¿½digo limpieza, pone los espacios mostrados en false luego de elegir
+            for(int i =0; i < 72; i++)
+            {
+                espacioCaminos[i].setMostrar(false);
+            }
+
         }
         else
         {
@@ -584,19 +616,45 @@ void GamePlay::update()
         bEdificio.setMostrar(false);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar la CASA que quiere
         {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
-            if(!pressA)
-            {
-                pressA=true;
-                cout << "Se coloco estructura"<<endl;
+            if(!pressA){
+            pressA=true;
 
+                for (int i=0;i<54;i++)
+                {
+                    if(espacioCasas[i].getMostrar())
+                    {
+                        sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
+                        if(_espacioCasas.contains(mouseCoords))
+                        {
+                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
+                            {
+                                casas[i].setNumJugador(turno);
+                                casas[i].cargarTextura();
+                                casas[i].setEspacio(espacioCasas[i]);
+                                espacioCasas[i].setOcupado(true);
 
-                ///código limpieza, pone los espacios mostrados en false luego de elegir
+                                //Consumo de recursos
+                                jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
+                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
+                                jugadores[turno].setTrigo(jugadores[turno].getTrigo()-1);
+                                jugadores[turno].setLana(jugadores[turno].getLana()-1);
+                            }
+                            else
+                            {
+                                cout<<"No hay recursos suficientes"<<endl;
+                            }
+                        }
+                    }
+                }
+            }
+
+                ///codigo limpieza, pone los espacios mostrados en false luego de elegir
                 for(int i =0; i < 54; i++)
                 {
                     espacioCasas[i].setMostrar(false);
                 }
-            }
         }
         else
         {
@@ -616,18 +674,43 @@ void GamePlay::update()
         bEdificio.setMostrar(false);
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar el EDIFICIO que quiere
         {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
-            if(!pressA)
-            {
-                pressA=true;
-                cout << "Se coloco estructura"<<endl;
+            if(!pressA){
+            pressA=true;
 
 
-                ///código limpieza, pone los espacios mostrados en false luego de elegir
+                ///cï¿½digo limpieza, pone los espacios mostrados en false luego de elegir
                 for(int i =0; i < 54; i++)
                 {
-                    espacioCasas[i].setMostrar(false);
-                }
+                    if(espacioCiudad[i].getMostrar())
+                    {
+                        sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
+                        if(_espacioCiudad.contains(mouseCoords))
+                        {
+                            if(jugadores[turno].getLadrillo()>=3 && jugadores[i].getTrigo()>=2)
+                            {
+                                ciudad[i].setNumJugador(turno);
+                                ciudad[i].cargarTextura();
+                                ciudad[i].setEspacio(espacioCasas[i]);
+                                espaciociudad[i].setOcupado(true);
+
+                                //Consumo de recursos
+                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-3);
+                                jugadores[turno].setTrigo(jugadores[turno].getTrigo()-2);
+                            }
+                            else
+                            {
+                                cout<<"No hay recursos suficientes"<<endl;
+                            }
+                        }
+                    }
+                }*/
+            }
+            ///cï¿½digo limpieza, pone los espacios mostrados en false luego de elegir
+            for(int i =0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
             }
         }
         else
@@ -740,9 +823,12 @@ void GamePlay::cargarEspacios()
         v = new int[4] {-1,-1,-1,-1};
         pos = 0;
         _espacio = espacioCasas[i].getGlobalBounds();
+
+        //
         for(int j = 0; j < 19 ; j++)
         {
             _hexagono = hexagonos[j].getGlobalBounds();
+
             if(_espacio.intersects(_hexagono))
             {
                 v[pos] = j;
@@ -754,6 +840,7 @@ void GamePlay::cargarEspacios()
         delete v;
     }
 
+    //
     for(int i = 0; i <54 ; i ++)
     {
         cout << "Punto "<<i+1<<": ";
@@ -897,7 +984,7 @@ void GamePlay::cargarCaminos()///
     }
 }
 
-void GamePlay::cargarHexagonos()///Carga el hexágono y les asigna el tipo
+void GamePlay::cargarHexagonos()///Carga el hexï¿½gono y les asigna el tipo
 {
 
     float vecCoords[19][2]=

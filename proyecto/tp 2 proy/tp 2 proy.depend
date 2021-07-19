@@ -2957,7 +2957,7 @@
 	<SFML/Graphics.hpp>
 	"Hexagono.h"
 
-1624569786 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1625782646 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -3374,14 +3374,14 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\entidad.h
 	<SFML/Graphics.hpp>
 
 1624569786 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\dado.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625177619 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -3392,6 +3392,7 @@
 	"Estructura.h"
 	"Camino.h"
 	"Hexagono.h"
+	"Carta.h"
 
 1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
 	"Hexagono.h"
@@ -3406,29 +3407,30 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625175695 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\estructura.h
 	"Entidad.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1624569786 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\camino.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\camino.h
 	"Espacio.h"
+	"Estructura.h"
 	<SFML/Graphics.hpp>
 
-1625181157 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	"Estructura.h"
 	<SFML/Graphics.hpp>
 
-1625169773 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
 	"Entidad.h"
 
-1624569787 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\camino.cpp
 	<iostream>
 	<cstring>
 	"Camino.h"
@@ -3442,34 +3444,37 @@
 	"Dado.h"
 	<time.h>
 
-1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\entidad.cpp
 	<iostream>
 	<cstring>
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\espacio.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
 	"Espacio.h"
 
-1624569787 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\estructura.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\estructura.cpp
 	<iostream>
 	<cstring>
 	"Estructura.h"
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1625182877 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626656415 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
+	<string>
+	<windows.h>
 	<SFML/Graphics.hpp>
+	"FuncionesGlobales.h"
 
-1625183063 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
 1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
@@ -3496,4 +3501,19 @@
 	"Saludo.h"
 	<SFML/Graphics.hpp>
 	<iostream>
+1625784621 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	"FuncionesGlobales.h"
+	<SFML/Graphics.hpp>
+
+1625784616 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
+
+1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\carta.h
+	<SFML/Graphics.hpp>
+	"Hexagono.h"
+
+1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\carta.cpp
+	"Carta.h"
 
