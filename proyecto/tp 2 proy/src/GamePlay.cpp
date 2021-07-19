@@ -33,17 +33,11 @@ GamePlay::GamePlay()
 
 void GamePlay::init()
 {
-    //Constantes para coordenadas
     srand(time(NULL));
 
-    //--------------------MATRICES DE COORDENADAS--------------------------//
-
-    srand(time(NULL));
-    //matriz de Coordenadas de hexagonos
 
     ventana.setFramerateLimit(60);
     ventana.create(sf::VideoMode(1280,720),"Catan");
-
 
     cargarVecEspacios();
     cargarHexagonos();
@@ -52,53 +46,37 @@ void GamePlay::init()
     cargarEspacios();
     cargarBotones();
 
-
-
-
-
-    //Matriz de coordenadas de espacios para estructuras
-
-    //Matriz de coordenadas para caminos
-
-    //Cargar ventana
-
-
-
-    //Cargar textura para espacio de estructuras
-
-
-
-
-
     //Cargar texturas mapa
     mapa.cargarTextura("sprites/mapas/mapa2.png");
     mapa.setScale(TAM,TAM);
     mapa.setPosition(mapCoordX,mapCoordY);
     ventana.draw(mapa);
 
-    //Se cargan los dados
+    //Cargar textura dado
     for(int i = 0; i < 2; i++)
     {
         dados[i].tirarDado();
         dados[i].setScale(TAM*0.6,TAM*0.7);
         dados[i].setPosition(700+(i*120),600);
+        ventana.draw(dados[i]);
     }
+    //ventana.draw(dados[0]);
+    //ventana.draw(dados[1]);
 
-
+//----------------------??? Espacio casas no hace falta dibujarlo
     for(int i=0; i < 54; i++)
     {
         ventana.draw(espacioCasas[i]);
     }
-
+//----------------------???
     for(int i = 0; i < 19; i++)
     {
         if(hexagonos[i].getTipo() != HEXDESIERTO)
             ventana.draw(hexagonos[i].getFicha());
     }
+//-------------------------
 
-    ventana.draw(dados[0]);
-    ventana.draw(dados[1]);
-
+    //fuente de puntaje y espacios
     fuente.loadFromFile("fuentes/roboto/Roboto-Black.ttf");
 
     TIPO_HEX tiposCartas[5]= {HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL};
@@ -501,18 +479,18 @@ void GamePlay::update()
                         sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
                         if(_espacioCaminos.contains(mouseCoords))
                         {
-                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1)
+                            //if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1)
                             {
                                 caminos[i].setEspacio(espacioCaminos[i]);
                                 caminos[i].setNumJugador(turno);
                                 caminos[i].cargarTextura();
                                 espacioCaminos[i].setOcupado(true);
 
-                                //Consumo de recursos
+                               /*//Consumo de recursos
                                 jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
-                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
+                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);*/
                             }
-                            else
+                            //else
                             {
                                 cout<<"No hay recursos suficientes"<<endl;
                             }
@@ -557,20 +535,34 @@ void GamePlay::update()
                         sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
                         if(_espacioCasas.contains(mouseCoords))
                         {
-                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
+                            //if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
                             {
                                 casas[i].setNumJugador(turno);
                                 casas[i].cargarTextura();
                                 casas[i].setEspacio(espacioCasas[i]);
                                 espacioCasas[i].setOcupado(true);
 
-                                //Consumo de recursos
+                                for(int j =0; j <4; j++)///coloca la disponibilidad de sus vecinos en false
+                                {
+                                    if(espacioCasas[i].getEspacioCaminos()[j] != -1)
+                                        for(int m = 0; m < 2; m++)
+
+                                            espacioCasas[espacioCaminos[espacioCasas[i].getEspacioCaminos()[j]].getEspacioCasas()[m]].setDisponible(false);
+                                }
+
+                                for(int j=0; j< 3; j++)///avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                                    if(espacioCasas[i].getHexagonos()[j] != -1)
+                                    {
+                                        hexagonos[espacioCasas[i].getHexagonos()[j]].setEstructuras(1);
+                                    }
+
+                                /*//Consumo de recursos
                                 jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
                                 jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
                                 jugadores[turno].setTrigo(jugadores[turno].getTrigo()-1);
-                                jugadores[turno].setLana(jugadores[turno].getLana()-1);
+                                jugadores[turno].setLana(jugadores[turno].getLana()-1);*/
                             }
-                            else
+                            //else
                             {
                                 cout<<"No hay recursos suficientes"<<endl;
                             }
@@ -735,6 +727,7 @@ void GamePlay::finish()
     //se muestran cosas al finalizar el juego
 }
 
+//--------------//
 void GamePlay::cargarEspacios()
 {
     sf::FloatRect _espacio;
@@ -1110,8 +1103,6 @@ void GamePlay::cargarVecCaminos()
             multiplo=i-48+23;
         }
         espacioCaminos[i].setPosition(espacioCoords[multiplo][0]+5,espacioCoords[multiplo][1]+11);
-
-        /*  ventana.draw(caminos[i]);*/
     }
 
     for(int i = 0; i < 72; i ++)
@@ -1145,6 +1136,7 @@ void GamePlay::cargarBotones()
 
 void GamePlay::prueba()
 {
+
 
     //Cargar textura para una casa para jugador 2
     casas[9].setNumJugador(1);

@@ -3419,7 +3419,7 @@
 	"Estructura.h"
 	<SFML/Graphics.hpp>
 
-1626629418 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1626733629 c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	"Estructura.h"
@@ -3464,7 +3464,7 @@
 1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626656415 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626733764 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
@@ -3472,7 +3472,7 @@
 	<SFML/Graphics.hpp>
 	"FuncionesGlobales.h"
 
-1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1626733882 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
 1625169773 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
