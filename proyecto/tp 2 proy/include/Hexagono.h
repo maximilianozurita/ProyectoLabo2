@@ -18,6 +18,8 @@ public:
     void setFicha(Ficha);
     void cargarHexagono();
     void setEstructuras(int);
+    void setNumero(int);
+    int getNumero();
 
     const int * getEstructuras();
     const int * getNivel();
@@ -32,7 +34,7 @@ public:
 private:
     int estructuras[3];
     int nivel[3];
-
+    int numero;
     TIPO_HEX tipo;
     Ficha valor;
 };

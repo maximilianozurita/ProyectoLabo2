@@ -1,18 +1,24 @@
 #ifndef LADRON_H
 #define LADRON_H
+#include "Hexagono.h"
 #include "Entidad.h"
 #include <SFML/Graphics.hpp>
 
 
-class Ladron: Entidad
+class Ladron:public Entidad
 {
     public:
         Ladron();
-        sf::Vector2f getUbicacion();
-        void setUbicacion(sf::Vector2f);
-        void reubicar(sf::Vector2f);
+        void setHexagonoBloqueado(Hexagono);
+        void setActivado(bool);
+
+        Hexagono getHexagonoBloqueado();
+        bool isActivado();
+
+        void reubicar();
     private:
-        sf::Vector2f ubicacion;
+        Hexagono hexagonoBloqueado;
+        bool activado=false;
 };
 
 #endif // LADRON_H

@@ -114,3 +114,12 @@ void Hexagono::variarFicha()
 {
     valor.variarFicha();
 }
+
+void Hexagono::setNumero(int _numero)
+{
+    numero = _numero;
+}
+int Hexagono::getNumero()
+{
+    return numero;
+}

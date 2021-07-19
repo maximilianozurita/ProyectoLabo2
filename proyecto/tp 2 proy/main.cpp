@@ -5,30 +5,18 @@ using namespace std;
 #include "Entidad.h"
 #include "Dado.h"
 #include "GamePlay.h"
+#include "Saludo.h"
 
 int main(){
 
-    GamePlay game;
+    Saludo saludo;
 
-    game.run();
+    saludo.run();
+    //GamePlay game;
 
-/*
-//Prueba dado
-Dado dado1;
-int option;
-cout<<"option: ";cin>>option;
-cout<<endl;
-while(option!=3){
-    switch (option){
-    case 1:
-    dado1.tirarDado();
-    cout<<dado1.getNumero()<<endl;
-    break;
-    }
-    cout<<"option: ";cin>>option;
-    cout<<endl;
-}
-*/
+    //game.run();
+
+
     return 0;
 
 }

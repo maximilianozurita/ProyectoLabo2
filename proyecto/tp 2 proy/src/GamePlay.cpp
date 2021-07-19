@@ -25,19 +25,33 @@ const float caminoCoordX=hexCoordX+(85*TAM);
 const float caminoCoordY=hexCoordY+(125*TAM);
 GamePlay::GamePlay()
 {
+
+
+
     init();
 }
+
+
 
 void GamePlay::init()
 {
     //Constantes para coordenadas
+    //system("pause");
 
+    ventana.setFramerateLimit(60);
+    ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Catán");
+    fuente.loadFromFile("fuentes/minecraft/Minecraft.ttf");
+    textCargando.setFont(fuente);
+    textCargando.setPosition(450,300);
+    textCargando.setString("CARGANDO");
+    textCargando.setColor(sf::Color::Black);
+    textCargando.setCharacterSize(72);
+    ventana.clear(sf::Color::White);
+    ventana.draw(textCargando);
+    ventana.display();
 
     srand(time(NULL));
     //matriz de Coordenadas de hexagonos
-
-    ventana.setFramerateLimit(60);
-    ventana.create(sf::VideoMode(1280,720),"Catan");
 
 
     cargarVecEspacios();
@@ -46,7 +60,6 @@ void GamePlay::init()
     cargarCaminos();
     cargarEspacios();
     cargarBotones();
-
 
 
 
@@ -135,8 +148,6 @@ void GamePlay::init()
     for(int i=0; i < 5; i++)
         for(int j=0; j < 2; j++)
             ventana.draw(cartas[j][i]);
-
-    ventana.display();
     estado = TIRAR_DADO;
     turno = 1;
 
@@ -194,6 +205,11 @@ void GamePlay::update()
                 Ficha auxFicha;
                 TIPO_HEX aux;
 
+                if(dados[0].getNumero() + dados[1].getNumero() == 7)
+                {
+                    ladron.setActivado(true);
+                }
+
 
                 for(int i = 0; i < 19; i++)
                 {
@@ -230,17 +246,66 @@ void GamePlay::update()
                 {
                     hexagonos[i].cargarFicha();
                 }
-                estado = SELECCIONAR_ACCION;
+
+                if(ladron.isActivado())
+                {
+                    estado = SELECCIONAR_HEX;
+                    cout << "Se paso a seleccionar hexagono";
+                    ladron.setActivado(false);
+                }
+                else
+                {
+                    estado = SELECCIONAR_ACCION;
+                    cout << "Se paso a seleccionar accion"<<endl;
+                }
                 pressA = false;
-                cout << "Se pasó a seleccionar accion"<<endl;
             }
         }
 
         break;
 
-    /*case CONSTRUCCION: cout << "Ahora te toca construir";
-                            estado = SELECCION;
-                            break;*/
+    case SELECCIONAR_HEX: ///DEBE REUBICAR AL LADRON A UN NUEVO HEXAGONO Y EL JUGADOR DEBE ROBAR UNA CARTA SI EN EL HEXAGONO
+        ///SELECCIONADO HAY UNA CASA ENEMIGA
+        bFinalizar.setMostrar(false);
+        bConstruir.setMostrar(false);
+        bCasa.setMostrar(false);
+        bCamino.setMostrar(false);
+        bEdificio.setMostrar(false);
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+            Hexagono hexagonoBloqueado = ladron.getHexagonoBloqueado();
+            for(int i = 0; i < 19; i++)
+            {
+                if(hexagonos[i].getNumero() != hexagonoBloqueado.getNumero())
+                {
+                    sf::FloatRect _hexagono = hexagonos[i].getGlobalBounds();
+                    if(_hexagono.contains(mouseCoords))
+                    {
+                        if(!pressA)
+                        {
+                            pressA = true;
+                            ladron.setHexagonoBloqueado(hexagonos[i]);
+                            ladron.reubicar();
+                        }
+
+                    }
+                }
+
+            }
+        }
+        else
+        {
+            if(pressA)
+            {
+                estado = SELECCIONAR_ACCION;
+                pressA =false;
+            }
+
+        }
+        break;
+
 
     case SELECCIONAR_ACCION:///DEBE PRESIONAR EL BOTON CONSTRUIR O FINALIZAR
 
@@ -455,7 +520,7 @@ void GamePlay::update()
                                 {
                                     for(int k = 0; k < 4; k++)
                                         if(espacioCasas[espacioCaminos[i].getEspacioCasas()[j]].getEspacioCaminos()[k] != -1)
-                                        espacioCaminos[espacioCasas[espacioCaminos[i].getEspacioCasas()[j]].getEspacioCaminos()[k]].setMostrar(false);
+                                            espacioCaminos[espacioCasas[espacioCaminos[i].getEspacioCasas()[j]].getEspacioCaminos()[k]].setMostrar(false);
                                 }
                     }
 
@@ -558,7 +623,7 @@ void GamePlay::update()
                 cout << "Se coloco estructura"<<endl;
 
 
-                 ///código limpieza, pone los espacios mostrados en false luego de elegir
+                ///código limpieza, pone los espacios mostrados en false luego de elegir
                 for(int i =0; i < 54; i++)
                 {
                     espacioCasas[i].setMostrar(false);
@@ -645,6 +710,8 @@ void GamePlay::draw()
         ventana.draw(bEdificio);
     if(bCamino.getMostrar())
         ventana.draw(bCamino);
+
+    ventana.draw(ladron);
 
 
     ventana.display();
@@ -870,6 +937,7 @@ void GamePlay::cargarHexagonos()///Carga el hexágono y les asigna el tipo
         hexagonos[i].cargarHexagono();
         hexagonos[i].setScale(TAM,TAM);
         hexagonos[i].setPosition(vecCoords[i][0], vecCoords[i][1]);
+        hexagonos[i].setNumero(i);
         ventana.draw(hexagonos[i]);
     }
 
@@ -908,6 +976,18 @@ void GamePlay::cargarHexagonos()///Carga el hexágono y les asigna el tipo
                 cont++;
             }
         }
+    }
+
+    ladron.cargarTextura("sprites/recursos/ladron.png");
+    ladron.setScale(TAM,TAM);
+
+    for(int i = 0; i < 19; i++)
+    {
+        if(hexagonos[i].getTipo() == HEXDESIERTO)
+            ladron.setHexagonoBloqueado(hexagonos[i]);
+        ladron.reubicar();
+
+
     }
 }
 

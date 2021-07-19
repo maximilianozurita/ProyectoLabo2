@@ -5,18 +5,26 @@ Ladron::Ladron()
     //ctor
 }
 
-sf::Vector2f Ladron::getUbicacion()
+void Ladron::setHexagonoBloqueado(Hexagono _hexagono)
 {
-    return ubicacion;
+    hexagonoBloqueado = _hexagono;
+}
+Hexagono Ladron::getHexagonoBloqueado()
+{
+    return hexagonoBloqueado;
+}
+void Ladron::reubicar()
+{
+    sf::Vector2f tam = hexagonoBloqueado.getScale();
+    setPosition(hexagonoBloqueado.getPosition().x+(65*tam.x),hexagonoBloqueado.getPosition().y+(85*tam.y));
 }
 
-void Ladron::setUbicacion(sf::Vector2f _ubicacion)
+void Ladron::setActivado(bool _activado)
 {
-    ubicacion = _ubicacion;
+    activado = _activado;
 }
 
-void Ladron::reubicar(sf::Vector2f nuevaUbicacion)
+bool Ladron::isActivado()
 {
-    setUbicacion(nuevaUbicacion);
+    return activado;
 }
-
