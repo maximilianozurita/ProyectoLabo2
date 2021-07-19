@@ -1874,7 +1874,7 @@
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 
-1626657652 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1626667085 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -3501,6 +3501,7 @@
 	"Saludo.h"
 	<SFML/Graphics.hpp>
 	<iostream>
+
 1625784621 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
 	<iostream>
 	<cstring>
@@ -3516,4 +3517,13 @@
 
 1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\carta.cpp
 	"Carta.h"
+
+1626666136 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	"FuncionesGlobales.h"
+	<SFML/Graphics.hpp>
+
+1626666136 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
 
