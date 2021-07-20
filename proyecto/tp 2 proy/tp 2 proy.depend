@@ -1874,7 +1874,7 @@
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 
-1626667085 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1626738618 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -2339,7 +2339,7 @@
 	"Estructura.h"
 	<SFML/Graphics.hpp>
 
-1626638962 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1626738993 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	"Estructura.h"
@@ -2384,14 +2384,15 @@
 1625449687 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626657267 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626742487 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
 	<windows.h>
 	<SFML/Graphics.hpp>
+	"FuncionesGlobales.h"
 
-1626638957 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1626738014 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
 1625105736 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp

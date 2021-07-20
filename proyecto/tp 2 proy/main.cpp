@@ -12,9 +12,9 @@ int main(){
     Saludo saludo;
 
     saludo.run();
-    //GamePlay game;
+    GamePlay game;
 
-    //game.run();
+    game.run();
 
 
 

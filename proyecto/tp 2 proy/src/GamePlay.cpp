@@ -187,6 +187,10 @@ void GamePlay::update()
             if(!pressA)
             {
                 pressA=true;
+                if(turno == 1)
+                    cout << "Turno ROJO"<<endl;
+                else
+                    cout << "Turno AZUL"<<endl;
                 ///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
                 dados[0].tirarDado();
                 dados[1].tirarDado();
@@ -546,28 +550,38 @@ void GamePlay::update()
             sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
 
-            if(!pressA){
-            pressA=true;
+            if(!pressA)
+            {
+                pressA=true;
 
-                for (int i=0;i<72;i++)
+                for (int i=0; i<72; i++)
                 {
                     if(espacioCaminos[i].getMostrar())
                     {
                         sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
                         if(_espacioCaminos.contains(mouseCoords))
                         {
-                            //if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1)
+                            if(jugadores[turno-1].getLadrillo()>=1 && jugadores[turno-1].getMadera()>=1)
                             {
                                 caminos[i].setEspacio(espacioCaminos[i]);
                                 caminos[i].setNumJugador(turno);
                                 caminos[i].cargarTextura();
                                 espacioCaminos[i].setOcupado(true);
 
-                               /*//Consumo de recursos
-                                jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
-                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);*/
+                                //Consumo de recursos
+                                jugadores[turno-1].setMadera(jugadores[turno-1].getMadera()-1);
+                                jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-1);
+
+                                for(int j = 0; j < 2; j++)///PASAR A FUNCION LUEGO
+                                    {
+                                        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
+                                        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
+                                        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
+                                        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
+                                        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
+                                    }
                             }
-                            //else
+                            else
                             {
                                 cout<<"No hay recursos suficientes"<<endl;
                             }
@@ -602,10 +616,11 @@ void GamePlay::update()
         {
             sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
-            if(!pressA){
-            pressA=true;
+            if(!pressA)
+            {
+                pressA=true;
 
-                for (int i=0;i<54;i++)
+                for (int i=0; i<54; i++)
                 {
                     if(espacioCasas[i].getMostrar())
                     {
@@ -648,11 +663,11 @@ void GamePlay::update()
                 }
             }
 
-                ///codigo limpieza, pone los espacios mostrados en false luego de elegir
-                for(int i =0; i < 54; i++)
-                {
-                    espacioCasas[i].setMostrar(false);
-                }
+            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
+            for(int i =0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
+            }
         }
         else
         {
@@ -674,36 +689,37 @@ void GamePlay::update()
         {
             sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
-            if(!pressA){
-            pressA=true;
+            if(!pressA)
+            {
+                pressA=true;
 
 
                 ///c�digo limpieza, pone los espacios mostrados en false luego de elegir
-               /* for(int i =0; i < 54; i++)
-                {
-                    if(espacioCiudad[i].getMostrar())
-                    {
-                        sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
-                        if(_espacioCiudad.contains(mouseCoords))
-                        {
-                            if(jugadores[turno].getLadrillo()>=3 && jugadores[i].getTrigo()>=2)
-                            {
-                                ciudad[i].setNumJugador(turno);
-                                ciudad[i].cargarTextura();
-                                ciudad[i].setEspacio(espacioCasas[i]);
-                                espaciociudad[i].setOcupado(true);
+                /* for(int i =0; i < 54; i++)
+                 {
+                     if(espacioCiudad[i].getMostrar())
+                     {
+                         sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
+                         if(_espacioCiudad.contains(mouseCoords))
+                         {
+                             if(jugadores[turno].getLadrillo()>=3 && jugadores[i].getTrigo()>=2)
+                             {
+                                 ciudad[i].setNumJugador(turno);
+                                 ciudad[i].cargarTextura();
+                                 ciudad[i].setEspacio(espacioCasas[i]);
+                                 espaciociudad[i].setOcupado(true);
 
-                                //Consumo de recursos
-                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-3);
-                                jugadores[turno].setTrigo(jugadores[turno].getTrigo()-2);
-                            }
-                            else
-                            {
-                                cout<<"No hay recursos suficientes"<<endl;
-                            }
-                        }
-                    }
-                }*/
+                                 //Consumo de recursos
+                                 jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-3);
+                                 jugadores[turno].setTrigo(jugadores[turno].getTrigo()-2);
+                             }
+                             else
+                             {
+                                 cout<<"No hay recursos suficientes"<<endl;
+                             }
+                         }
+                     }
+                 }*/
             }
             ///codigo limpieza, pone los espacios mostrados en false luego de elegir
             for(int i =0; i < 54; i++)
