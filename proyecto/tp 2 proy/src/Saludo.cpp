@@ -123,12 +123,14 @@ void Saludo::update()
 
 
 
+                }
             }
-        }
         }
         break;
 
     case S_JUGAR:
+
+
         break;
     }
 

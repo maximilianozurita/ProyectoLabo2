@@ -9,11 +9,7 @@ using namespace std;
 
 int main(){
 
-    Saludo saludo;
-
-    saludo.run();
     GamePlay game;
-
     game.run();
 
 

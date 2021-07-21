@@ -1874,7 +1874,7 @@
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 
-1626738618 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1626839325 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -2299,7 +2299,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626654160 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626844262 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -2384,7 +2384,7 @@
 1625449687 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626742487 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626844919 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
@@ -3494,11 +3494,12 @@
 	"Puerto.h"
 	<cstring>
 
-1626664743 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\saludo.h
+1626834483 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\saludo.h
 	<SFML/Graphics.hpp>
 	"Entidad.h"
+	"Palabra.h"
 
-1626665768 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\saludo.cpp
+1626822167 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\saludo.cpp
 	"Saludo.h"
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -4048,41 +4049,10 @@
 
 1626666136 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
 
-1626836665 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\saludo.h
-	<SFML/Graphics.hpp>
-	"Entidad.h"
-
-1626842429 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
-	"GamePlay.h"
-	<iostream>
-	<string>
-	<windows.h>
-	<SFML/Graphics.hpp>
-	"FuncionesGlobales.h"
-
-1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
-
-1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
-	"Hexagono.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
-	<iostream>
+1626834424 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\palabra.cpp
+	"Palabra.h"
 	<cstring>
-	"Jugador.h"
-	<cstring>
-
-1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
-	"Ladron.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
-	"Map.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
-	"Puerto.h"
-	<cstring>
-
-1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\saludo.cpp
-	"Saludo.h"
-	<SFML/Graphics.hpp>
 	<iostream>
+
+1626820214 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\palabra.h
 
