@@ -13,7 +13,7 @@
 #include "Carta.h"
 
 enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,SELECCIONAR_HEX,SELECT_CASA,SELECT_CAMINO};
-//faltan incluir las dem�s clases que se usan como atributos
+//faltan incluir las demas clases que se usan como atributos
 
 class GamePlay
 {
@@ -41,15 +41,16 @@ class GamePlay
 
         Camino caminos[72];
         Hexagono hexagonos[19];
-        ///Ficha fichas[18];
+        //Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
         sf::Text nombres[2];
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
+        Espacio espacioCiudad[54];
         int turno;
 
-        ///BOTONES
+        //BOTONES
         Entidad bConstruir, bFinalizar, bCasa, bEdificio, bCamino;
 
         void init();
@@ -57,7 +58,7 @@ class GamePlay
         void draw();
         void finish();
 
-
+        void inicioJ();
         void cargarCaminos();
         void cargarHexagonos();
         void cargarVecEspacios();
@@ -66,7 +67,7 @@ class GamePlay
         void cargarVecCaminos();
         void cargarBotones();
         sf::FloatRect achicarFloatRect(sf::FloatRect,float);
-        void prueba();
+
 
 };
 

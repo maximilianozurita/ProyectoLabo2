@@ -7,21 +7,21 @@
 class Espacio: public Entidad {
 public:
 
-    bool isDisponible();
-    bool isOcupado();
-    int getNumero();
+    //Set
+    void setEspacioCasas(const int *);
     void setDisponible(bool);
     void setOcupado(bool);
     void setNumero(int);
-
-    void setHexagonos(const int *);
-    const int *getHexagonos();
-
     void setEspacioCaminos(const int *);
-    const int *getEspacioCaminos();
+    void setHexagonos(const int *);
 
-    void setEspacioCasas(const int *);
+    //get
+    const int *getHexagonos();
     const int *getEspacioCasas();
+    int getNumero();
+    const int *getEspacioCaminos();
+    bool isDisponible();
+    bool isOcupado();
 
 protected:
     int hexagonos[4];
@@ -31,7 +31,5 @@ protected:
     bool disponible=true;
     bool ocupado=false;
 };
-/// Espacio auxEspacio = casa.getEspacio()
-   ///     if()
-    ///        hexagonos[auxEspacio.getHexagonos()[] != -1 ]
+
 #endif // ESPACIO_H
