@@ -44,6 +44,7 @@ class GamePlay
         ///Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
+        sf::Text nombres[2];
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
         int turno;
