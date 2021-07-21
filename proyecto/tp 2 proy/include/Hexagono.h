@@ -13,15 +13,16 @@ public:
     //Sets
     void setTipo(TIPO_HEX);
     void setEstructuras(int);
-    void setFicha(Ficha);//----->Set del objeto valor
-    void fichaSetScale(float, float); //----->Set del objeto valor
-    void fichaSetPosition(float, float); //----->Set del objeto valor
-
+    void setFicha(Ficha _valor);
+    void fichaSetScale(float _x, float _y);
+    void fichaSetPosition(float Tamx, float tamy);
     //Gets
     TIPO_HEX getTipo();
     Ficha getFicha();
-    const int * getEstructuras();
     const int * getNivel();
+    const int * getEstructuras();
+    void setNumero(int _numero);
+    int getNumero();
 
     //Metodos
     void cargarHexagono();
@@ -34,9 +35,14 @@ private:
 
     int estructuras[3];
     int nivel[3];
-
+    int numero;
     TIPO_HEX tipo;
     Ficha valor;
 };
 
 #endif // HEXAGONO_H
+
+
+/*
+cin <<
+*/

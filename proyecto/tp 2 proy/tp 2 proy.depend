@@ -1874,13 +1874,14 @@
 	"GamePlay.h"
 	<SFML/Graphics.hpp>
 
-1623372868 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1626738618 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
 	"Entidad.h"
 	"Dado.h"
 	"GamePlay.h"
+	"Saludo.h"
 
 1623286137 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -2298,7 +2299,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626583892 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626654160 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -2320,7 +2321,8 @@
 1623286138 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\map.h
 	"Entidad.h"
 
-1623286138 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
+1626638053 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\ladron.h
+	"Hexagono.h"
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
@@ -2337,7 +2339,7 @@
 	"Estructura.h"
 	<SFML/Graphics.hpp>
 
-1625449438 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
+1626738993 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
 	"Ficha.h"
 	"Entidad.h"
 	"Estructura.h"
@@ -2382,14 +2384,15 @@
 1625449687 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626591147 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626742487 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
 	<windows.h>
 	<SFML/Graphics.hpp>
+	"FuncionesGlobales.h"
 
-1625449462 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+1626738014 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
 1625105736 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
@@ -2398,7 +2401,7 @@
 	"Jugador.h"
 	<cstring>
 
-1623286138 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
+1626639769 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
 	"Ladron.h"
 
 1623286138 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
@@ -3491,6 +3494,15 @@
 	"Puerto.h"
 	<cstring>
 
+1626664743 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\saludo.h
+	<SFML/Graphics.hpp>
+	"Entidad.h"
+
+1626665768 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\saludo.cpp
+	"Saludo.h"
+	<SFML/Graphics.hpp>
+	<iostream>
+
 1625784621 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
 	<iostream>
 	<cstring>
@@ -4024,38 +4036,12 @@
 	"Ficha.h"
 
 1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
+1626666136 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\funcionesglobales.cpp
 	<iostream>
 	<cstring>
 	<cstdlib>
 	"FuncionesGlobales.h"
 	<SFML/Graphics.hpp>
 
-1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
-	"GamePlay.h"
-	<iostream>
-	<string>
-	<windows.h>
-	<SFML/Graphics.hpp>
-	"FuncionesGlobales.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
-	"Hexagono.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
-	<iostream>
-	<cstring>
-	"Jugador.h"
-	<cstring>
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
-	"Ladron.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
-	"Map.h"
-
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
-	"Puerto.h"
-	<cstring>
+1626666136 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
 

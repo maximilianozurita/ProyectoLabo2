@@ -12,7 +12,7 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
-enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO};
+enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,SELECCIONAR_HEX};
 //faltan incluir las dem�s clases que se usan como atributos
 
 class GamePlay
@@ -33,6 +33,7 @@ class GamePlay
         Carta cartas[2][5];
         sf::Text textCartasPuntos[2][5];
         sf::Text textNumCaminos[72];
+        sf::Text textCargando;
         bool pressA;
 
         Camino caminos[72];
