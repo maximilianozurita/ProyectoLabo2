@@ -38,14 +38,15 @@ class GamePlay
 
         Camino caminos[72];
         Hexagono hexagonos[19];
-        ///Ficha fichas[18];
+        //Ficha fichas[18];
         sf::Font fuente;
         sf::Text texto;
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
+        Espacio espacioCiudad[54];
         int turno;
 
-        ///BOTONES
+        //BOTONES
         Entidad bConstruir, bFinalizar, bCasa, bEdificio, bCamino;
 
         void init();

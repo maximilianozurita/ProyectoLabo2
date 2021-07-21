@@ -38,8 +38,6 @@ GamePlay::GamePlay()
 
 void GamePlay::init()
 {
-    //Constantes para coordenadas
-    //system("pause");
 
     ventana.setFramerateLimit(60);
     ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Cat�n");
@@ -54,11 +52,6 @@ void GamePlay::init()
     ventana.display();
     srand(time(NULL));
 
-    //--------------------MATRICES DE COORDENADAS--------------------------//
-
-
-    //matriz de Coordenadas de hexagonos
-
     cargarVecEspacios();
     cargarHexagonos();
     cargarVecCaminos();
@@ -70,7 +63,7 @@ void GamePlay::init()
     mapa.cargarTextura("sprites/mapas/mapa2.png");
     mapa.setScale(TAM,TAM);
     mapa.setPosition(mapCoordX,mapCoordY);
-    ventana.draw(mapa);
+
 
     //Cargar textura dado
     for(int i = 0; i < 2; i++)
@@ -78,29 +71,16 @@ void GamePlay::init()
         dados[i].tirarDado();
         dados[i].setScale(TAM*0.6,TAM*0.7);
         dados[i].setPosition(700+(i*120),600);
-        ventana.draw(dados[i]);
-    }
-    //ventana.draw(dados[0]);
-    //ventana.draw(dados[1]);
 
-//----------------------??? Espacio casas no hace falta dibujarlo
-    for(int i=0; i < 54; i++)
-    {
-        ventana.draw(espacioCasas[i]);
     }
-//----------------------???
-    for(int i = 0; i < 19; i++)
-    {
-        if(hexagonos[i].getTipo() != HEXDESIERTO)
-            ventana.draw(hexagonos[i].getFicha());
-    }
-//-------------------------
+
+
 
     //fuente de puntaje y espacios
     fuente.loadFromFile("fuentes/roboto/Roboto-Black.ttf");
 
+    //Cargar texturas de cartas
     TIPO_HEX tiposCartas[5]= {HEXARBOL,HEXLADRILLO,HEXOVEJA,HEXTRIGO,HEXMINERAL};
-
     for(int i = 0; i < 5; i++)
     {
         for(int j = 0; j < 2; j++)
@@ -112,6 +92,7 @@ void GamePlay::init()
         }
     }
 
+    //Cargar string puntos.
     for(int i = 0; i < 2; i++)
     {
         for(int j = 0; j < 5; j++)
@@ -121,10 +102,9 @@ void GamePlay::init()
             textCartasPuntos[i][j].setScale(0.5,0.5);
             textCartasPuntos[i][j].setPosition(810+(60*j),350+(100*i));
             textCartasPuntos[i][j].setString(to_string(0));
-            ventana.draw(textCartasPuntos[i][j]);
         }
     }
-
+    //Numero de caminos (VER SI HACE FALTA)
     for(int i = 0; i< 72; i++)
     {
         textNumCaminos[i].setFont(fuente);
@@ -132,15 +112,13 @@ void GamePlay::init()
         textNumCaminos[i].setScale(0.5,0.5);
         textNumCaminos[i].setPosition(espacioCaminos[i].getPosition());
         textNumCaminos[i].setString(to_string(i));
-        ventana.draw(textNumCaminos[i]);
     }
 
-    for(int i=0; i < 5; i++)
-        for(int j=0; j < 2; j++)
-            ventana.draw(cartas[j][i]);
+    //setear dado inicial y cargar texturas
     estado = TIRAR_DADO;
     turno = 1;
 
+    //Poner todos los caminos cargados en false
     for(int i = 0; i < 72; i ++)
     {
         espacioCaminos[i].setMostrar(false);
@@ -187,11 +165,13 @@ void GamePlay::update()
             if(!pressA)
             {
                 pressA=true;
+                //VER SI SACAR
                 if(turno == 1)
                     cout << "Turno ROJO"<<endl;
                 else
                     cout << "Turno AZUL"<<endl;
-                ///al presionar enter se cambia los dados y se realizan los calculos. corregir porque si se queda uno presionando enter toma el valor mas de una vez.
+
+                //Al presionar enter se cambia los dados y se realizan los calculos.
                 dados[0].tirarDado();
                 dados[1].tirarDado();
 
@@ -226,9 +206,6 @@ void GamePlay::update()
                     textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
                     textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
                 }
-                /*for(int i = 0; i < 3; i ++)
-                cout << hexagonos[2].getEstructuras()[i]<<endl;
-                cout <<endl;*/
             }
         }
         else
@@ -589,7 +566,7 @@ void GamePlay::update()
                     }
                 }
             }
-            ///c�digo limpieza, pone los espacios mostrados en false luego de elegir
+            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
             for(int i =0; i < 72; i++)
             {
                 espacioCaminos[i].setMostrar(false);
@@ -612,7 +589,7 @@ void GamePlay::update()
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para seleccionar la CASA que quiere
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))//para seleccionar la CASA que quiere
         {
             sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);
 
@@ -627,14 +604,14 @@ void GamePlay::update()
                         sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
                         if(_espacioCasas.contains(mouseCoords))
                         {
-                            //if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
+                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
                             {
                                 casas[i].setNumJugador(turno);
                                 casas[i].cargarTextura();
                                 casas[i].setEspacio(espacioCasas[i]);
                                 espacioCasas[i].setOcupado(true);
 
-                                for(int j =0; j <4; j++)///coloca la disponibilidad de sus vecinos en false
+                                for(int j =0; j <4; j++)//coloca la disponibilidad de sus vecinos en false
                                 {
                                     if(espacioCasas[i].getEspacioCaminos()[j] != -1)
                                         for(int m = 0; m < 2; m++)
@@ -642,17 +619,22 @@ void GamePlay::update()
                                             espacioCasas[espacioCaminos[espacioCasas[i].getEspacioCaminos()[j]].getEspacioCasas()[m]].setDisponible(false);
                                 }
 
-                                for(int j=0; j< 3; j++)///avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                                for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                                {
                                     if(espacioCasas[i].getHexagonos()[j] != -1)
                                     {
-                                        hexagonos[espacioCasas[i].getHexagonos()[j]].setEstructuras(1);
+                                        hexagonos[espacioCasas[i].getHexagonos()[j]].setEstructuras(turno);
                                     }
+                                }
 
-                                /*//Consumo de recursos
+                                //Se agrega un punto de partida por colocacion de casa
+                                jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
+
+                                //Consumo de recursos
                                 jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
                                 jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
                                 jugadores[turno].setTrigo(jugadores[turno].getTrigo()-1);
-                                jugadores[turno].setLana(jugadores[turno].getLana()-1);*/
+                                jugadores[turno].setLana(jugadores[turno].getLana()-1);
                             }
                             //else
                             {
@@ -663,7 +645,7 @@ void GamePlay::update()
                 }
             }
 
-            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
+            //codigo limpieza, pone los espacios mostrados en false luego de elegir
             for(int i =0; i < 54; i++)
             {
                 espacioCasas[i].setMostrar(false);
@@ -694,20 +676,26 @@ void GamePlay::update()
                 pressA=true;
 
 
-                ///c�digo limpieza, pone los espacios mostrados en false luego de elegir
-                /* for(int i =0; i < 54; i++)
+                //codigo limpieza, pone los espacios mostrados en false luego de elegir
+                for(int i =0; i < 54; i++)
                  {
-                     if(espacioCiudad[i].getMostrar())
+                     if(espacioCasas[i].getMostrar())
                      {
                          sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
                          if(_espacioCiudad.contains(mouseCoords))
                          {
                              if(jugadores[turno].getLadrillo()>=3 && jugadores[i].getTrigo()>=2)
                              {
-                                 ciudad[i].setNumJugador(turno);
-                                 ciudad[i].cargarTextura();
-                                 ciudad[i].setEspacio(espacioCasas[i]);
-                                 espaciociudad[i].setOcupado(true);
+                                 for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                                {
+                                    if(espacioCasas[i].getHexagonos()[j] != -1)
+                                    {
+                                        hexagonos[espacioCasas[i].getHexagonos()[j]].subirNivel(turno);
+                                    }
+                                }
+
+                                //Se agrega un punto de partida por colocacion de casa
+                                jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
                                  //Consumo de recursos
                                  jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-3);
@@ -719,9 +707,9 @@ void GamePlay::update()
                              }
                          }
                      }
-                 }*/
+                 }
             }
-            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
+            //codigo limpieza, pone los espacios mostrados en false luego de elegir
             for(int i =0; i < 54; i++)
             {
                 espacioCasas[i].setMostrar(false);
@@ -738,6 +726,10 @@ void GamePlay::update()
         break;
 
     }///FIN SWITCH
+    if(jugadores[turno-1].getPuntosVictoria()>=10)
+    {
+        finish();
+    }
 }
 
 void GamePlay::draw()
@@ -821,7 +813,7 @@ void GamePlay::draw()
 
 void GamePlay::finish()
 {
-    //se muestran cosas al finalizar el juego
+    ventana.close();
 }
 
 //--------------//
@@ -999,7 +991,7 @@ void GamePlay::cargarCaminos()///
     }
 }
 
-void GamePlay::cargarHexagonos()///Carga el hex�gono y les asigna el tipo
+void GamePlay::cargarHexagonos()//Carga el hexagono y les asigna el tipo
 {
 
     float vecCoords[19][2]=

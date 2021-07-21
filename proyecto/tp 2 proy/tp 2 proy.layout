@@ -1,130 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
-	<ActiveTarget name="Release" />
-	<File name="include\Jugador.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<ActiveTarget name="Debug" />
+	<File name="src\GamePlay.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="-3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="527" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="src\Carta.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="112" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Entidad.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="174" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Ficha.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="200" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="211" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Carta.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="211" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Jugador.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\GamePlay.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22500" topLine="238" />
+			<Cursor1 position="39314" topLine="620" />
 		</Cursor>
 		<Folding>
-			<Collapse line="139" />
-			<Collapse line="648" />
-			<Collapse line="725" />
-			<Collapse line="731" />
-			<Collapse line="803" />
-			<Collapse line="905" />
-			<Collapse line="986" />
-			<Collapse line="1013" />
-			<Collapse line="1112" />
+			<Collapse line="29" />
+			<Collapse line="39" />
+			<Collapse line="135" />
+			<Collapse line="820" />
+			<Collapse line="892" />
+			<Collapse line="994" />
+			<Collapse line="1088" />
+			<Collapse line="1115" />
+			<Collapse line="1214" />
+			<Collapse line="1239" />
 		</Folding>
 	</File>
-	<File name="include\Estructura.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Espacio.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="116" topLine="0" />
+			<Cursor1 position="444" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Ficha.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\GamePlay.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1151" topLine="29" />
+			<Cursor1 position="1196" topLine="21" />
 		</Cursor>
 	</File>
-	<File name="include\GamePlay.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\Hexagono.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="862" topLine="34" />
-		</Cursor>
-	</File>
-	<File name="src\Dado.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="225" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="include\Hexagono.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="410" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Espacio.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="681" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Estructura.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="948" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="include\Dado.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="172" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Camino.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="249" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="include\Camino.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="221" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Hexagono.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2100" topLine="62" />
-	<ActiveTarget name="Debug" />
-	<File name="include\Saludo.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\GamePlay.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="781" topLine="20" />
-		</Cursor>
-	</File>
-	<File name="src\GamePlay.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5825" topLine="204" />
-		</Cursor>
-	</File>
-	<File name="src\Saludo.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2088" topLine="112" />
+			<Cursor1 position="2020" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -132,24 +39,14 @@
 			<Cursor1 position="234" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\Hexagono.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Espacio.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2201" topLine="106" />
+			<Cursor1 position="354" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="include\Hexagono.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="include\Hexagono.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="885" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="src\Espacio.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="138" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Entidad.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="19" topLine="0" />
+			<Cursor1 position="829" topLine="2" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
