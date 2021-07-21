@@ -2299,7 +2299,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626890137 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626907394 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -2330,7 +2330,7 @@
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1626574361 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+1626907394 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
@@ -2384,7 +2384,7 @@
 1625449687 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\ficha.cpp
 	"Ficha.h"
 
-1626905766 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626907818 source:c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
