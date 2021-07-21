@@ -12,7 +12,7 @@
 #include "Hexagono.h"
 #include "Carta.h"
 
-enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,SELECCIONAR_HEX};
+enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,SELECCIONAR_HEX,SELECT_CASA,SELECT_CAMINO};
 //faltan incluir las dem�s clases que se usan como atributos
 
 class GamePlay
@@ -35,6 +35,9 @@ class GamePlay
         sf::Text textNumCaminos[72];
         sf::Text textCargando;
         bool pressA;
+        bool pressB;
+        int contador;
+        Espacio ultimo;
 
         Camino caminos[72];
         Hexagono hexagonos[19];
@@ -61,6 +64,7 @@ class GamePlay
 
         void cargarVecCaminos();
         void cargarBotones();
+        sf::FloatRect achicarFloatRect(sf::FloatRect,float);
         void prueba();
 
 };
