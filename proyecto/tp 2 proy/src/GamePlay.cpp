@@ -70,7 +70,7 @@ void GamePlay::init()
     {
         dados[i].tirarDado();
         dados[i].setScale(TAM*0.6,TAM*0.7);
-        dados[i].setPosition(700+(i*120),600);
+        dados[i].setPosition(550+(i*120),600);
 
     }
 
@@ -87,7 +87,7 @@ void GamePlay::init()
         {
             cartas[j][i].setTipo(tiposCartas[i]);
             cartas[j][i].cargarTextura();
-            cartas[j][i].setPosition(800+(60*i),300+(100*j));
+            cartas[j][i].setPosition(850+(60*i),100+(150*j));
             cartas[j][i].setScale(TAM,TAM);
         }
     }
@@ -100,7 +100,7 @@ void GamePlay::init()
             textCartasPuntos[i][j].setFont(fuente);
             textCartasPuntos[i][j].setColor(sf::Color(40,90,30));
             textCartasPuntos[i][j].setScale(0.5,0.5);
-            textCartasPuntos[i][j].setPosition(810+(60*j),350+(100*i));
+            textCartasPuntos[i][j].setPosition(860+(60*j),150+(150*i));
             textCartasPuntos[i][j].setString(to_string(0));
         }
     }
@@ -136,6 +136,25 @@ void GamePlay::init()
     bCasa.setMostrar(false);
     bCamino.setMostrar(false);
     bEdificio.setMostrar(false);
+
+
+    ///PRUEBA
+    jugadores[0].setUsuario("Pedro");
+    jugadores[1].setUsuario("Pablo");
+    ///
+//Mostrar Nombre de nombre
+//--------------------------------------------------->
+    for(int i = 0; i < 2; i++)
+    {
+        nombres[i].setFont(fuente);
+        nombres[i].setCharacterSize(20);
+        nombres[i].setPosition(850,50+(150*i));
+        nombres[i].setString(jugadores[i].getUsuario());
+    }
+    nombres[0].setColor(sf::Color(102,0,0));
+    nombres[1].setColor(sf::Color(0,0,102));
+
+
 }
 
 
@@ -247,16 +266,19 @@ void GamePlay::update()
                         sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
                         if(_espacioCaminos.contains(mouseCoords))
                         {
-                            pressB=true;
+
+
                             caminos[i].setEspacio(espacioCaminos[i]);
                             caminos[i].setNumJugador(turno);
                             caminos[i].cargarTextura();
                             espacioCaminos[i].setOcupado(true);
-                            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
+                            pressB=true;
+
                             for(int i =0; i < 72; i++)
                             {
-                                espacioCaminos[i].setMostrar(false);
+                            espacioCaminos[i].setMostrar(false);
                             }
+
                         }
                     }
                 }
@@ -922,6 +944,11 @@ void GamePlay::draw()
         ventana.draw(bEdificio);
     if(bCamino.getMostrar())
         ventana.draw(bCamino);
+
+    for(int i = 0; i < 2; i++)
+    {
+        ventana.draw(nombres[i]);
+    }
 
     ventana.draw(ladron);
 
