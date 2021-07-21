@@ -3520,7 +3520,7 @@
 1626629419 source:c:\users\zurit\documents\github\proyectolabo2\proyecto\tp 2 proy\src\carta.cpp
 	"Carta.h"
 
-1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
+1626889179 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\main.cpp
 	<iostream>
 	<cstring>
 	<SFML/Graphics.hpp>
@@ -3945,7 +3945,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626842476 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626907038 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -3975,7 +3975,7 @@
 	"Espacio.h"
 	<SFML/Graphics.hpp>
 
-1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
+1626891726 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\espacio.h
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
@@ -4055,4 +4055,50 @@
 	<iostream>
 
 1626820214 c:\users\joseedu\desktop\proyecto\proyectolabo2\proyectolabo2\proyecto\tp 2 proy\include\palabra.h
+
+1626889179 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\saludo.h
+	<SFML/Graphics.hpp>
+	"Entidad.h"
+	"Palabra.h"
+
+1626889179 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\palabra.h
+
+1626907036 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+	"GamePlay.h"
+	<iostream>
+	<string>
+	<windows.h>
+	<SFML/Graphics.hpp>
+	"FuncionesGlobales.h"
+
+1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
+
+1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
+	"Hexagono.h"
+
+1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
+	<iostream>
+	<cstring>
+	"Jugador.h"
+	<cstring>
+
+1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\ladron.cpp
+	"Ladron.h"
+
+1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\map.cpp
+	"Map.h"
+
+1626889179 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\palabra.cpp
+	"Palabra.h"
+	<cstring>
+	<iostream>
+
+1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\puerto.cpp
+	"Puerto.h"
+	<cstring>
+
+1626889179 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\saludo.cpp
+	"Saludo.h"
+	<SFML/Graphics.hpp>
+	<iostream>
 

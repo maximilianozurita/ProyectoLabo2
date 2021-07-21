@@ -104,7 +104,7 @@ void GamePlay::init()
             textCartasPuntos[i][j].setString(to_string(0));
         }
     }
-    //Numero de caminos (VER SI HACE FALTA)
+    /*//Numero de caminos (VER SI HACE FALTA)
     for(int i = 0; i< 72; i++)
     {
         textNumCaminos[i].setFont(fuente);
@@ -112,7 +112,7 @@ void GamePlay::init()
         textNumCaminos[i].setScale(0.5,0.5);
         textNumCaminos[i].setPosition(espacioCaminos[i].getPosition());
         textNumCaminos[i].setString(to_string(i));
-    }
+    }*/
 
     //setear dado inicial y cargar texturas
     estado = TIRAR_DADO;
@@ -128,8 +128,9 @@ void GamePlay::init()
     {
         espacioCasas[i].setMostrar(false);
     }
-    //prueba();
+
     contador=1;
+    //PONER EN FUNCION
     bFinalizar.setMostrar(false);
     bConstruir.setMostrar(false);
     bCasa.setMostrar(false);
@@ -157,95 +158,7 @@ void GamePlay::run()
 
 void GamePlay::update()
 {
-    if(contador <= 9 )
-    {
-        switch(contador)
-        {
-        case 1:
-            estado = SELECT_CASA;
-            turno = 1;
-            for(int i = 0; i < 54; i++)
-            {
-                if(espacioCasas[i].isDisponible())
-                    espacioCasas[i].setMostrar(true);
-            }
-            break;
-
-        case 2:
-            estado = SELECT_CAMINO;
-            turno = 1;
-            for(int i = 0; i < 54; i++)
-            {
-                espacioCasas[i].setMostrar(false);
-            }
-            break;
-
-        case 3:
-            estado = SELECT_CASA;
-            turno = 2;
-            for(int i = 0; i < 54; i++)
-            {
-                if(espacioCasas[i].isDisponible())
-                    espacioCasas[i].setMostrar(true);
-            }
-
-            break;
-
-        case 4:
-            estado = SELECT_CAMINO;
-            turno = 2;
-            for(int i = 0; i < 54; i++)
-            {
-                espacioCasas[i].setMostrar(false);
-            }
-            break;
-
-        case 5:
-            estado = SELECT_CASA;
-            turno = 2;
-            for(int i = 0; i < 54; i++)
-            {
-                if(espacioCasas[i].isDisponible())
-                    espacioCasas[i].setMostrar(true);
-            }
-            break;
-
-        case 6:
-            estado = SELECT_CAMINO;
-            turno = 2;
-            for(int i = 0; i < 54; i++)
-            {
-                espacioCasas[i].setMostrar(false);
-            }
-            break;
-
-        case 7:
-            estado = SELECT_CASA;
-            turno = 1;
-            for(int i = 0; i < 54; i++)
-            {
-                if(espacioCasas[i].isDisponible())
-                    espacioCasas[i].setMostrar(true);
-            }
-            break;
-
-        case 8:
-            estado = SELECT_CAMINO;
-            turno = 1;
-            for(int i = 0; i < 54; i++)
-            {
-                espacioCasas[i].setMostrar(false);
-            }
-            break;
-
-        case 9:
-            estado = TIRAR_DADO;
-            contador++;
-            break;
-
-        }
-
-    }
+    inicioJ();
     switch(estado)
     {
     case SELECT_CASA:
@@ -334,20 +247,19 @@ void GamePlay::update()
                         sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
                         if(_espacioCaminos.contains(mouseCoords))
                         {
-
                             pressB=true;
                             caminos[i].setEspacio(espacioCaminos[i]);
                             caminos[i].setNumJugador(turno);
                             caminos[i].cargarTextura();
                             espacioCaminos[i].setOcupado(true);
+                            ///codigo limpieza, pone los espacios mostrados en false luego de elegir
+                            for(int i =0; i < 72; i++)
+                            {
+                                espacioCaminos[i].setMostrar(false);
+                            }
                         }
                     }
                 }
-            }
-            ///c�digo limpieza, pone los espacios mostrados en false luego de elegir
-            for(int i =0; i < 72; i++)
-            {
-                espacioCaminos[i].setMostrar(false);
             }
 
         }
@@ -749,9 +661,7 @@ void GamePlay::update()
                         sf::FloatRect _espacioCaminos = espacioCaminos[i].getGlobalBounds();
                         if(_espacioCaminos.contains(mouseCoords))
                         {
-                            if(!pressA)
-                            {
-                                pressA=true;
+
                                 if(jugadores[turno-1].getLadrillo()>=1 && jugadores[turno-1].getMadera()>=1)
                                 {
                                     caminos[i].setEspacio(espacioCaminos[i]);
@@ -776,7 +686,7 @@ void GamePlay::update()
                                 {
                                     cout<<"No hay recursos suficientes"<<endl;
                                 }
-                            }
+
                         }
                     }
                 }
@@ -891,8 +801,7 @@ void GamePlay::update()
                 pressA=true;
 
 
-                //codigo limpieza, pone los espacios mostrados en false luego de elegir
-                for(int i =0; i < 54; i++)
+                for(int i=0; i<54; i++)
                  {
                      if(espacioCasas[i].getMostrar())
                      {
@@ -957,7 +866,6 @@ void GamePlay::draw()
     {
         ventana.draw(hexagonos[i]);
     };
-    //ventana.draw(texto);
 
     for(int i=0; i < 72; i++)
     {
@@ -1000,10 +908,10 @@ void GamePlay::draw()
         for(int j=0; j < 2; j++)
             ventana.draw(textCartasPuntos[j][i]);
 
-    for(int i = 0; i < 72; i++)
+    /*for(int i = 0; i < 72; i++)
     {
         ventana.draw(textNumCaminos[i]);
-    }
+    }*/
     if(bConstruir.getMostrar())
         ventana.draw(bConstruir);
     if(bFinalizar.getMostrar())
@@ -1029,6 +937,101 @@ void GamePlay::finish()
 }
 
 //--------------//
+
+void GamePlay:: inicioJ()
+{
+        if(contador <= 9 )
+    {
+        switch(contador)
+        {
+        case 1:
+            estado = SELECT_CASA;
+            turno = 1;
+            for(int i = 0; i < 54; i++)
+            {
+                if(espacioCasas[i].isDisponible())
+                    espacioCasas[i].setMostrar(true);
+            }
+            break;
+
+        case 2:
+            estado = SELECT_CAMINO;
+            turno = 1;
+            for(int i = 0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
+            }
+            break;
+
+        case 3:
+            estado = SELECT_CASA;
+            turno = 2;
+            for(int i = 0; i < 54; i++)
+            {
+                if(espacioCasas[i].isDisponible())
+                    espacioCasas[i].setMostrar(true);
+            }
+
+            break;
+
+        case 4:
+            estado = SELECT_CAMINO;
+            turno = 2;
+            for(int i = 0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
+            }
+            break;
+
+        case 5:
+            estado = SELECT_CASA;
+            turno = 2;
+            for(int i = 0; i < 54; i++)
+            {
+                if(espacioCasas[i].isDisponible())
+                    espacioCasas[i].setMostrar(true);
+            }
+            break;
+
+        case 6:
+            estado = SELECT_CAMINO;
+            turno = 2;
+            for(int i = 0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
+            }
+            break;
+
+        case 7:
+            estado = SELECT_CASA;
+            turno = 1;
+            for(int i = 0; i < 54; i++)
+            {
+                if(espacioCasas[i].isDisponible())
+                    espacioCasas[i].setMostrar(true);
+            }
+            break;
+
+        case 8:
+            estado = SELECT_CAMINO;
+            turno = 1;
+            for(int i = 0; i < 54; i++)
+            {
+                espacioCasas[i].setMostrar(false);
+            }
+            break;
+
+        case 9:
+            estado = TIRAR_DADO;
+            contador++;
+            break;
+
+        }
+
+    }
+
+}
+
 void GamePlay::cargarEspacios()
 {
     sf::FloatRect _espacio;
@@ -1446,101 +1449,6 @@ void GamePlay::cargarBotones()
     bCamino.setPosition(250,650);
 
     //bCamino.setMostrar(false);
-}
-
-void GamePlay::prueba()
-{
-
-
-    //Cargar textura para una casa para jugador 2
-    casas[9].setNumJugador(1);
-    casas[9].cargarTextura();
-    casas[9].setEspacio(espacioCasas[9]);
-    espacioCasas[9].setOcupado(true);
-
-    for(int i =0; i <4; i++)///coloca la disponibilidad de sus vecinos en false
-    {
-        if(espacioCasas[9].getEspacioCaminos()[i] != -1)
-            for(int j = 0; j < 2; j++)
-                espacioCasas[espacioCaminos[espacioCasas[9].getEspacioCaminos()[i]].getEspacioCasas()[j]].setDisponible(false);
-    }
-
-    for(int i=0; i< 3; i++)///avisa a los hexagonos que tocan el espacio que hay una nueva casa
-        if(espacioCasas[9].getHexagonos()[i] != -1)
-        {
-            hexagonos[espacioCasas[9].getHexagonos()[i]].setEstructuras(1);
-        }
-
-    casas[18].setNumJugador(2);
-    casas[18].cargarTextura();
-    casas[18].setEspacio(espacioCasas[18]);
-    espacioCasas[18].setOcupado(true);
-
-    for(int i =0; i <4; i++)
-    {
-        if(espacioCasas[18].getEspacioCaminos()[i] != -1)
-            for(int j = 0; j < 2; j++)
-                espacioCasas[espacioCaminos[espacioCasas[18].getEspacioCaminos()[i]].getEspacioCasas()[j]].setDisponible(false);
-    }
-
-    for(int i=0; i< 3; i++)
-        if(espacioCasas[18].getHexagonos()[i] != -1)
-        {
-            hexagonos[espacioCasas[18].getHexagonos()[i]].setEstructuras(2);
-        }
-    casas[8].setNumJugador(2);
-    casas[8].cargarTextura();
-    casas[8].setEspacio(espacioCasas[8]);
-    espacioCasas[8].setOcupado(true);
-
-
-    for(int i =0; i <4; i++)
-    {
-        if(espacioCasas[8].getEspacioCaminos()[i] != -1)
-            for(int j = 0; j < 2; j++)
-                espacioCasas[espacioCaminos[espacioCasas[8].getEspacioCaminos()[i]].getEspacioCasas()[j]].setDisponible(false);
-    }
-
-    for(int i=0; i< 3; i++)
-        if(espacioCasas[8].getHexagonos()[i] != -1)
-        {
-            hexagonos[espacioCasas[8].getHexagonos()[i]].setEstructuras(2);
-        }
-
-    caminos[50].setEspacio(espacioCaminos[50]);
-    caminos[50].setNumJugador(1);
-    caminos[50].cargarTextura();
-    espacioCaminos[50].setOcupado(true);
-
-    caminos[11].setEspacio(espacioCaminos[11]);
-    caminos[11].setNumJugador(1);
-    caminos[11].cargarTextura();
-    espacioCaminos[11].setOcupado(true);
-
-    caminos[10].setEspacio(espacioCaminos[10]);
-    caminos[10].setNumJugador(1);
-    caminos[10].cargarTextura();
-    espacioCaminos[10].setOcupado(true);
-
-    caminos[5].setEspacio(espacioCaminos[5]);
-    caminos[5].setNumJugador(1);
-    caminos[5].cargarTextura();
-    espacioCaminos[5].setOcupado(true);
-
-    caminos[18].setEspacio(espacioCaminos[18]);
-    caminos[18].setNumJugador(2);
-    caminos[18].cargarTextura();
-    espacioCaminos[18].setOcupado(true);
-
-    caminos[19].setEspacio(espacioCaminos[19]);
-    caminos[19].setNumJugador(2);
-    caminos[19].cargarTextura();
-    espacioCaminos[19].setOcupado(true);
-
-    caminos[59].setEspacio(espacioCaminos[59]);
-    caminos[59].setNumJugador(2);
-    caminos[59].cargarTextura();
-    espacioCaminos[59].setOcupado(true);
 }
 
 sf::FloatRect GamePlay::achicarFloatRect(sf::FloatRect _frect,float _tam)
