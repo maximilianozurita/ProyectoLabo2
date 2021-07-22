@@ -30,6 +30,7 @@ class GamePlay
         Ladron ladron;
         Dado dados[2];
         Estructura casas[54];
+        Estructura edificios[54];
         Carta cartas[2][5];
         Carta cartasIntercambio[2][5];
         sf::Text textCartasPuntos[2][5];
@@ -59,7 +60,6 @@ class GamePlay
         sf::Text puntuacionVictoria[2];
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
-        Espacio espacioCiudad[54];
         int turno;
 
         //BOTONES

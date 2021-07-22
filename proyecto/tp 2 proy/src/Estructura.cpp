@@ -45,3 +45,20 @@ void Estructura::cargarTextura()
     }
     setTexture(tex);
 }
+void Estructura::cargarTextura(int _numJugador)
+{
+    switch(_numJugador)
+    {
+        case 1: tex.loadFromFile("sprites/estructuras/edificioRojo.png");
+                break;
+
+        case 2: tex.loadFromFile("sprites/estructuras/edificioAzul.png");
+                break;
+
+        case 3: tex.loadFromFile("sprites/estructuras/edificioVerde.png");
+                break;
+    }
+    setTexture(tex);
+    setPosition(espacio.getPosition().x+2,espacio.getPosition().y-10);
+    setScale(0.5,0.5);
+}

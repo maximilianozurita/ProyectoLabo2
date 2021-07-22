@@ -1204,19 +1204,23 @@ void GamePlay::update()
                 {
                     if(espacioCasas[i].getMostrar())
                     {
-                        sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
-                        if(_espacioCiudad.contains(mouseCoords))
+                        sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
+                        if(_espacioCasas.contains(mouseCoords))
                         {
-                            if(jugadores[turno-1].getLadrillo()>=3 && jugadores[turno-1].getTrigo()>=2)
+                            if(jugadores[turno-1].getPiedra()>=3 && jugadores[turno-1].getTrigo()>=2)
                             {
-                                for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                                for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay un nuevo edificio
                                 {
                                     if(espacioCasas[i].getHexagonos()[j] != -1)
                                     {
                                         hexagonos[espacioCasas[i].getHexagonos()[j]].subirNivel(turno);
                                     }
                                 }
-
+                                edificios[i].setEspacio(espacioCasas[i]);
+                                edificios[i].setNumJugador(turno);
+                                edificios[i].cargarTextura(turno);
+                                casas[i].setMostrar(false);
+                                edificios[i].setMostrar(true);
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
@@ -1302,6 +1306,13 @@ void GamePlay::draw()
         if(casas[i].getMostrar())
             ventana.draw(casas[i]);
     }
+
+    for(int i=0; i < 54; i++)
+    {
+        if(edificios[i].getMostrar())
+            ventana.draw(edificios[i]);
+    }
+
     for(int i=0; i < 54; i++)
     {
         if(espacioCasas[i].getMostrar())
