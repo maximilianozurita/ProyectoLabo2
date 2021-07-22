@@ -34,17 +34,27 @@ class GamePlay
         sf::Text textCartasPuntos[2][5];
         sf::Text textNumCaminos[72];
         sf::Text textCargando;
+        sf::Text textCantEstructuras[2][3];
+        sf::Text mensaje;
+        sf::Text errorMensaje;
         bool pressA;
         bool pressB;
         int contador;
         Espacio ultimo;
+        Entidad cuadroInfo;
+        Entidad figuras[2][3];
+
+
 
         Camino caminos[72];
         Hexagono hexagonos[19];
         //Ficha fichas[18];
         sf::Font fuente;
+        sf::Font fuenteMensaje;
         sf::Text texto;
         sf::Text nombres[2];
+        sf::Text nombre;
+        sf::Text textTurno;
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
         Espacio espacioCiudad[54];
@@ -67,6 +77,7 @@ class GamePlay
         void cargarVecCaminos();
         void cargarBotones();
         sf::FloatRect achicarFloatRect(sf::FloatRect,float);
+        void cambiarTurno();
 
 
 };
