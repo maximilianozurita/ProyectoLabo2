@@ -1719,12 +1719,5 @@ void GamePlay::robar()
         }
     }
     cout << TotRecursos<<endl;
-    for(int j = 0; j < 2; j++)///PASAR A FUNCION LUEGO
-    {
-        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
-        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
-        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
-        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
-        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
-    }
+    cargarPuntuacion();
 }
