@@ -58,6 +58,7 @@ class GamePlay
         void draw();
         void finish();
 
+
         void inicioJ();
         void cargarCaminos();
         void cargarHexagonos();
@@ -66,10 +67,21 @@ class GamePlay
 
         void cargarVecCaminos();
         void cargarBotones();
+        void cargarPuntuacion();
         sf::FloatRect achicarFloatRect(sf::FloatRect,float);
 
 
 };
+
+
+
+
+
+
+
+
+
+
 
 #endif // GAMEPLAY_H
 

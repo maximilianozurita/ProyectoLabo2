@@ -52,7 +52,6 @@
 		<Unit filename="include/Espacio.h" />
 		<Unit filename="include/Estructura.h" />
 		<Unit filename="include/Ficha.h" />
-		<Unit filename="include/FuncionesGlobales.h" />
 		<Unit filename="include/GamePlay.h" />
 		<Unit filename="include/Hexagono.h" />
 		<Unit filename="include/Jugador.h" />
@@ -69,7 +68,6 @@
 		<Unit filename="src/Espacio.cpp" />
 		<Unit filename="src/Estructura.cpp" />
 		<Unit filename="src/Ficha.cpp" />
-		<Unit filename="src/FuncionesGlobales.cpp" />
 		<Unit filename="src/GamePlay.cpp" />
 		<Unit filename="src/Hexagono.cpp" />
 		<Unit filename="src/Jugador.cpp" />

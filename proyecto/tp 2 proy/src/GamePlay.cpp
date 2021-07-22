@@ -3,7 +3,7 @@
 #include <string>
 #include <windows.h>
 #include <SFML/Graphics.hpp>
-#include "FuncionesGlobales.h"
+
 
 
 using namespace std;
@@ -343,14 +343,7 @@ void GamePlay::update()
                         }
                     }
                 }
-                for(int j=0; j < 2; j++)
-                {
-                    textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
-                    textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
-                    textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
-                    textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
-                    textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
-                }
+                cargarPuntuacion();
             }
         }
         else
@@ -684,30 +677,28 @@ void GamePlay::update()
                         if(_espacioCaminos.contains(mouseCoords))
                         {
 
-                                if(jugadores[turno-1].getLadrillo()>=1 && jugadores[turno-1].getMadera()>=1)
-                                {
-                                    caminos[i].setEspacio(espacioCaminos[i]);
-                                    caminos[i].setNumJugador(turno);
-                                    caminos[i].cargarTextura();
-                                    espacioCaminos[i].setOcupado(true);
+                            if(jugadores[turno-1].getLadrillo()>=1 && jugadores[turno-1].getMadera()>=1)
+                            {
+                                caminos[i].setEspacio(espacioCaminos[i]);
+                                caminos[i].setNumJugador(turno);
+                                caminos[i].cargarTextura();
+                                espacioCaminos[i].setOcupado(true);
 
-                                    //Consumo de recursos
-                                    jugadores[turno-1].setMadera(jugadores[turno-1].getMadera()-1);
-                                    jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-1);
 
-                                    for(int j = 0; j < 2; j++)///PASAR A FUNCION LUEGO
-                                    {
-                                        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
-                                        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
-                                        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
-                                        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
-                                        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
-                                    }
-                                }
-                                else
-                                {
-                                    cout<<"No hay recursos suficientes"<<endl;
-                                }
+                                //Consumo de recursos
+                                jugadores[turno-1].setMadera(jugadores[turno-1].getMadera()-1);
+                                jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-1);
+
+                                //Se suma caminos construidos como un valor.
+                                jugadores[turno-1].setCaminosConstruidos(jugadores[turno-1].getCaminosConstruidos()+1);
+
+
+                                cargarPuntuacion();
+                            }
+                            else
+                            {
+                                cout<<"No hay recursos suficientes"<<endl;
+                            }
 
                         }
                     }
@@ -751,7 +742,7 @@ void GamePlay::update()
                         sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
                         if(_espacioCasas.contains(mouseCoords))
                         {
-                            if(jugadores[turno].getLadrillo()>=1 && jugadores[turno].getMadera()>=1 && jugadores[i].getTrigo()>=1 && jugadores[i].getLana()>=1)
+                            if(jugadores[turno-1].getLadrillo()>=1 && jugadores[turno-1].getMadera()>=1 && jugadores[turno-1].getTrigo()>=1 && jugadores[turno-1].getLana()>=1)
                             {
                                 casas[i].setNumJugador(turno);
                                 casas[i].cargarTextura();
@@ -777,11 +768,16 @@ void GamePlay::update()
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
+                                //Se suma casas casas construidas como puntos
+                                jugadores[turno-1].setCasasConstruidas(jugadores[turno-1].getCasasConstruidas()+1);
+
                                 //Consumo de recursos
-                                jugadores[turno].setMadera(jugadores[turno].getMadera()-1);
-                                jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-1);
-                                jugadores[turno].setTrigo(jugadores[turno].getTrigo()-1);
-                                jugadores[turno].setLana(jugadores[turno].getLana()-1);
+                                jugadores[turno-1].setMadera(jugadores[turno-1].getMadera()-1);
+                                jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-1);
+                                jugadores[turno-1].setTrigo(jugadores[turno-1].getTrigo()-1);
+                                jugadores[turno-1].setLana(jugadores[turno-1].getLana()-1);
+
+                                cargarPuntuacion();
                             }
                             //else
                             {
@@ -830,7 +826,7 @@ void GamePlay::update()
                          sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
                          if(_espacioCiudad.contains(mouseCoords))
                          {
-                             if(jugadores[turno].getLadrillo()>=3 && jugadores[i].getTrigo()>=2)
+                             if(jugadores[turno-1].getLadrillo()>=3 && jugadores[turno-1].getTrigo()>=2)
                              {
                                  for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay una nueva casa
                                 {
@@ -843,9 +839,10 @@ void GamePlay::update()
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
+                                jugadores[turno-1].setCiudadesConstruidas(jugadores[turno-1].getCiudadesConstruidas()+1);
                                  //Consumo de recursos
-                                 jugadores[turno].setLadrillo(jugadores[turno].getLadrillo()-3);
-                                 jugadores[turno].setTrigo(jugadores[turno].getTrigo()-2);
+                                 jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-3);
+                                 jugadores[turno-1].setTrigo(jugadores[turno-1].getTrigo()-2);
                              }
                              else
                              {
@@ -881,6 +878,7 @@ void GamePlay::update()
 void GamePlay::draw()
 {
     ventana.clear(sf::Color(96, 159, 253));
+
     //Dibujar texturas
     ventana.draw(mapa);
 
@@ -960,12 +958,27 @@ void GamePlay::draw()
 
 void GamePlay::finish()
 {
+    cout<<"GANO EL JUGADOR: "<<turno<<endl;
+    jugadores[turno-1].setResultadoPartida(1);
+
+    for(int i=0; i<2; i++)
+    {
+        jugadores[i].grabarEnDisco();
+    }
+
+    Jugador player;
+    int pos;
+    while(player.leerDeDisco(pos++))
+    {
+
+        cout<<player.getResultadoPartida()<<endl;
+    }
+
     ventana.close();
 }
 
 //--------------//
-
-void GamePlay:: inicioJ()
+void GamePlay::inicioJ()
 {
         if(contador <= 9 )
     {
@@ -1057,6 +1070,18 @@ void GamePlay:: inicioJ()
 
     }
 
+}
+
+void GamePlay::cargarPuntuacion()
+{
+    for(int j=0; j < 2; j++)
+    {
+        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
+        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
+        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
+        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
+        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
+    }
 }
 
 void GamePlay::cargarEspacios()
