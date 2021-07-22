@@ -3944,7 +3944,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626920709 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626926471 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -4062,7 +4062,7 @@
 
 1626889179 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\palabra.h
 
-1626923943 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626931674 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
