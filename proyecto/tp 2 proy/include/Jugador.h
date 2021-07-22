@@ -7,7 +7,6 @@ class Jugador{
 public:
     //gets
     char* getUsuario();
-    char* getPassword(); //--> Ver si hace falta colocar en pivate
     int getResultadoPartida();
 
     int getNumeroJugador();

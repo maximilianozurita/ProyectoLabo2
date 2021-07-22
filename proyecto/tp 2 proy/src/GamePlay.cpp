@@ -9,7 +9,7 @@
 using namespace std;
 
 const float TAM=0.6;
-const float mapCoordX=100;
+const float mapCoordX=50;
 const float mapCoordY=60;
 const float hexCoordX=mapCoordX+(225*TAM);
 const float hexCoordY=mapCoordY+(50*TAM);
@@ -41,17 +41,19 @@ void GamePlay::init()
 
     //ventana.setFramerateLimit(120);
     ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Cat�n");
-    fuente.loadFromFile("fuentes/minecraft/Minecraft.ttf");
+    fuente.loadFromFile("fuentes/roboto/Roboto-Bold.ttf");
     textCargando.setFont(fuente);
-    textCargando.setPosition(450,300);
-    textCargando.setString("CARGANDO");
+    textCargando.setPosition(20,300);
+    textCargando.setString("CARGUE SU NOMBRE POR CONSOLA");
     textCargando.setColor(sf::Color::Black);
     textCargando.setCharacterSize(72);
     ventana.clear(sf::Color::White);
     ventana.draw(textCargando);
     ventana.display();
     srand(time(NULL));
+    fuenteMensaje.loadFromFile("fuentes/janda_manatee/JandaManateeSolid.ttf");
 
+    //--
     cargarVecEspacios();
     cargarHexagonos();
     cargarVecCaminos();
@@ -63,6 +65,8 @@ void GamePlay::init()
     mapa.cargarTextura("sprites/mapas/mapa2.png");
     mapa.setScale(TAM,TAM);
     mapa.setPosition(mapCoordX,mapCoordY);
+
+
 
 
     //Cargar textura dado
@@ -87,7 +91,7 @@ void GamePlay::init()
         {
             cartas[j][i].setTipo(tiposCartas[i]);
             cartas[j][i].cargarTextura();
-            cartas[j][i].setPosition(850+(60*i),100+(150*j));
+            cartas[j][i].setPosition(820+(50*i),60+(150*j));
             cartas[j][i].setScale(TAM,TAM);
         }
     }
@@ -100,7 +104,7 @@ void GamePlay::init()
             textCartasPuntos[i][j].setFont(fuente);
             textCartasPuntos[i][j].setColor(sf::Color(40,90,30));
             textCartasPuntos[i][j].setScale(0.5,0.5);
-            textCartasPuntos[i][j].setPosition(860+(60*j),150+(150*i));
+            textCartasPuntos[i][j].setPosition(830+(50*j),100+(150*i));
             textCartasPuntos[i][j].setString(to_string(0));
         }
     }
@@ -116,7 +120,7 @@ void GamePlay::init()
 
     //setear dado inicial y cargar texturas
     estado = TIRAR_DADO;
-    turno = 1;
+    turno = 2;
 
     //Poner todos los caminos cargados en false
     for(int i = 0; i < 72; i ++)
@@ -139,22 +143,98 @@ void GamePlay::init()
 
 
     ///PRUEBA
-    jugadores[0].setUsuario("Pedro");
-    jugadores[1].setUsuario("Pablo");
-    ///
+    char jugador1 [15];
+    char jugador2[15];
+    cout<<"Ingrese nombre de jugador 1: ";cin>>jugador1;
+    cout<<"Ingrese nombre de jugador 2: ";cin>>jugador2;
+
+    jugadores[0].setUsuario(jugador1);
+    jugadores[1].setUsuario(jugador2);
+
+    ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Cat�n");
+    fuente.loadFromFile("fuentes/minecraft/Minecraft.ttf");
+    textCargando.setFont(fuente);
+    textCargando.setPosition(450,300);
+    textCargando.setString("CARGANDO");
+    textCargando.setColor(sf::Color::Black);
+    textCargando.setCharacterSize(72);
+    ventana.clear(sf::Color::White);
+    ventana.draw(textCargando);
+    ventana.display();
+    srand(time(NULL));
+    fuente.loadFromFile("fuentes/roboto/Roboto-Bold.ttf");
+    fuenteMensaje.loadFromFile("fuentes/janda_manatee/JandaManateeSolid.ttf");
+
+    cuadroInfo.cargarTextura("sprites/recursos/cuadroInfo.png");
+    cuadroInfo.setPosition(802,0);
+
 //Mostrar Nombre de nombre
 //--------------------------------------------------->
     for(int i = 0; i < 2; i++)
     {
         nombres[i].setFont(fuente);
         nombres[i].setCharacterSize(20);
-        nombres[i].setPosition(850,50+(150*i));
+        nombres[i].setPosition(820,20+(150*i));
         nombres[i].setString(jugadores[i].getUsuario());
     }
     nombres[0].setColor(sf::Color(102,0,0));
     nombres[1].setColor(sf::Color(0,0,102));
 
+    nombre.setFont(fuente);
+    nombre.setCharacterSize(40);
+    nombre.setPosition(950,380);
+    nombre.setString(nombres[turno-1].getString());
+    nombre.setColor(nombres[turno-1].getColor());
 
+    textTurno.setFont(fuente);
+    textTurno.setCharacterSize(40);
+    textTurno.setPosition(820,380);
+    textTurno.setColor(sf::Color::Black);
+    textTurno.setFillColor(sf::Color::White);
+
+    textTurno.setString("Turno: ");
+
+///------------------figuras de jugadores
+
+    figuras[0][0].cargarTextura("sprites/estructuras/casaRoja.png");
+    figuras[0][0].setPosition(1100,45);
+    figuras[0][0].setScale(TAM,TAM);
+    figuras[0][1].cargarTextura("sprites/estructuras/edificioRojo.png");
+    figuras[0][1].setPosition(1165,26);
+    figuras[0][1].setScale(TAM,TAM);
+    figuras[0][2].cargarTextura("sprites/estructuras/caminoRojo90G.png");
+    figuras[0][2].setPosition(1225,26);
+    figuras[0][2].setScale(TAM*0.9,TAM*0.9);
+
+    figuras[1][0].cargarTextura("sprites/estructuras/casaAzul.png");
+    figuras[1][0].setPosition(1100,45+150);
+    figuras[1][0].setScale(TAM,TAM);
+    figuras[1][1].cargarTextura("sprites/estructuras/edificioAzul.png");
+    figuras[1][1].setPosition(1165,26+150);
+    figuras[1][1].setScale(TAM,TAM);
+    figuras[1][2].cargarTextura("sprites/estructuras/caminoAzul90G.png");
+    figuras[1][2].setPosition(1225,26+150);
+    figuras[1][2].setScale(TAM*0.9,TAM*0.9);
+
+    for(int i = 0; i < 2; i++)
+        for(int j = 0; j < 3; j++)
+        {
+            textCantEstructuras[i][j].setFont(fuente);
+            textCantEstructuras[i][j].setColor(sf::Color(40,90,30));
+            textCantEstructuras[i][j].setScale(0.5,0.5);
+            textCantEstructuras[i][j].setPosition(1130+(50*j),100+(150*i));
+            textCantEstructuras[i][j].setString(to_string(0));
+        }
+
+    cambiarTurno();
+
+
+    mensaje.setFont(fuenteMensaje);
+    mensaje.setPosition (830,550);
+    mensaje.setCharacterSize(20);
+    mensaje.setColor(sf::Color::Black);
+    mensaje.setLetterSpacing(2);
+    mensaje.setString("Coloca una casa!");
 }
 
 
@@ -230,6 +310,7 @@ void GamePlay::update()
         else if(pressA && pressB)
         {
             estado = SELECT_CAMINO;
+            mensaje.setString("Coloca un camino!");
             pressA=false;
             pressB=false;
             contador++;
@@ -276,7 +357,7 @@ void GamePlay::update()
 
                             for(int i =0; i < 72; i++)
                             {
-                            espacioCaminos[i].setMostrar(false);
+                                espacioCaminos[i].setMostrar(false);
                             }
 
                         }
@@ -359,12 +440,14 @@ void GamePlay::update()
                 if(ladron.isActivado())
                 {
                     estado = SELECCIONAR_HEX;
+                    mensaje.setString("Coloca al ladron en un\hexagono");
                     cout << "Se paso a seleccionar hexagono";
                     ladron.setActivado(false);
                 }
                 else
                 {
                     estado = SELECCIONAR_ACCION;
+                    mensaje.setString("Elije una accion");
                     cout << "Se paso a seleccionar accion"<<endl;
                 }
                 pressA = false;
@@ -410,6 +493,7 @@ void GamePlay::update()
             if(pressA)
             {
                 estado = SELECCIONAR_ACCION;
+                mensaje.setString("Elije una accion");
                 pressA =false;
             }
 
@@ -452,6 +536,7 @@ void GamePlay::update()
                 {
 
                     estado = CONSTRUCCION;
+                    mensaje.setString("Que vas a construir?");
                     pressA =false;
                 }
             }
@@ -468,10 +553,7 @@ void GamePlay::update()
                 {
                     pressA=true;
                     cout <<"se presiono finalizar"<<endl;
-                    if(turno == 1)
-                        turno = 2;
-                    else if(turno == 2)
-                        turno = 1;
+                    cambiarTurno();
                 }
             }
         }
@@ -489,6 +571,7 @@ void GamePlay::update()
                     cout << "se FINALIZO"<<endl;
                     cout << "se debe TIRAR DADO"<<endl;
                     estado = TIRAR_DADO;
+                    mensaje.setString("Hora de tirar los dados!");
                     pressA=false;
                 }
             }
@@ -544,6 +627,7 @@ void GamePlay::update()
                 if(pressA)
                 {
                     estado = COLOCACION_CASA;
+                    mensaje.setString("Coloca una casa!");
                     pressA=false;
                 }
             }
@@ -579,6 +663,7 @@ void GamePlay::update()
                 if(pressA)
                 {
                     estado = COLOCACION_EDIFICIO;
+                    mensaje.setString("Coloca un edificio");
                     pressA=false;
                 }
             }
@@ -648,6 +733,7 @@ void GamePlay::update()
                 if(pressA)
                 {
                     estado = COLOCACION_CAMINO;
+                    mensaje.setString("Coloca un camino");
                     pressA=false;
                 }
             }
@@ -716,6 +802,7 @@ void GamePlay::update()
             if(pressA)
             {
                 estado = SELECCIONAR_ACCION;
+                mensaje.setString("Elige una accion");
                 pressA=false;
             }
         }
@@ -799,6 +886,7 @@ void GamePlay::update()
             if(pressA)
             {
                 estado = SELECCIONAR_ACCION;
+                mensaje.setString("Elige una accion");
                 pressA=false;
             }
         }
@@ -863,6 +951,7 @@ void GamePlay::update()
             if(pressA)
             {
                 estado = SELECCIONAR_ACCION;
+                mensaje.setString("Elige una accion");
                 pressA=false;
             }
         }
@@ -881,6 +970,7 @@ void GamePlay::draw()
 
     //Dibujar texturas
     ventana.draw(mapa);
+    ventana.draw(cuadroInfo);
 
     for (int i=0; i<19; i++)
     {
@@ -928,6 +1018,13 @@ void GamePlay::draw()
         for(int j=0; j < 2; j++)
             ventana.draw(textCartasPuntos[j][i]);
 
+    for(int i=0; i < 2; i++)
+        for(int j=0; j < 3; j++)
+            ventana.draw(textCantEstructuras[i][j]);
+
+    ventana.draw(textTurno);
+    ventana.draw(nombre);
+
     /*for(int i = 0; i < 72; i++)
     {
         ventana.draw(textNumCaminos[i]);
@@ -947,6 +1044,11 @@ void GamePlay::draw()
     {
         ventana.draw(nombres[i]);
     }
+
+    ventana.draw(mensaje);
+    for(int i =0; i < 2; i++)
+        for(int j = 0; j < 3; j++)
+            ventana.draw(figuras[i][j]);
 
     ventana.draw(ladron);
 
@@ -980,13 +1082,15 @@ void GamePlay::finish()
 //--------------//
 void GamePlay::inicioJ()
 {
-        if(contador <= 9 )
+    if(contador <= 9 )
     {
         switch(contador)
         {
         case 1:
             estado = SELECT_CASA;
+            mensaje.setString("Coloca una casa!");
             turno = 1;
+            nombre.setString(nombres[turno-1].getString());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -996,6 +1100,7 @@ void GamePlay::inicioJ()
 
         case 2:
             estado = SELECT_CAMINO;
+            mensaje.setString("Coloca un camino");
             turno = 1;
             for(int i = 0; i < 54; i++)
             {
@@ -1005,7 +1110,9 @@ void GamePlay::inicioJ()
 
         case 3:
             estado = SELECT_CASA;
+            mensaje.setString("Coloca una casa!");
             turno = 2;
+            nombre.setString(nombres[turno-1].getString());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -1016,6 +1123,7 @@ void GamePlay::inicioJ()
 
         case 4:
             estado = SELECT_CAMINO;
+            mensaje.setString("Coloca un camino");
             turno = 2;
             for(int i = 0; i < 54; i++)
             {
@@ -1025,6 +1133,7 @@ void GamePlay::inicioJ()
 
         case 5:
             estado = SELECT_CASA;
+            mensaje.setString("Coloca una casa!");
             turno = 2;
             for(int i = 0; i < 54; i++)
             {
@@ -1035,6 +1144,7 @@ void GamePlay::inicioJ()
 
         case 6:
             estado = SELECT_CAMINO;
+            mensaje.setString("Coloca un camino");
             turno = 2;
             for(int i = 0; i < 54; i++)
             {
@@ -1044,7 +1154,9 @@ void GamePlay::inicioJ()
 
         case 7:
             estado = SELECT_CASA;
+            mensaje.setString("Coloca una casa!");
             turno = 1;
+            nombre.setString(nombres[turno-1].getString());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -1054,6 +1166,7 @@ void GamePlay::inicioJ()
 
         case 8:
             estado = SELECT_CAMINO;
+            mensaje.setString("Coloca un camino");
             turno = 1;
             for(int i = 0; i < 54; i++)
             {
@@ -1063,6 +1176,7 @@ void GamePlay::inicioJ()
 
         case 9:
             estado = TIRAR_DADO;
+            mensaje.setString("Hora de tirar los dados!");
             contador++;
             break;
 
@@ -1511,4 +1625,15 @@ sf::FloatRect GamePlay::achicarFloatRect(sf::FloatRect _frect,float _tam)
     _frect.left *_tam;
 
     return _frect;
+}
+
+void GamePlay::cambiarTurno()
+{
+    if(turno == 1)
+        turno = 2;
+    else if(turno == 2)
+        turno = 1;
+    nombre.setString(nombres[turno-1].getString());
+    nombre.setColor(nombres[turno-1].getColor());
+
 }
