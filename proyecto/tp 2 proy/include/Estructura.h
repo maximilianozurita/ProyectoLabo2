@@ -11,6 +11,7 @@ public:
     virtual void setEspacio(Espacio);
     virtual void cargarTextura();
     void setNumJugador(int);
+    void cargarTextura(int);
 
 protected:
     int numJugador;

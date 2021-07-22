@@ -96,6 +96,19 @@ void GamePlay::init()
         }
     }
 
+    ///cartas para intercambio
+    for(int i = 0; i < 5; i++)
+    {
+        for(int j = 0; j < 2; j++)
+        {
+            cartasIntercambio[j][i].setTipo(tiposCartas[i]);
+            cartasIntercambio[j][i].cargarTextura();
+            cartasIntercambio[j][i].setPosition(50+(50*i),600+(60*j));
+            //cartasIntercambio[j][i].setScale(TAM,TAM);
+            cartasIntercambio[j][i].setMostrar(false);
+        }
+    }
+
     //Cargar string puntos.
     for(int i = 0; i < 2; i++)
     {
@@ -140,13 +153,17 @@ void GamePlay::init()
     bCasa.setMostrar(false);
     bCamino.setMostrar(false);
     bEdificio.setMostrar(false);
+    bIntercambiar.setMostrar(false);
+
 
 
     //Cargar nombre jugador
     char jugador1 [15];
     char jugador2[15];
-    cout<<"Ingrese nombre de jugador 1: ";cin>>jugador1;
-    cout<<"Ingrese nombre de jugador 2: ";cin>>jugador2;
+    cout<<"Ingrese nombre de jugador 1: ";
+    cin>>jugador1;
+    cout<<"Ingrese nombre de jugador 2: ";
+    cin>>jugador2;
 
     jugadores[0].setUsuario(jugador1);
     jugadores[1].setUsuario(jugador2);
@@ -412,6 +429,7 @@ void GamePlay::update()
     case TIRAR_DADO:
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -492,6 +510,7 @@ void GamePlay::update()
         ///SELECCIONADO HAY UNA CASA ENEMIGA
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -548,6 +567,7 @@ void GamePlay::update()
 
         bFinalizar.setMostrar(true);
         bConstruir.setMostrar(true);
+        bIntercambiar.setMostrar(true);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -619,16 +639,229 @@ void GamePlay::update()
                 }
             }
         }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+            sf::FloatRect _bIntercambiar = bIntercambiar.getGlobalBounds();///tomando el floatRect del Boton
+
+            if(_bIntercambiar.contains(mouseCoords))///preguntamos si las coords que tomo el mouse son del boton
+            {
+                if(!pressA)
+                {
+                    pressA = true;
+                    cout << "Se va a intercambiar 3 x 1!";
+
+                    mensaje.setString("has elegido intercambiar 3 x 1.\nElige el recurso que entregas.");
+                }
+            }
+        }
+        else
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+            sf::FloatRect _bIntercambiar = bIntercambiar.getGlobalBounds();///tomando el floatRect del Boton
+
+            if(_bIntercambiar.contains(mouseCoords))///preguntamos si las coords que tomo el mouse son del boton
+            {
+
+
+                if(pressA)
+                {
+                    estado = INTERCAMBIAR;
+                    pressA = false;
+                    pressB = false;
+                    for(int i = 0; i < 5; i ++)
+                    {
+                        cartasIntercambio[0][i].setMostrar(true);
+                    }
+
+                }
+            }
+        }
+        break;
+
+    case INTERCAMBIAR:
+        bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
+        bFinalizar.setMostrar(false);
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+
+            if(!pressA)
+            {
+                pressA=true;
+
+                for(int i = 0; i < 5; i++)
+                {
+                    sf::FloatRect _carta = cartasIntercambio[0][i].getGlobalBounds();
+                    if(_carta.contains(mouseCoords))
+                    {
+                        switch(cartasIntercambio[0][i].getTipo())
+                        {
+                        case HEXARBOL:
+                            if(jugadores[turno-1].getMadera() >= 3)
+                            {
+                                intercambio=HEXARBOL;
+                                pressB = true;
+                            }
+                            break;
+                        case HEXTRIGO:
+                            if(jugadores[turno-1].getTrigo() >= 3)
+                            {
+                                intercambio=HEXTRIGO;
+                                pressB = true;
+                            }
+                            break;
+                        case HEXLADRILLO:
+                            if(jugadores[turno-1].getLadrillo() >= 3)
+                            {
+                                intercambio=HEXLADRILLO;
+                                pressB = true;
+                            }
+                            break;
+                        case HEXOVEJA:
+                            if(jugadores[turno-1].getLana() >= 3)
+                            {
+                                intercambio=HEXOVEJA;
+                                pressB = true;
+                            }
+                            break;
+                        case HEXMINERAL:
+                            if(jugadores[turno-1].getPiedra() >= 3)
+                            {
+                                intercambio=HEXMINERAL;
+                                pressB = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                cout << "Se intercambio"<<endl;
+            }
+        }
+        else if(pressA && !pressB)
+        {
+            estado = SELECCIONAR_ACCION;
+            pressA = false;
+            pressB = false;
+            cout << "No hay recursos"<<endl;
+            mensaje.setString("Elije una accion");
+            for (int i = 0; i < 5 ; i++)
+            {
+                cartasIntercambio[0][i].setMostrar(false);
+            }
+
+        }
+
+        else if(pressA && pressB)
+        {
+            estado = SELECCIONAR_RECURSO;
+            pressA = false;
+            pressB = false;
+            cout << "hay recursos"<<endl;
+            for (int i = 0; i < 5 ; i++)
+            {
+                cartasIntercambio[0][i].setMostrar(false);
+            }
+            for (int i = 0; i < 5 ; i++)
+            {
+                cartasIntercambio[1][i].setMostrar(true);
+            }
+            mensaje.setString("Seleccione recurso");
+        }
+        break;
+
+    case SELECCIONAR_RECURSO:
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
+            sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
+
+            if(!pressA)
+            {
+                pressA=true;
+
+                for(int i = 0; i < 5; i++)
+                {
+                    sf::FloatRect _carta = cartasIntercambio[1][i].getGlobalBounds();
+                    if(_carta.contains(mouseCoords))
+                    {
+                        switch(cartasIntercambio[1][i].getTipo())
+                        {
+                        case HEXARBOL:
+                            jugadores[turno-1].addRecurso(-3,intercambio);
+                            jugadores[turno-1].addRecurso(1,HEXARBOL);
+                            pressB = true;
+                            break;
+                        case HEXTRIGO:
+                            jugadores[turno-1].addRecurso(-3,intercambio);
+                            jugadores[turno-1].addRecurso(1,HEXTRIGO);
+                            pressB = true;
+
+
+                            break;
+                        case HEXLADRILLO:
+                            jugadores[turno-1].addRecurso(-3,intercambio);
+                            jugadores[turno-1].addRecurso(1,HEXLADRILLO);
+                            pressB = true;
+                            break;
+                        case HEXOVEJA:
+                            jugadores[turno-1].addRecurso(-3,intercambio);
+                            jugadores[turno-1].addRecurso(1,HEXOVEJA);
+                            pressB = true;
+                            break;
+                        case HEXMINERAL:
+                            jugadores[turno-1].addRecurso(-3,intercambio);
+                            jugadores[turno-1].addRecurso(1,HEXMINERAL);
+                            pressB = true;
+                            break;
+                        }
+                        cout << "hola"<<endl;
+                        cargarPuntuacion();
+                    }
+                }
+
+                cout << "Se intercambio"<<endl;
+            }
+        }
+        else if(pressA && !pressB)
+        {
+            estado = SELECCIONAR_ACCION;
+            pressA = false;
+            pressB = false;
+            cout << "Se cancelo"<<endl;
+            mensaje.setString("Elije una accion");
+
+
+        }
+
+        else if(pressA && pressB)
+        {
+            estado = SELECCIONAR_ACCION;
+            pressA = false;
+            pressB = false;
+            cout << "Se intercambio"<<endl;
+            for (int i = 0; i < 5 ; i++)
+            {
+                cartasIntercambio[1][i].setMostrar(false);
+            }
+            for (int i = 0; i < 5 ; i++)
+
+            mensaje.setString("Elija una accion");
+        }
+
+
         break;
 
     case CONSTRUCCION:///DEBE SELECCIONAR QUE CONSTRUIR(CASA, EDIFICIO O CAMINO)
 
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(true);
         bCamino.setMostrar(true);
         bEdificio.setMostrar(true);
-
         if(sf::Mouse::isButtonPressed(sf::Mouse::Left))///para boton CASA
         {
             sf::Vector2f mouseCoords = (sf::Vector2f)sf::Mouse::getPosition(ventana);/// tomando las coords del mouse
@@ -786,6 +1019,7 @@ void GamePlay::update()
     case COLOCACION_CAMINO:
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -860,6 +1094,7 @@ void GamePlay::update()
     case COLOCACION_CASA:
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -952,6 +1187,7 @@ void GamePlay::update()
     case COLOCACION_EDIFICIO:
         bFinalizar.setMostrar(false);
         bConstruir.setMostrar(false);
+        bIntercambiar.setMostrar(false);
         bCasa.setMostrar(false);
         bCamino.setMostrar(false);
         bEdificio.setMostrar(false);
@@ -965,22 +1201,26 @@ void GamePlay::update()
 
 
                 for(int i=0; i<54; i++)
-                 {
-                     if(espacioCasas[i].getMostrar())
-                     {
-                         sf::FloatRect _espacioCiudad = espacioCiudad[i].getGlobalBounds();
-                         if(_espacioCiudad.contains(mouseCoords))
-                         {
-                             if(jugadores[turno-1].getLadrillo()>=3 && jugadores[turno-1].getTrigo()>=2)
-                             {
-                                 for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay una nueva casa
+                {
+                    if(espacioCasas[i].getMostrar())
+                    {
+                        sf::FloatRect _espacioCasas = espacioCasas[i].getGlobalBounds();
+                        if(_espacioCasas.contains(mouseCoords))
+                        {
+                            if(jugadores[turno-1].getPiedra()>=3 && jugadores[turno-1].getTrigo()>=2)
+                            {
+                                for(int j=0; j< 3; j++)//avisa a los hexagonos que tocan el espacio que hay un nuevo edificio
                                 {
                                     if(espacioCasas[i].getHexagonos()[j] != -1)
                                     {
                                         hexagonos[espacioCasas[i].getHexagonos()[j]].subirNivel(turno);
                                     }
                                 }
-
+                                edificios[i].setEspacio(espacioCasas[i]);
+                                edificios[i].setNumJugador(turno);
+                                edificios[i].cargarTextura(turno);
+                                casas[i].setMostrar(false);
+                                edificios[i].setMostrar(true);
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
@@ -1066,6 +1306,13 @@ void GamePlay::draw()
         if(casas[i].getMostrar())
             ventana.draw(casas[i]);
     }
+
+    for(int i=0; i < 54; i++)
+    {
+        if(edificios[i].getMostrar())
+            ventana.draw(edificios[i]);
+    }
+
     for(int i=0; i < 54; i++)
     {
         if(espacioCasas[i].getMostrar())
@@ -1078,6 +1325,11 @@ void GamePlay::draw()
     for(int i=0; i < 5; i++)
         for(int j=0; j < 2; j++)
             ventana.draw(cartas[j][i]);
+
+    for(int i=0; i < 5; i++)
+        for(int j=0; j < 2; j++)
+            if(cartasIntercambio[j][i].getMostrar())
+                ventana.draw(cartasIntercambio[j][i]);
 
     for(int i=0; i < 5; i++)
         for(int j=0; j < 2; j++)
@@ -1104,6 +1356,8 @@ void GamePlay::draw()
         ventana.draw(bEdificio);
     if(bCamino.getMostrar())
         ventana.draw(bCamino);
+    if(bIntercambiar.getMostrar())
+        ventana.draw(bIntercambiar);
 
     for(int i = 0; i < 2; i++)
     {
@@ -1292,6 +1546,7 @@ void GamePlay::inicioJ()
             mensaje.setString("Coloca una casa!");
             turno = 1;
             nombre.setString(nombres[turno-1].getString());
+            nombre.setColor(nombres[turno-1].getColor());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -1314,6 +1569,7 @@ void GamePlay::inicioJ()
             mensaje.setString("Coloca una casa!");
             turno = 2;
             nombre.setString(nombres[turno-1].getString());
+            nombre.setColor(nombres[turno-1].getColor());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -1358,6 +1614,7 @@ void GamePlay::inicioJ()
             mensaje.setString("Coloca una casa!");
             turno = 1;
             nombre.setString(nombres[turno-1].getString());
+            nombre.setColor(nombres[turno-1].getColor());
             for(int i = 0; i < 54; i++)
             {
                 if(espacioCasas[i].isDisponible())
@@ -1802,6 +2059,10 @@ void GamePlay::cargarBotones()
     bFinalizar.cargarTextura("sprites/recursos/botonFinalizar.png");
     bFinalizar.setScale(TAM*0.7,TAM*0.7);
     bFinalizar.setPosition(200,600);
+
+    bIntercambiar.cargarTextura("sprites/recursos/botonIntercambiar.png");
+    bIntercambiar.setScale(TAM*0.7,TAM*0.7);
+    bIntercambiar.setPosition(350,600);
 
     bCasa.cargarTextura("sprites/recursos/botonCasa.png");
     bCasa.setScale(TAM*0.5,TAM*0.5);
