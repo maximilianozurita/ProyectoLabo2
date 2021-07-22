@@ -8,11 +8,8 @@ char* Jugador::getUsuario(){
     return usuario;
 };
 
-char* Jugador::getPassword(){
-    return password;
-};
-int Jugador::getPartidasGanadas(){
-    return partidasGanadas;
+int Jugador::getResultadoPartida(){
+    return ResultadoPartida;
 };
 
 int Jugador::getNumeroJugador(){
@@ -37,13 +34,14 @@ int Jugador::getPuntosVictoria(){
     return puntosVictoria;
 };
 
-int Jugador::setCasasConstruidas(){
+int Jugador::getCasasConstruidas(){
     return casasConstruidas;
 };
-int Jugador::setCaminosConstruidos(){
+
+int Jugador::getCaminosConstruidos(){
     return caminosConstruidos;
 };
-int Jugador::setCiudadesConstruidas(){
+int Jugador::getCiudadesConstruidas(){
     return ciudadesConstruidas;
 };
 
@@ -51,12 +49,9 @@ int Jugador::setCiudadesConstruidas(){
 void Jugador::setUsuario(char* _usuario){
     strcpy(usuario,_usuario);
 };
-void Jugador::setPassword(char* _password){
-    strcpy(password,_password);
-};
 
-void Jugador::setPartidasGanadas(int _ganadas){
-    partidasGanadas=_ganadas;
+void Jugador::setResultadoPartida(int _ganadas){
+    ResultadoPartida=_ganadas;
 };
 
 void Jugador::setNumeroJugador(int _numero){
@@ -107,3 +102,49 @@ void Jugador::addRecurso(int cant, TIPO_HEX recurso)
                         break;
     }
 }
+
+    //METODOS archivo:
+    //LEER EN DISCO
+    bool Jugador::leerDeDisco(int pos)
+    {
+        FILE *p;
+        p = fopen("jugador.dat", "rb");
+        if (p == NULL){
+            return false;
+        }
+        bool ok;
+        fseek(p, sizeof(Jugador) * pos , 0);
+        ok = fread(this, sizeof(Jugador), 1, p);
+        fclose(p);
+        return ok;
+    }
+
+
+    //GRABAR EN DISCO
+    bool Jugador::grabarEnDisco()
+    {
+        FILE *p;
+        p = fopen("jugador.dat", "ab");
+        if (p == NULL){
+            return false;
+        }
+        bool ok;
+        ok = fwrite(this, sizeof(Jugador), 1, p);
+        fclose(p);
+        return ok;
+    }
+
+    //MODIFICAR EN DISCO
+    bool Jugador::ModificarEnDisco(int pos)
+    {
+        bool guardo;
+        FILE *p;
+        p = fopen("jugador.dat", "rb+");
+        if (p == NULL){
+            return false;
+        }
+        fseek(p, sizeof(Jugador)*pos, SEEK_SET);
+        guardo = fwrite(this, sizeof(Jugador), 1, p);
+        fclose(p);
+        return guardo;
+    }

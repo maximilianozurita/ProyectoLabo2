@@ -3945,7 +3945,7 @@
 	"Entidad.h"
 	<SFML/Graphics.hpp>
 
-1626907038 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
+1626920709 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\gameplay.h
 	<SFML/Graphics.hpp>
 	"Ficha.h"
 	"Jugador.h"
@@ -3961,7 +3961,7 @@
 1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\ficha.h
 	"Entidad.h"
 
-1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
+1626921302 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\jugador.h
 	"Hexagono.h"
 
 1626836665 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\hexagono.h
@@ -4063,20 +4063,19 @@
 
 1626889179 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\palabra.h
 
-1626907036 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
+1626923943 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\gameplay.cpp
 	"GamePlay.h"
 	<iostream>
 	<string>
 	<windows.h>
 	<SFML/Graphics.hpp>
-	"FuncionesGlobales.h"
 
 1626737961 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\funcionesglobales.h
 
 1626836665 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\hexagono.cpp
 	"Hexagono.h"
 
-1626737961 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
+1626920444 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\jugador.cpp
 	<iostream>
 	<cstring>
 	"Jugador.h"
@@ -4101,4 +4100,13 @@
 	"Saludo.h"
 	<SFML/Graphics.hpp>
 	<iostream>
+
+1626911986 c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\include\funciones.h
+	"GamePlay.h"
+
+1626912060 source:c:\users\maxi\desktop\github\proyectolabo2\proyecto\tp 2 proy\src\funciones.cpp
+	<iostream>
+	<cstring>
+	"GamePlay.h"
+	"funciones.h"
 

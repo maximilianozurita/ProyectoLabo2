@@ -7,8 +7,7 @@ class Jugador{
 public:
     //gets
     char* getUsuario();
-    char* getPassword(); //--> Ver si hace falta colocar en pivate
-    int getPartidasGanadas();
+    int getResultadoPartida();
 
     int getNumeroJugador();
     int getMadera();
@@ -17,14 +16,13 @@ public:
     int getLadrillo();
     int getTrigo();
     int getPuntosVictoria();
-    int setCasasConstruidas();
-    int setCaminosConstruidos();
-    int setCiudadesConstruidas();
+    int getCasasConstruidas();
+    int getCaminosConstruidos();
+    int getCiudadesConstruidas();
 
     //sets
     void setUsuario(char*);
-    void setPassword(char*);
-    void setPartidasGanadas(int);
+    void setResultadoPartida(int);
 
     void setNumeroJugador(int);
     void setMadera(int);
@@ -33,23 +31,31 @@ public:
     void setLadrillo(int);
     void setTrigo(int);
     void setPuntosVictoria(int);
+
     void setCasasConstruidas(int);
     void setCaminosConstruidos(int);
     void setCiudadesConstruidas(int);
 
     void addRecurso(int, TIPO_HEX);
 
-    //METODOS (A FUTURO):
+    //METODOS:
     //LEER EN DISCO
+    bool leerDeDisco(int);
     //BUSCAR EN DISCO
+
     //GRABAR EN DISCO
+    bool grabarEnDisco();
+
     //MODIFICAR EN DISCO
+    bool ModificarEnDisco(int);
+
     //ELIMINAR EN DISCO --> Ver si agregar estado en disco (bool)
+
 
 private:
     char usuario[20];
     char password[20];
-    int partidasGanadas;
+    int ResultadoPartida=0;
 
 
     int numeroJugador;
