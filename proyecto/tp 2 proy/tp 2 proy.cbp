@@ -60,6 +60,7 @@
 		<Unit filename="include/Palabra.h" />
 		<Unit filename="include/Puerto.h" />
 		<Unit filename="include/Saludo.h" />
+		<Unit filename="include/registros.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Camino.cpp" />
 		<Unit filename="src/Carta.cpp" />
@@ -76,6 +77,7 @@
 		<Unit filename="src/Palabra.cpp" />
 		<Unit filename="src/Puerto.cpp" />
 		<Unit filename="src/Saludo.cpp" />
+		<Unit filename="src/registros.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

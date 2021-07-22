@@ -4,7 +4,7 @@ using namespace std;
 #include "Jugador.h"
 #include <cstring>
 
-char* Jugador::getUsuario(){
+const char* Jugador::getUsuario(){
     return usuario;
 };
 
@@ -50,9 +50,6 @@ void Jugador::setUsuario(char* _usuario){
     strcpy(usuario,_usuario);
 };
 
-void Jugador::setResultadoPartida(int _ganadas){
-    ResultadoPartida=_ganadas;
-};
 
 void Jugador::setNumeroJugador(int _numero){
     numeroJugador=_numero;
@@ -102,49 +99,3 @@ void Jugador::addRecurso(int cant, TIPO_HEX recurso)
                         break;
     }
 }
-
-    //METODOS archivo:
-    //LEER EN DISCO
-    bool Jugador::leerDeDisco(int pos)
-    {
-        FILE *p;
-        p = fopen("jugador.dat", "rb");
-        if (p == NULL){
-            return false;
-        }
-        bool ok;
-        fseek(p, sizeof(Jugador) * pos , 0);
-        ok = fread(this, sizeof(Jugador), 1, p);
-        fclose(p);
-        return ok;
-    }
-
-
-    //GRABAR EN DISCO
-    bool Jugador::grabarEnDisco()
-    {
-        FILE *p;
-        p = fopen("jugador.dat", "ab");
-        if (p == NULL){
-            return false;
-        }
-        bool ok;
-        ok = fwrite(this, sizeof(Jugador), 1, p);
-        fclose(p);
-        return ok;
-    }
-
-    //MODIFICAR EN DISCO
-    bool Jugador::ModificarEnDisco(int pos)
-    {
-        bool guardo;
-        FILE *p;
-        p = fopen("jugador.dat", "rb+");
-        if (p == NULL){
-            return false;
-        }
-        fseek(p, sizeof(Jugador)*pos, SEEK_SET);
-        guardo = fwrite(this, sizeof(Jugador), 1, p);
-        fclose(p);
-        return guardo;
-    }

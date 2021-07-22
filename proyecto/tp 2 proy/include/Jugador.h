@@ -6,7 +6,7 @@
 class Jugador{
 public:
     //gets
-    char* getUsuario();
+    const char* getUsuario();
     int getResultadoPartida();
 
     int getNumeroJugador();
@@ -19,10 +19,10 @@ public:
     int getCasasConstruidas();
     int getCaminosConstruidos();
     int getCiudadesConstruidas();
+    int setPuntosVictoria();
 
     //sets
     void setUsuario(char*);
-    void setResultadoPartida(int);
 
     void setNumeroJugador(int);
     void setMadera(int);
@@ -37,19 +37,6 @@ public:
     void setCiudadesConstruidas(int);
 
     void addRecurso(int, TIPO_HEX);
-
-    //METODOS:
-    //LEER EN DISCO
-    bool leerDeDisco(int);
-    //BUSCAR EN DISCO
-
-    //GRABAR EN DISCO
-    bool grabarEnDisco();
-
-    //MODIFICAR EN DISCO
-    bool ModificarEnDisco(int);
-
-    //ELIMINAR EN DISCO --> Ver si agregar estado en disco (bool)
 
 
 private:

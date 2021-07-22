@@ -11,6 +11,7 @@
 #include "Camino.h"
 #include "Hexagono.h"
 #include "Carta.h"
+#include "registros.h"
 
 enum ESTADO {TIRAR_DADO,SELECCIONAR_ACCION,CONSTRUCCION,COLOCACION_CASA,COLOCACION_EDIFICIO,COLOCACION_CAMINO,SELECCIONAR_HEX,SELECT_CASA,SELECT_CAMINO};
 //faltan incluir las demas clases que se usan como atributos
@@ -43,6 +44,7 @@ class GamePlay
         Espacio ultimo;
         Entidad cuadroInfo;
         Entidad figuras[2][3];
+        registros registro;
 
 
 
@@ -55,6 +57,15 @@ class GamePlay
         sf::Text nombre;
         sf::Text textTurno;
         sf::Text puntuacionVictoria[2];
+        sf::Text tituloRegistros;
+
+        sf::Text regist[10];
+        sf::Text regist1[10];
+        sf::Text regist2[10];
+        sf::Text regist3[10];
+        sf::Text regist4[10];
+        sf::Text regist5[10];
+
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
         Espacio espacioCiudad[54];

@@ -1128,33 +1128,149 @@ void GamePlay::finish()
 {
     cout<<"GANO EL JUGADOR: "<<turno<<endl;
 
-    /*
-    jugadores[turno-1].setResultadoPartida(1);
 
-    for(int i=0; i<2; i++)
+    //Guardar registro de partida
+    registro.setPlayer1(jugadores[0].getUsuario());
+    registro.setPlayer2(jugadores[1].getUsuario());
+
+
+    registro.setCaminos1(jugadores[0].getCaminosConstruidos());
+    registro.setCaminos2(jugadores[1].getCaminosConstruidos());
+
+    registro.setCasas1(jugadores[0].getCasasConstruidas());
+    registro.setCasas2(jugadores[1].getCasasConstruidas());
+
+    registro.setCiudades1(jugadores[0].getCiudadesConstruidas());
+    registro.setCiudades2(jugadores[1].getCiudadesConstruidas());
+
+    registro.setGanador(jugadores[turno-1].getUsuario());
+    registro.grabarEnDisco();
+
+    registros reg;
+
+
+    //Mostrar registro de partida
+
+    int tam,t;
+    registros objeto;
+    FILE *p ;
+    p=fopen("registro.dat","rb");
+    fseek(p, 0, SEEK_END);
+    t = ftell(p);
+    tam = t / sizeof(objeto);
+
+    registros *vec=NULL;
+    vec=new registros [tam];
+    if (vec==NULL)
     {
-        jugadores[i].grabarEnDisco();
+        cout<<"No hay memoria"<<endl;
+        return;
     }
 
-    Jugador player;
-    int pos;
-    while(player.leerDeDisco(pos++))
+    for(int i=0;i<tam;i++)
     {
-
+        vec[i].leerDeDisco(i);
     }
+    fclose(p);
 
-    */
-
+    //se abre la ventana final:
     ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Cat�n");
     fuente.loadFromFile("fuentes/roboto/Roboto-Bold.ttf");
-    textCargando.setFont(fuente);
-    textCargando.setPosition(35,300);
-    textCargando.setString("El ganador es el jugador: " + to_string(turno));
-    textCargando.setColor(sf::Color::Black);
-    textCargando.setCharacterSize(72);
+
+    texto.setFont(fuente);
+    texto.setPosition(250,10);
+    texto.setString("GANADOR");
+    texto.setColor(sf::Color::Black);
+    texto.setCharacterSize(100);
+
+    nombre.setFont(fuente);
+    nombre.setPosition(250,100);
+    nombre.setString(jugadores[turno-1].getUsuario());
+    nombre.setColor(sf::Color::Black);
+    nombre.setCharacterSize(80);
+
+    tituloRegistros.setFont(fuente);
+    tituloRegistros.setPosition(35,200);
+    tituloRegistros.setString("Player 1 // Player 2 ---- Casa 1 // Casa 2 ---- Caminos 1 // Caminos 2 ---- Ciudades 1 // Ciudades 2 ------|| GANADOR ||");
+    tituloRegistros.setColor(sf::Color::Black);
+    tituloRegistros.setCharacterSize(14);
+
+
+    for(int i=0;i<10;i++)
+    {
+        regist[i].setFont(fuente);
+        regist[i].setPosition(10,(i+1)*20+200);
+        regist[i].setString(vec[tam-1-i].getPlayer1());
+        regist[i].setColor(sf::Color::Black);
+        regist[i].setCharacterSize(14);
+
+        regist1[i].setFont(fuente);
+        regist1[i].setPosition(120,(i+1)*20+200);
+        regist1[i].setString(vec[tam-1-i].getPlayer2());
+        regist1[i].setColor(sf::Color::Black);
+        regist1[i].setCharacterSize(14);
+
+        regist2[i].setFont(fuente);
+        regist2[i].setPosition(250,(i+1)*20+200);
+        regist2[i].setString(to_string(vec[tam-1-i].getCasas1()) + " // " +to_string(vec[tam-1-i].getCasas2()));
+        regist2[i].setColor(sf::Color::Black);
+        regist2[i].setCharacterSize(14);
+
+        regist3[i].setFont(fuente);
+        regist3[i].setPosition(425,(i+1)*20+200);
+        regist3[i].setString(to_string(vec[tam-1-i].getCaminos1()) + " // " +to_string(vec[tam-1-i].getCaminos2()));
+        regist3[i].setColor(sf::Color::Black);
+        regist3[i].setCharacterSize(14);
+
+        regist4[i].setFont(fuente);
+        regist4[i].setPosition(610,(i+1)*20+200);
+        regist4[i].setString(to_string(vec[tam-1-i].getCiudades1()) + " // " +to_string(vec[tam-1-i].getCiudades2()));
+        regist4[i].setColor(sf::Color::Black);
+        regist4[i].setCharacterSize(14);
+
+        regist5[i].setFont(fuente);
+        regist5[i].setPosition(720,(i+1)*20+200);
+        regist5[i].setString(vec[tam-1-i].getGanador());
+        regist5[i].setColor(sf::Color::Black);
+        regist5[i].setCharacterSize(14);
+
+    }
+
     ventana.clear(sf::Color::White);
-    ventana.draw(textCargando);
+    ventana.draw(texto);
+    ventana.draw(nombre);
+    ventana.draw(tituloRegistros);
+    if (tam<=10)
+    {
+       for(int i=0;i<tam;i++)
+        {
+            ventana.draw(regist[i]);
+            ventana.draw(regist1[i]);
+            ventana.draw(regist2[i]);
+            ventana.draw(regist3[i]);
+            ventana.draw(regist4[i]);
+            ventana.draw(regist5[i]);
+        }
+    }
+    else
+    {
+    for(int i=0;i<10;i++)
+    {
+    ventana.draw(regist[i]);
+    ventana.draw(regist1[i]);
+    ventana.draw(regist2[i]);
+    ventana.draw(regist3[i]);
+    ventana.draw(regist4[i]);
+    ventana.draw(regist5[i]);
+    }
+    }
+
     ventana.display();
+    delete vec;
+
+
+
+    //Cerrar ventana con click
 
     while(!sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
