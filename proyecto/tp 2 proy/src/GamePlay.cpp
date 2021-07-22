@@ -142,7 +142,7 @@ void GamePlay::init()
     bEdificio.setMostrar(false);
 
 
-    ///PRUEBA
+    //Cargar nombre jugador
     char jugador1 [15];
     char jugador2[15];
     cout<<"Ingrese nombre de jugador 1: ";cin>>jugador1;
@@ -168,17 +168,28 @@ void GamePlay::init()
     cuadroInfo.cargarTextura("sprites/recursos/cuadroInfo.png");
     cuadroInfo.setPosition(802,0);
 
-//Mostrar Nombre de nombre
+//Mostrar nombres
 //--------------------------------------------------->
     for(int i = 0; i < 2; i++)
     {
+        //Se carga nombres de jugadores
         nombres[i].setFont(fuente);
         nombres[i].setCharacterSize(20);
         nombres[i].setPosition(820,20+(150*i));
         nombres[i].setString(jugadores[i].getUsuario());
+
+        //Se carga puntos de victoria de jugadores
+        puntuacionVictoria[i].setFont(fuente);
+        puntuacionVictoria[i].setCharacterSize(20);
+        puntuacionVictoria[i].setPosition(820,120+(150*i));
+        puntuacionVictoria[i].setString("Puntos de victoria: " + to_string(jugadores[i].getPuntosVictoria()));
     }
+    //Se cargan colores
     nombres[0].setColor(sf::Color(102,0,0));
     nombres[1].setColor(sf::Color(0,0,102));
+    //--
+    puntuacionVictoria[0].setColor(sf::Color(102,0,0));
+    puntuacionVictoria[1].setColor(sf::Color(0,0,102));
 
     nombre.setFont(fuente);
     nombre.setCharacterSize(40);
@@ -193,6 +204,8 @@ void GamePlay::init()
     textTurno.setFillColor(sf::Color::White);
 
     textTurno.setString("Turno: ");
+
+
 
 ///------------------figuras de jugadores
 
@@ -297,6 +310,17 @@ void GamePlay::update()
                                 {
                                     hexagonos[espacioCasas[i].getHexagonos()[j]].setEstructuras(turno);
                                 }
+                                //Se agrega un punto de partida por colocacion de casa
+                                jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
+
+                                //Se suma casas construidas como puntos
+                                jugadores[turno-1].setCasasConstruidas(jugadores[turno-1].getCasasConstruidas()+1);
+
+                                //Refrescar puntuacion
+                                puntuacionVictoria[turno-1].setString("Puntos de victoria: " + to_string(jugadores[turno-1].getPuntosVictoria()));
+
+                                //Refresca puntuacion de casas
+                                textCantEstructuras[turno-1][0].setString(to_string(jugadores[turno-1].getCasasConstruidas()));
                         }
 
 
@@ -354,6 +378,12 @@ void GamePlay::update()
                             caminos[i].cargarTextura();
                             espacioCaminos[i].setOcupado(true);
                             pressB=true;
+
+                            //Se suma caminos construidos como un valor.
+                            jugadores[turno-1].setCaminosConstruidos(jugadores[turno-1].getCaminosConstruidos()+1);
+
+                            //Refresca puntuacion de caminos
+                            textCantEstructuras[turno-1][2].setString(to_string(jugadores[turno-1].getCaminosConstruidos()));
 
                             for(int i =0; i < 72; i++)
                             {
@@ -791,7 +821,13 @@ void GamePlay::update()
                                 //Se suma caminos construidos como un valor.
                                 jugadores[turno-1].setCaminosConstruidos(jugadores[turno-1].getCaminosConstruidos()+1);
 
+                                //Refresca puntuacion de caminos
+                                textCantEstructuras[turno-1][2].setString(to_string(jugadores[turno-1].getCaminosConstruidos()));
 
+                                //Se refresca puntuacion caminos
+                                textCantEstructuras[turno-1][2].setString(to_string(jugadores[turno-1].getCaminosConstruidos()));
+
+                                //Refrescar puntuacion
                                 cargarPuntuacion();
                             }
                             else
@@ -868,8 +904,9 @@ void GamePlay::update()
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
-                                //Se suma casas casas construidas como puntos
+                                //Se suma casas construidas como puntos
                                 jugadores[turno-1].setCasasConstruidas(jugadores[turno-1].getCasasConstruidas()+1);
+
 
                                 //Consumo de recursos
                                 jugadores[turno-1].setMadera(jugadores[turno-1].getMadera()-1);
@@ -877,6 +914,13 @@ void GamePlay::update()
                                 jugadores[turno-1].setTrigo(jugadores[turno-1].getTrigo()-1);
                                 jugadores[turno-1].setLana(jugadores[turno-1].getLana()-1);
 
+                                //Refrescar puntuacion
+                                puntuacionVictoria[turno-1].setString("Puntos de victoria: " + to_string(jugadores[turno-1].getPuntosVictoria()));
+
+                                //Se refresca puntuacion casas
+                                textCantEstructuras[turno-1][0].setString(to_string(jugadores[turno-1].getCasasConstruidas()));
+
+                                //Refrescar puntos de carta
                                 cargarPuntuacion();
                             }
                             //else
@@ -940,7 +984,15 @@ void GamePlay::update()
                                 //Se agrega un punto de partida por colocacion de casa
                                 jugadores[turno-1].setPuntosVictoria(jugadores[turno-1].getPuntosVictoria()+1);
 
+                                //Se actualiza ciudades construidas
                                 jugadores[turno-1].setCiudadesConstruidas(jugadores[turno-1].getCiudadesConstruidas()+1);
+
+                                //Refresca puntuacion de caminos
+                                textCantEstructuras[turno-1][1].setString(to_string(jugadores[turno-1].getCiudadesConstruidas()));
+
+                                //Refrescar puntuacion
+                                puntuacionVictoria[turno-1].setString("Puntos de victoria: " + to_string(jugadores[turno-1].getPuntosVictoria()));
+
                                  //Consumo de recursos
                                  jugadores[turno-1].setLadrillo(jugadores[turno-1].getLadrillo()-3);
                                  jugadores[turno-1].setTrigo(jugadores[turno-1].getTrigo()-2);
@@ -1056,6 +1108,7 @@ void GamePlay::draw()
     for(int i = 0; i < 2; i++)
     {
         ventana.draw(nombres[i]);
+        ventana.draw(puntuacionVictoria[i]);
     }
 
     ventana.draw(mensaje);
@@ -1074,6 +1127,8 @@ void GamePlay::draw()
 void GamePlay::finish()
 {
     cout<<"GANO EL JUGADOR: "<<turno<<endl;
+
+    /*
     jugadores[turno-1].setResultadoPartida(1);
 
     for(int i=0; i<2; i++)
@@ -1086,7 +1141,24 @@ void GamePlay::finish()
     while(player.leerDeDisco(pos++))
     {
 
-        cout<<player.getResultadoPartida()<<endl;
+    }
+
+    */
+
+    ventana.create(sf::VideoMode(1280,720),"Colonos de Gonzales Cat�n");
+    fuente.loadFromFile("fuentes/roboto/Roboto-Bold.ttf");
+    textCargando.setFont(fuente);
+    textCargando.setPosition(35,300);
+    textCargando.setString("El ganador es el jugador: " + to_string(turno));
+    textCargando.setColor(sf::Color::Black);
+    textCargando.setCharacterSize(72);
+    ventana.clear(sf::Color::White);
+    ventana.draw(textCargando);
+    ventana.display();
+
+    while(!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+
     }
 
     ventana.close();
@@ -1283,7 +1355,7 @@ void GamePlay::cargarEspacios()
     }
 
 }
-void GamePlay::cargarCaminos()///
+void GamePlay::cargarCaminos()
 {
     sf::FloatRect _espacio, _hexagono, _camino, _espacioCasa;
     int *v;

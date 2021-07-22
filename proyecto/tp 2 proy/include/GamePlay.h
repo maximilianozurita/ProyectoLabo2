@@ -48,13 +48,13 @@ class GamePlay
 
         Camino caminos[72];
         Hexagono hexagonos[19];
-        //Ficha fichas[18];
         sf::Font fuente;
         sf::Font fuenteMensaje;
         sf::Text texto;
         sf::Text nombres[2];
         sf::Text nombre;
         sf::Text textTurno;
+        sf::Text puntuacionVictoria[2];
         Espacio espacioCaminos[72];
         Espacio espacioCasas[54];
         Espacio espacioCiudad[54];
