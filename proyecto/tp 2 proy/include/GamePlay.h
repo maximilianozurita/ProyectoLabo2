@@ -78,6 +78,7 @@ class GamePlay
         void cargarBotones();
         sf::FloatRect achicarFloatRect(sf::FloatRect,float);
         void cambiarTurno();
+        void robar();
 
 
 };

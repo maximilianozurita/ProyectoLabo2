@@ -393,10 +393,11 @@ void GamePlay::update()
                     auxFicha = hexagonos[i].getFicha();///recuperamos la ficha del hexagono
                     if(auxFicha.getNumero() == dados[0].getNumero() + dados[1].getNumero()) ///vemos el numero que tiene
                     {
+                        Hexagono hexBloqueado = ladron.getHexagonoBloqueado();
                         hexagonos[i].variarFicha();
                         for(int j = 0; j < 3; j++)
                         {
-                            if(hexagonos[i].getEstructuras()[j] > 0)    ///Verificamos que tenga alguna estructura
+                            if(hexagonos[i].getEstructuras()[j] > 0 && hexagonos[i].getNumero() != hexBloqueado.getNumero() )    ///Verificamos que tenga alguna estructura
                                 jugadores[hexagonos[i].getEstructuras()[j]-1].addRecurso(hexagonos[i].getNivel()[j], hexagonos[i].getTipo());
                         }
                     }
@@ -465,6 +466,18 @@ void GamePlay::update()
                             pressA = true;
                             ladron.setHexagonoBloqueado(hexagonos[i]);
                             ladron.reubicar();
+                            bool hayEnemigo = false;
+                            for (int j = 0; j < 3; j++)
+                            {
+                                if(hexagonos[i].getEstructuras()[j] != 0 && hexagonos[i].getEstructuras()[j] != turno )
+                                {
+                                    hayEnemigo = true;
+                                }
+
+
+                            }
+                            if(hayEnemigo)
+                                robar();
                         }
 
                     }
@@ -1585,4 +1598,82 @@ void GamePlay::cambiarTurno()
     nombre.setString(nombres[turno-1].getString());
     nombre.setColor(nombres[turno-1].getColor());
 
+}
+void GamePlay::robar()
+{
+    int random, n, TotRecursos=0;
+    random = rand()%5;
+    bool seRobo=true;
+    if(turno==1)
+        n = 2;
+    else
+        n = 1;
+
+    TotRecursos = jugadores[n-1].getLadrillo()+jugadores[n-1].getLana()+jugadores[n-1].getMadera()+jugadores[n-1].getPiedra()+jugadores[n-1].getTrigo();
+
+    if(TotRecursos != 0)
+    {
+        while(seRobo)
+        {
+            switch(random)
+            {
+            case 0:
+                if(jugadores[n-1].getLadrillo() != 0)
+                {
+                    jugadores[n-1].addRecurso(-1,HEXLADRILLO);
+                    jugadores[turno-1].addRecurso(1,HEXLADRILLO);
+                    seRobo = false;
+                    cout << "se descontó"<<random<<endl;
+                }
+                break;
+            case 1:
+                if(jugadores[n-1].getLana() != 0)
+                {
+                    jugadores[n-1].addRecurso(-1,HEXOVEJA);
+                    jugadores[turno-1].addRecurso(1,HEXOVEJA);
+                    seRobo = false;
+                    cout << "se descontó"<<random<<endl;
+                }
+                break;
+            case 2:
+                if(jugadores[n-1].getMadera() != 0)
+                {
+                    jugadores[n-1].addRecurso(-1,HEXARBOL);
+                    jugadores[turno-1].addRecurso(1,HEXARBOL);
+                    seRobo = false;
+                    cout << "se descontó"<<random<<endl;
+                }
+                break;
+            case 3:
+                if(jugadores[n-1].getPiedra() != 0)
+                {
+                    jugadores[n-1].addRecurso(-1,HEXMINERAL);
+                    jugadores[turno-1].addRecurso(1,HEXMINERAL);
+                    seRobo = false;
+                    cout << "se descontó"<<random<<endl;
+                }
+                break;
+            case 4:
+                if(jugadores[n-1].getTrigo() != 0)
+                {
+                    jugadores[n-1].addRecurso(-1,HEXTRIGO);
+                    jugadores[turno-1].addRecurso(1,HEXTRIGO);
+                    seRobo = false;
+                    cout << "se descontó"<<random<<endl;
+                }
+                break;
+            }
+            random = rand()%5;
+
+        }
+    }
+    cout << TotRecursos<<endl;
+    for(int j = 0; j < 2; j++)///PASAR A FUNCION LUEGO
+    {
+        textCartasPuntos[j][0].setString(to_string(jugadores[j].getMadera()));
+        textCartasPuntos[j][1].setString(to_string(jugadores[j].getLadrillo()));
+        textCartasPuntos[j][2].setString(to_string(jugadores[j].getLana()));
+        textCartasPuntos[j][3].setString(to_string(jugadores[j].getTrigo()));
+        textCartasPuntos[j][4].setString(to_string(jugadores[j].getPiedra()));
+    }
 }
